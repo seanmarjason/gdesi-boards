@@ -1,0 +1,24 @@
+curl https://540kne5ix1.execute-api.eu-west-2.amazonaws.com/openai-stage/chat \
+  --request POST \
+  --header "Content-Type: application/json" \
+  --data @- << EOF
+  {
+    "userMessage":"I completed the new designs for the sales pitch"
+  }
+EOF
+
+
+
+curl https://540kne5ix1.execute-api.eu-west-2.amazonaws.com/openai-stage/chat \
+  --request POST \
+  --header "Content-Type: application/json" \
+  --data @- << EOF
+  {
+    "userMessage":"I completed the new designs for the sales pitch",
+    "responses": [
+      "I have focussed on low fidelity designs. These need further input from UX to be ready for the sales pitch",
+      "The designs should be used as a guide for the key features we want to communicate. The visual components we use can be changed."
+    ]
+  }
+EOF
+

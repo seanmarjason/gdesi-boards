@@ -1,6 +1,7 @@
 curl https://540kne5ix1.execute-api.eu-west-2.amazonaws.com/openai-stage/chat \
   --request POST \
   --header "Content-Type: application/json" \
+  --header "x-api-key: OPEN-API-INTEGRATION-KEY" \
   --data @- << EOF
   {
     "userMessage":"I completed the new designs for the sales pitch"
@@ -12,6 +13,7 @@ EOF
 curl https://540kne5ix1.execute-api.eu-west-2.amazonaws.com/openai-stage/chat \
   --request POST \
   --header "Content-Type: application/json" \
+  --header "x-api-key: OPEN-API-INTEGRATION-KEY" \
   --data @- << EOF
   {
     "userMessage":"I completed the new designs for the sales pitch",

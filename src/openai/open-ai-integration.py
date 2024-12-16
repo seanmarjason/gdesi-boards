@@ -20,7 +20,6 @@ def lambda_handler(event, context):
 
     client = OpenAI(api_key=OPENAI_API_KEY)
 
-    # userMessage = body['userMessage']
     userMessage = body.get('userMessage')
     print("userMessage:", userMessage)
 

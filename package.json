@@ -1,0 +1,13 @@
+{
+  "name": "gdesi-boards",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/seanmarjason/gdesi-boards.git",
+  "author": "Sean Marjason <smarjason@outlook.com>",
+  "license": "MIT",
+  "private": true,
+  "workspaces": ["packages/*"],
+  "scripts": {
+    "dev": "yarn workspace @gdesi-boards/frontend dev"
+  }
+}

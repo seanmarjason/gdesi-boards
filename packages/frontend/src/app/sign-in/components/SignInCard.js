@@ -12,7 +12,8 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 import ForgotPassword from './ForgotPassword';
-import { GoogleIcon, FacebookIcon, SitemarkIcon } from './CustomIcons';
+import { GoogleIcon, FacebookIcon } from './CustomIcons';
+import GdesiIcon from '../../components/GdesiIcon';
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: 'flex',
@@ -89,7 +90,7 @@ export default function SignInCard() {
   return (
     <Card variant="outlined">
       <Box sx={{ display: { xs: 'flex', md: 'none' } }}>
-        <SitemarkIcon />
+        <GdesiIcon />
       </Box>
       <Typography
         component="h1"
@@ -161,7 +162,7 @@ export default function SignInCard() {
           Don&apos;t have an account?{' '}
           <span>
             <Link
-              href="/material-ui/getting-started/templates/sign-in/"
+              href="/sign-up"
               variant="body2"
               sx={{ alignSelf: 'center' }}
             >

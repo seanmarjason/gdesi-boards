@@ -4,7 +4,8 @@ import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Stack from '@mui/material/Stack';
 import AppTheme from '../shared-theme/AppTheme';
-import ColorModeSelect from '../shared-theme/ColorModeSelect';
+import AppAppBar from '../../components/menu/AppAppBar';
+
 import SignInCard from './components/SignInCard';
 import Content from './components/Content';
 
@@ -12,7 +13,7 @@ export default function SignInSide(props) {
   return (
     <AppTheme {...props}>
       <CssBaseline enableColorScheme />
-      <ColorModeSelect sx={{ position: 'fixed', top: '1rem', right: '1rem' }} />
+      <AppAppBar />
       <Stack
         direction="column"
         component="main"
@@ -20,7 +21,7 @@ export default function SignInSide(props) {
           {
             justifyContent: 'center',
             height: 'calc((1 - var(--template-frame-height, 0)) * 100%)',
-            marginTop: 'max(40px - var(--template-frame-height, 0px), 0px)',
+            marginTop: 'max(80px - var(--template-frame-height, 0px), 0px)',
             minHeight: '100%',
           },
           (theme) => ({

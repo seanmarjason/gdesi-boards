@@ -74,6 +74,10 @@ export default function AppAppBar() {
               alignItems: 'center',
             }}
           >
+            <Button component={NextLink} href="/boards" variant="contained" color="error">
+              BOARDS
+            </Button>
+            <p>|</p>
             <Button component={NextLink} href="/sign-up" variant="contained" color="primary">
               Register
             </Button>

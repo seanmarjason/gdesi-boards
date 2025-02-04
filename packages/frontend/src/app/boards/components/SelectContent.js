@@ -56,46 +56,30 @@ export default function SelectContent() {
         },
       }}
     >
-      <ListSubheader sx={{ pt: 0 }}>Production</ListSubheader>
+      <ListSubheader sx={{ pt: 0 }}>Teams</ListSubheader>
       <MenuItem value="">
         <ListItemAvatar>
-          <Avatar alt="Gdesi web">
+          <Avatar alt="Operations Helpdesk">
             <DevicesRoundedIcon sx={{ fontSize: '1rem' }} />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary="Gdesi-web" secondary="Web app" />
+        <ListItemText primary="Operations Helpdesk" secondary="6 teammates" />
       </MenuItem>
-      <MenuItem value={10}>
-        <ListItemAvatar>
-          <Avatar alt="Gdesi App">
-            <SmartphoneRoundedIcon sx={{ fontSize: '1rem' }} />
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText primary="Gdesi-app" secondary="Mobile application" />
-      </MenuItem>
-      <MenuItem value={20}>
-        <ListItemAvatar>
-          <Avatar alt="Gdesi Store">
-            <DevicesRoundedIcon sx={{ fontSize: '1rem' }} />
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText primary="Gdesi-Store" secondary="Web app" />
-      </MenuItem>
-      <ListSubheader>Development</ListSubheader>
+      <ListSubheader>Projects</ListSubheader>
       <MenuItem value={30}>
         <ListItemAvatar>
-          <Avatar alt="Gdesi Store">
+          <Avatar alt="Helpesk Queue System">
             <ConstructionRoundedIcon sx={{ fontSize: '1rem' }} />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary="Gdesi-Admin" secondary="Web app" />
+        <ListItemText primary="Helpesk Queue System" secondary="10 teammates" />
       </MenuItem>
       <Divider sx={{ mx: -1 }} />
       <MenuItem value={40}>
         <ListItemIcon>
           <AddRoundedIcon />
         </ListItemIcon>
-        <ListItemText primary="Add product" secondary="Web app" />
+        <ListItemText primary="Add a board" />
       </MenuItem>
     </Select>
   );

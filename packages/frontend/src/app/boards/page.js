@@ -30,7 +30,7 @@ export default function Dashboard(props) {
             backgroundColor: theme.vars
               ? `rgba(${theme.vars.palette.background.defaultChannel} / 1)`
               : alpha(theme.palette.background.default, 1),
-            overflow: 'auto',
+            height: '100vh'
           })}
         >
           <Stack
@@ -40,6 +40,7 @@ export default function Dashboard(props) {
               mx: 3,
               pb: 5,
               mt: { xs: 8, md: 0 },
+              height: '100%'
             }}
           >
             <Header />

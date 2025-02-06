@@ -3,6 +3,7 @@ import Grid from '@mui/material/Grid2';
 import Box from '@mui/material/Box';
 
 import { Column } from './Column';
+import { Container } from '@mui/material';
 
 const columns = [
   {
@@ -43,19 +44,26 @@ const columns = [
 ]
 
 export default function MainGrid() {
-  console.log("Columns:", columns)
   return (
-    <Box sx={{ width: '100%', maxWidth: { sm: '100%', md: '1700px' } }}>
+    <Box sx={{ 
+      width: '100%', 
+      maxWidth: { sm: '100%', md: '1700px' },
+      height: '100%',
+      }}
+    >
       {/* columns */}
       <Typography component="h2" variant="h6" sx={{ mb: 2 }}>
         Your Team's Work
       </Typography>
 
-      <Grid
-        container
-        spacing={2}
-        columns={12}
-        sx={{ mb: (theme) => theme.spacing(2) }}
+      <Container
+        fixed
+        sx={{
+          display: 'flex',
+          width: '100%',
+          height: '100%',
+          'overflow-x': 'scroll'
+        }}
       >
           {columns.map((column, index) =>
             <Column
@@ -63,10 +71,8 @@ export default function MainGrid() {
               column={column}
             />
           )}
-
-      </Grid>
-
-
+      </Container>
+      
     </Box>
   );
 }

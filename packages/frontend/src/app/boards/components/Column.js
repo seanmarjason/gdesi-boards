@@ -40,22 +40,13 @@ export const Column = ({column}) => {
                         {provided.placeholder}
                         { column.cards.map((card, index) => {
                             return (
-                            <Draggable
-                                draggableId={`draggable-${column.id}-${index}`}
-                                index={index}
-                                key={`${column.id}-${index}`}
-                            >
-                                {(provided, snapshot) => 
-                                    <TaskCard
-                                        innerRef={provided.innerRef}
-                                        provided={provided}
-                                        id={card.id}
-                                        title={card.title}
-                                        type={card.type}
-                                        assignee={card.assignee}
-                                    />
-                                }
-                            </Draggable>
+                                <TaskCard
+                                    provided={provided}
+                                    columnId={column.id}
+                                    card={card}
+                                    key={`${column.id}-${index}`}
+                                    index={index}
+                                />
                             )
                         })
                         }

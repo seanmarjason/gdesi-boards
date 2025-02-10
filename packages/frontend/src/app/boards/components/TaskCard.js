@@ -8,41 +8,37 @@ import Typography from '@mui/material/Typography';
 
 import { Draggable } from '@hello-pangea/dnd';
 
-export const TaskCard = ({innerRef, id, title, type, assignee, provided}) => {
+export const TaskCard = ({card, columnId, index}) => {
     return(
-        // <Draggable
-        //     draggableId={`draggable-${index}`}
-        //     index={index}
-        // >
-        // {(provided, snapshot) => 
-            // <div
-            //     ref={provided.innerRef}
-            // >
-            <Card sx={{ minWidth: 275 }} ref={innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                <CardActionArea>
-                        <CardContent>
-                            <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 14 }}>
-                            # {id}
-                            </Typography>
-                            <Typography variant="h5" component="div">
-                            {title}
-                            </Typography>
-                            <Typography sx={{ color: 'text.secondary', mb: 1.5 }}>
-                            {type}
-                            </Typography>
-                            <Typography variant="body2">
-                            {assignee}
-                            <br />
-                            </Typography>
-                        </CardContent>
-                </CardActionArea>
-                {/* <CardActions>
-                    <Button size="small">Back</Button>
-                    <Button size="small">Forward</Button>
-                </CardActions> */}
-            </Card>
-            // </div>
-        // }
-        // </Draggable>
+        <Draggable
+            draggableId={`draggable-${columnId}-${index}`}
+            index={index}
+        >
+            {(provided, snapshot) => 
+                <Card sx={{ minWidth: 275 }} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                    <CardActionArea>
+                            <CardContent>
+                                <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 14 }}>
+                                # {card.id}
+                                </Typography>
+                                <Typography variant="h5" component="div">
+                                {card.title}
+                                </Typography>
+                                <Typography sx={{ color: 'text.secondary', mb: 1.5 }}>
+                                {card.type}
+                                </Typography>
+                                <Typography variant="body2">
+                                {card.assignee}
+                                <br />
+                                </Typography>
+                            </CardContent>
+                    </CardActionArea>
+                    {/* <CardActions>
+                        <Button size="small">Back</Button>
+                        <Button size="small">Forward</Button>
+                    </CardActions> */}
+                </Card>
+            }
+        </Draggable>
     )
 }

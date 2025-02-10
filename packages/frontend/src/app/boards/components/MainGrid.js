@@ -1,9 +1,11 @@
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid2';
 import Box from '@mui/material/Box';
+import { Container } from '@mui/material';
+
+import { DragDropContext } from '@hello-pangea/dnd';
 
 import { Column } from './Column';
-import { Container } from '@mui/material';
 
 const columns = [
   {
@@ -44,6 +46,18 @@ const columns = [
 ]
 
 export default function MainGrid() {
+
+  const handleOnDragEnd = (event) => {
+    // const coordinates = getCoordinates<TCard>(event, board)
+    // if (!coordinates.source) return
+
+    // isAColumnMove(event.type)
+    //   ? isMovingAColumnToAnotherPosition(coordinates) &&
+    //     onColumnDragEnd({ ...coordinates, subject: board.columns[coordinates.source.fromPosition] })
+    //   : isMovingACardToAnotherPosition(coordinates) &&
+    //     onCardDragEnd({ ...coordinates, subject: getCard<TCard>(board, coordinates.source) })
+  }
+
   return (
     <Box sx={{ 
       width: '100%', 
@@ -56,23 +70,31 @@ export default function MainGrid() {
         Your Team's Work
       </Typography>
 
-      <Container
-        fixed
-        sx={{
-          display: 'flex',
-          width: '100%',
-          height: '100%',
-          'overflow-x': 'scroll'
-        }}
+      <DragDropContext
+        onDragEnd={handleOnDragEnd}
       >
-          {columns.map((column, index) =>
-            <Column
-              key={index}
-              column={column}
-            />
-          )}
-      </Container>
-      
+
+        <Container
+          fixed
+          sx={{
+            display: 'flex',
+            width: '100%',
+            height: '100%',
+            overflowX: 'scroll'
+            // 'overflow-x': 'scroll'
+          }}
+        >
+            {columns.map((column, index) =>
+              <Column
+                key={index}
+                column={column}
+              />
+            )}
+        </Container>
+
+      </DragDropContext>
+
+
     </Box>
   );
 }

@@ -7,16 +7,21 @@ import { Droppable, Draggable } from '@hello-pangea/dnd';
 
 import { TaskCard } from './TaskCard'
 
-export const Column = ({column}) => {
+export const Column = ({ column, handleColumnChange }) => {
     return(
         <Droppable
-            droppableId={`droppable-${column.id}`}
+            droppableId={`droppable__${column.id}`}
         >
         {(provided, snapshot) => 
         <div
-            ref={provided.innerRef}
-            {...provided.droppableProps}
+        ref={provided.innerRef}
+        {...provided.droppableProps}
         >
+            {   snapshot.isDraggingOver 
+                && console.log("draggingOverWith:", snapshot.draggingOverWith)
+                && console.log("draggingFromThisWith:", snapshot.draggingFromThisWith)
+            }
+
             <Paper 
                 elevation={0} 
                 variant="outlined"
@@ -41,10 +46,9 @@ export const Column = ({column}) => {
                         { column.cards.map((card, index) => {
                             return (
                                 <TaskCard
-                                    provided={provided}
-                                    columnId={column.id}
-                                    card={card}
                                     key={`${column.id}-${index}`}
+                                    provided={provided}
+                                    card={card}
                                     index={index}
                                 />
                             )

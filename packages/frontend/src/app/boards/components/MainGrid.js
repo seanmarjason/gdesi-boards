@@ -1,3 +1,5 @@
+import { useState } from 'react';
+
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid2';
 import Box from '@mui/material/Box';
@@ -7,45 +9,13 @@ import { DragDropContext } from '@hello-pangea/dnd';
 
 import { Column } from './Column';
 
-const columns = [
-  {
-    id: 1,
-    title: 'To Do',
-    cards: [
-      {
-        id: 'ABC-123',
-        title: 'Roadmap for project delivery',
-        type: 'Document',
-        assignee: ''
-      },
-      {
-        id: 'ABC-456',
-        title: 'Project Resourcing',
-        type: 'Document',
-        assignee: ''
-      }
-    ]
-  },
-  {
-    id: 2,
-    title: 'Doing',
-    cards: [
-      {
-        id: 'XYZ-456',
-        title: 'Project Strategy',
-        type: 'Document',
-        assignee: 'Bob Dylan'
-      }
-    ]
-  },
-  {
-    id: 3,
-    title: 'Done',
-    cards: []
-  },
-]
+export default function MainGrid({ data={} }) {
 
-export default function MainGrid() {
+  const [columns, setColumns] = useState(data)
+
+  const handleColumnChange = (event) => {
+    // setColumns(event.target.value);
+  };
 
   const handleOnDragEnd = (event) => {
     // const coordinates = getCoordinates<TCard>(event, board)
@@ -88,6 +58,7 @@ export default function MainGrid() {
               <Column
                 key={index}
                 column={column}
+                handleColumnChange={handleColumnChange}
               />
             )}
         </Container>

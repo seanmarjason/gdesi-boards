@@ -8,14 +8,20 @@ import Typography from '@mui/material/Typography';
 
 import { Draggable } from '@hello-pangea/dnd';
 
-export const TaskCard = ({card, columnId, index}) => {
+export const TaskCard = ({card, index}) => {
     return(
         <Draggable
-            draggableId={`draggable-${columnId}-${index}`}
+            draggableId={`draggable__${card.id}`}
             index={index}
         >
             {(provided, snapshot) => 
                 <Card sx={{ minWidth: 275 }} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                    
+                    {
+                        snapshot.isDragging
+                        && console.log("draggingOver", snapshot.draggingOver)
+                    }
+
                     <CardActionArea>
                             <CardContent>
                                 <Typography gutterBottom sx={{ color: 'text.secondary', fontSize: 14 }}>

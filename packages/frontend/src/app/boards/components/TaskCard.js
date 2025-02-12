@@ -11,16 +11,11 @@ import { Draggable } from '@hello-pangea/dnd';
 export const TaskCard = ({card, index}) => {
     return(
         <Draggable
-            draggableId={`draggable__${card.id}`}
+            draggableId={`${card.id}`}
             index={index}
         >
             {(provided, snapshot) => 
                 <Card sx={{ minWidth: 275 }} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                    
-                    {
-                        snapshot.isDragging
-                        && console.log("draggingOver", snapshot.draggingOver)
-                    }
 
                     <CardActionArea>
                             <CardContent>

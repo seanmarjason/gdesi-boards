@@ -9,23 +9,41 @@ import { DragDropContext } from '@hello-pangea/dnd';
 
 import { Column } from './Column';
 
-export default function MainGrid({ data={} }) {
+export default function MainGrid({ data=[] }) {
 
   const [columns, setColumns] = useState(data)
 
-  const handleColumnChange = (event) => {
-    // setColumns(event.target.value);
+  let activeColumn = ''
+  let activeCard = ''
+
+  const handleColumnChange = (value) => {
+    activeColumn = value.column
+    activeCard = value.card
   };
 
-  const handleOnDragEnd = (event) => {
-    // const coordinates = getCoordinates<TCard>(event, board)
-    // if (!coordinates.source) return
+  const handleOnDragEnd = () => {
+    // Get card details
+    const cards = columns.flatMap( column => column.cards)
+    const activeCardDetails = cards.find(card => card.id == activeCard)
 
-    // isAColumnMove(event.type)
-    //   ? isMovingAColumnToAnotherPosition(coordinates) &&
-    //     onColumnDragEnd({ ...coordinates, subject: board.columns[coordinates.source.fromPosition] })
-    //   : isMovingACardToAnotherPosition(coordinates) &&
-    //     onCardDragEnd({ ...coordinates, subject: getCard<TCard>(board, coordinates.source) })
+    // Move card
+    setColumns(columns.map(column => { 
+      // // remove card from old column
+      column.cards = column.cards.filter(card => card.id != activeCard)
+      // add card to new column
+      if (column.id === activeColumn) {
+        return {
+            ...column,
+            cards: [
+              activeCardDetails,
+              ...column.cards
+            ] 
+          };
+      }
+      return column;
+      })
+    )
+
   }
 
   return (
@@ -40,8 +58,13 @@ export default function MainGrid({ data={} }) {
         Your Team's Work
       </Typography>
 
+      {console.log("columns", columns)}
+      
+
       <DragDropContext
-        onDragEnd={handleOnDragEnd}
+        onDragEnd={
+          handleOnDragEnd
+        }
       >
 
         <Container
@@ -51,16 +74,19 @@ export default function MainGrid({ data={} }) {
             width: '100%',
             height: '100%',
             overflowX: 'scroll'
-            // 'overflow-x': 'scroll'
           }}
         >
-            {columns.map((column, index) =>
-              <Column
-                key={index}
-                column={column}
-                handleColumnChange={handleColumnChange}
-              />
-            )}
+            {
+            columns ?
+              columns.map((column, index) =>
+                <Column
+                  key={index}
+                  column={column}
+                  handleColumnChange={handleColumnChange}
+                />
+              )
+              : <div></div>
+            }
         </Container>
 
       </DragDropContext>

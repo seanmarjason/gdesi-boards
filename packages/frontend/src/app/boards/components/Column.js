@@ -8,18 +8,22 @@ import { Droppable, Draggable } from '@hello-pangea/dnd';
 import { TaskCard } from './TaskCard'
 
 export const Column = ({ column, handleColumnChange }) => {
-    return(
+
+    return (
         <Droppable
-            droppableId={`droppable__${column.id}`}
+            droppableId={`${column.id}`}
         >
         {(provided, snapshot) => 
         <div
-        ref={provided.innerRef}
-        {...provided.droppableProps}
+            ref={provided.innerRef}
+            {...provided.droppableProps}
         >
+
             {   snapshot.isDraggingOver 
-                && console.log("draggingOverWith:", snapshot.draggingOverWith)
-                && console.log("draggingFromThisWith:", snapshot.draggingFromThisWith)
+                && handleColumnChange({
+                    column: column.id, 
+                    card: snapshot.draggingOverWith 
+                })
             }
 
             <Paper 

@@ -1,19 +1,25 @@
 'use client'
 
+import { use } from 'react';
+
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 
-import AppTheme from '../shared-theme/AppTheme';
-import AppNavbar from '../components/AppNavbar';
-import SideMenu from '../components/SideMenu';
-import Header from '../components/Header';
+import AppTheme from '../../shared-theme/AppTheme';
+import AppNavbar from '../../components/AppNavbar';
+import SideMenu from '../../components/SideMenu';
+import Header from '../../components/Header';
 import { TaskForm } from './components/TaskForm';
 
 const xThemeComponents = {
 };
 
-export default function Tasks(props) {
+export default function Tasks({ props, params }) {
+
+    const { task } = use(params)
+    console.log("Task:", task)
+
     return (
         <AppTheme {...props} themeComponents={xThemeComponents}>
             <CssBaseline enableColorScheme />

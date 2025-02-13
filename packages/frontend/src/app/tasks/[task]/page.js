@@ -12,8 +12,15 @@ import SideMenu from '../../components/SideMenu';
 import Header from '../../components/Header';
 import { TaskForm } from './components/TaskForm';
 
+import { tasks } from '../../../data/tasks';
+
 const xThemeComponents = {
 };
+
+// TODO: Move to new file containing interface with database
+const getTaskData = (taskId) => {
+    return tasks.find(taskRecord => taskRecord.id == taskId)
+}
 
 export default function Tasks({ props, params }) {
 
@@ -49,7 +56,7 @@ export default function Tasks({ props, params }) {
                         {/* Main content */}
                         <Header />
 
-                        <TaskForm />
+                        <TaskForm task={getTaskData(task)} />
 
                     </Stack>
                 </Box>

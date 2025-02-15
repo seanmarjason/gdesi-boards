@@ -19,13 +19,14 @@ const xThemeComponents = {
 
 // TODO: Move to new file containing interface with database
 const getTaskData = (taskId) => {
-    return tasks.find(taskRecord => taskRecord.id == taskId)
+    return tasks.find(taskRecord => 
+        taskRecord.id == taskId.toLowerCase()
+    )
 }
 
 export default function Tasks({ props, params }) {
 
     const { task } = use(params)
-    console.log("Task:", task)
 
     return (
         <AppTheme {...props} themeComponents={xThemeComponents}>

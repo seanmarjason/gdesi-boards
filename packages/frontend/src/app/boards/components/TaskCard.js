@@ -12,7 +12,7 @@ import { Draggable } from '@hello-pangea/dnd';
 export const TaskCard = ({card, index}) => {
 
     const handleTaskClick = (event) => {
-        event.preventDefault()
+        // event.preventDefault()
     }
 
     return(
@@ -22,11 +22,10 @@ export const TaskCard = ({card, index}) => {
         >
             {(provided, snapshot) => 
                 <Card sx={{ minWidth: 275 }} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-
                     {/* <CardActionArea> */}
                             <CardContent>
                                 <Typography gutterBottom sx={{ fontSize: 14 }}>
-                                    <Link href={card.id} underline="none" onClick={handleTaskClick}>
+                                    <Link href={`/tasks/${card.id}`} underline="none" onClick={handleTaskClick}>
                                         {card.id}
                                     </Link>
                                 </Typography>

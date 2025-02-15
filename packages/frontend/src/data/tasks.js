@@ -24,11 +24,11 @@ export const tasks = [
             { name: 'Proposal for this test', type: 'Document', url: 'http://google.com/' }
         ],
         comments: [
-            { author: '', dateCreated: '', dateModified: '', comment: '' }
+            { author: 'Bob Dylan', dateCreated: '2024-12-20 23:00:00', dateModified: '2025-02-15 02:00:00', comment: 'This is a comment on a task ticket' }
         ],
-        status: '',
-        deadline: '',
-        estimate: ''
+        status: 'In Progress',
+        deadline: '2025-02-28 02:00:00',
+        estimate: '5'
     },
     {
         id: 'xyz-456',

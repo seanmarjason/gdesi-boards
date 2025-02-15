@@ -14,6 +14,9 @@ import DialogContentText from '@mui/material/DialogContentText';
 import DialogTitle from '@mui/material/DialogTitle';
 import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
 
 import { taskTypeMenuItems } from '../../../../data/tasks';
 import { taskAssigneeMenuItems } from '../../../../data/tasks';
@@ -25,6 +28,7 @@ export const TaskForm = ({ task }) => {
     const [assignee, setAssignee]  = useState(task.assignee)
     const [description, setDescription]  = useState(task.description)
     const [links, setLinks]  = useState(task.links)
+    const [comments, setComments]  = useState(task.comments)
 
     const [showLinkModal, setShowLinkModal] = useState(false)
     const [linkModalDetails, setLinkModalDetails] = useState('')
@@ -36,6 +40,10 @@ export const TaskForm = ({ task }) => {
             </Typography>
 
             <form>
+
+            <p>{task.status}</p>
+            <p>{task.deadline}</p>
+            <p>{task.estimate}</p>
 
                 <InputLabel id="task-title-label">Title</InputLabel>
                 <TextField
@@ -88,7 +96,7 @@ export const TaskForm = ({ task }) => {
                     }}
                 />
                 
-                <InputLabel id="task-description-label">Links</InputLabel>
+                <InputLabel id="task-links-label">Links</InputLabel>
                 { links.length > 0 ?
                     (links.map((link, index) => 
                         <Chip
@@ -106,7 +114,7 @@ export const TaskForm = ({ task }) => {
 
                 {   showLinkModal &&
                         <Dialog
-                            open={typeof(linkModal) != undefined}
+                            open={showLinkModal}
                             onClose={() => setShowLinkModal(false)}
                             aria-labelledby="modal-modal-title"
                             aria-describedby="modal-modal-description"
@@ -120,19 +128,36 @@ export const TaskForm = ({ task }) => {
                                 </DialogContentText>
                             </DialogContent>
                             <DialogActions>
-                                <Button onClick={() => setShowLinkModal(false)}>Disagree</Button>
-                                <Button onClick={() => setShowLinkModal(false)} autoFocus>Agree</Button>
+                                <Button onClick={() => setShowLinkModal(false)} autoFocus>Ok</Button>
                             </DialogActions>
                         </Dialog>
+                }
+                
+                <InputLabel id="task-comments-label">Comments</InputLabel>
+                { comments.length > 0 ?
+                    (comments.map((comment, index) => 
+                        <Card
+                            sx={{ minWidth: 275 }}
+                            key={`comment-${index}`}
+                        >
+                            <CardContent>
+                                <Typography sx={{ fontSize: 14 }}>
+                                    {comment.author}
+                                </Typography>
+                                <Typography sx={{ color: 'text.secondary', mb: 1.5 }}>
+                                    Created: {comment.dateCreated} Modified: {comment.dateModified}
+                                </Typography>
+                                <Typography variant="body2">
+                                    {comment.comment}
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    ))
+                    : <p>nil</p>
                 }
 
             </form>
 
-
-            <p>{JSON.stringify(task.comments)}</p>
-            <p>{task.status}</p>
-            <p>{task.deadline}</p>
-            <p>{task.estimate}</p>
         </div>
     )
 }

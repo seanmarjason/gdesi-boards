@@ -32,6 +32,15 @@ export const TaskForm = ({ task }) => {
 
     const [showLinkModal, setShowLinkModal] = useState(false)
     const [linkModalDetails, setLinkModalDetails] = useState('')
+    const [newLink, setNewLink] = useState({name: '', type: '', url: ''})
+
+    const saveLinkDetails = (link) => {
+        setLinks([
+            ...links,
+            link,
+        ])
+        setNewLink({})
+    }
 
     return (
         <div>
@@ -112,24 +121,91 @@ export const TaskForm = ({ task }) => {
                     : <p>nil</p>
                 }
 
+                <Chip
+                    key={`link-new`}
+                    label={'New'}
+                    avatar={<Avatar>+</Avatar>}
+                    onClick={() => {
+                        setShowLinkModal(true)
+                        setLinkModalDetails('')
+                    }}
+                />
+
                 {   showLinkModal &&
+
                         <Dialog
                             open={showLinkModal}
                             onClose={() => setShowLinkModal(false)}
                             aria-labelledby="modal-modal-title"
                             aria-describedby="modal-modal-description"
                         >
-                            <DialogTitle id="alert-dialog-title">{linkModalDetails.name}</DialogTitle>
-                            <DialogContent>
-                                <DialogContentText id="alert-dialog-description">
-                                    <Link href={linkModalDetails.url} target="_blank">
-                                        {linkModalDetails.url}
-                                    </Link>
-                                </DialogContentText>
-                            </DialogContent>
-                            <DialogActions>
-                                <Button onClick={() => setShowLinkModal(false)} autoFocus>Ok</Button>
-                            </DialogActions>
+
+                        {
+                            linkModalDetails ?
+                            
+                            <div>                            
+                                <DialogTitle id="alert-dialog-title">{linkModalDetails.name}</DialogTitle>
+                                <DialogContent>
+                                    <DialogContentText id="alert-dialog-description">
+                                        <Link href={linkModalDetails.url} target="_blank">
+                                            {linkModalDetails.url}
+                                        </Link>
+                                    </DialogContentText>
+                                </DialogContent>
+                                <DialogActions>
+                                    <Button onClick={() => setShowLinkModal(false)} autoFocus>Ok</Button>
+                                </DialogActions>
+                            </div>
+                            :
+                            <div>                            
+                                <DialogTitle id="alert-dialog-title">New</DialogTitle>
+                                    <InputLabel id="link-title-label">Name</InputLabel>
+                                    <TextField
+                                        id="link-name"
+                                        value={newLink.name}
+                                        onChange={(event) => {
+                                            setNewLink({
+                                                ...newLink,
+                                                name: event.target.value,
+                                            })
+                                        }}
+                                    />
+                                    <InputLabel id="link-type-label">Type</InputLabel>
+                                    <TextField
+                                        id="link-type"
+                                        value={newLink.type}
+                                        onChange={(event) => {
+                                            setNewLink({
+                                                ...newLink,
+                                                type: event.target.value,
+                                            })
+                                        }}
+                                    />
+                                    <InputLabel id="link-type-label">Url</InputLabel>
+                                    <TextField
+                                        id="link-url"
+                                        value={newLink.url}
+                                        onChange={(event) => {
+                                            setNewLink({
+                                                ...newLink,
+                                                url: event.target.value,
+                                            })
+                                        }}
+                                    />
+                                    <DialogActions>
+                                        <Button 
+                                            onClick={() => {
+                                                setShowLinkModal(false) 
+                                                saveLinkDetails(newLink)}
+                                            }
+                                            autoFocus
+                                        >
+                                        Save
+                                        </Button>
+                                    </DialogActions>
+                            </div>
+
+                        }
                         </Dialog>
                 }
                 

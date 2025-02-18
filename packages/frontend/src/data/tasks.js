@@ -24,7 +24,7 @@ export const tasks = [
             { id: 'abc-456_link-0', name: 'Proposal for this test', type: 'Document', url: 'http://google.com/' }
         ],
         comments: [
-            { author: 'Bob Dylan', dateCreated: '2024-12-20 23:00:00', dateModified: '2025-02-15 02:00:00', comment: 'This is a comment on a task ticket' }
+            { author: 'Bob Dylan', dateCreated: '2024-12-20T00:00:00.000Z', dateModified: '2025-02-15T12:00:00.000Z', comment: 'This is a comment on a task ticket' }
         ],
         status: 'In Progress',
         deadline: '2025-02-28 02:00:00',

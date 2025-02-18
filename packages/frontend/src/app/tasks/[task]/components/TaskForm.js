@@ -23,6 +23,7 @@ import { taskAssigneeMenuItems } from '../../../../data/tasks';
 export const TaskForm = ({ task }) => {
 
     const emptyLink = {name: '', type: '', url: ''}
+    const emptyComment = {author: '', dateCreated: '', dateModified: '', comment: ''}
 
     const [title, setTitle]  = useState(task.title)
     const [type, setType]  = useState(task.type)
@@ -34,6 +35,8 @@ export const TaskForm = ({ task }) => {
     const [showLinkModal, setShowLinkModal] = useState(false)
     const [linkModalDetails, setLinkModalDetails] = useState(emptyLink)
     const [editLink, setEditLink] = useState(false)
+
+    const [newComment, setNewComment] = useState(emptyComment)
 
     const saveLinkDetails = (newLink) => {
         let nextLinks;
@@ -54,6 +57,23 @@ export const TaskForm = ({ task }) => {
         setLinks(nextLinks)
         setEditLink(false)
         setLinkModalDetails(emptyLink)
+    }
+
+    const saveComment = (comment) => {
+        const user = 'My Miyagi'
+        const date = new Date(Date.now()).toISOString()
+
+        setComments([
+            ...comments,
+            {
+                ...comment,
+                author: user,
+                dateCreated: date,
+                dateModified: date
+            }
+        ])
+
+        setNewComment(emptyComment)
     }
 
     return (
@@ -251,6 +271,19 @@ export const TaskForm = ({ task }) => {
                     ))
                     : <p>nil</p>
                 }
+
+                <InputLabel id="new-comment-label">Add New Comment</InputLabel>
+                    <TextField
+                        id="new-comment"
+                        value={newComment.comment}
+                        onChange={(event) => {
+                            setNewComment({
+                                ...newComment,
+                                comment: event.target.value,
+                            })
+                        }}
+                    />
+                    <Button onClick={() => saveComment(newComment)}>Save</Button>
 
             </form>
 

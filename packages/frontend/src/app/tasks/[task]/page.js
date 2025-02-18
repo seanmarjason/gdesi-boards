@@ -55,7 +55,7 @@ export default function Tasks({ props, params }) {
                         }}
                     >
                         {/* Main content */}
-                        <Header />
+                        <Header navigation={['Boards', 'Tasks', `${task}`]}/>
 
                         <TaskForm task={getTaskData(task)} />
 

@@ -6,7 +6,7 @@ import MenuButton from './MenuButton';
 
 import Search from '../boards/components/Search';
 
-export default function Header() {
+export default function Header({ navigation }) {
   return (
     <Stack
       direction="row"
@@ -20,7 +20,7 @@ export default function Header() {
       }}
       spacing={2}
     >
-      <NavbarBreadcrumbs />
+      <NavbarBreadcrumbs nav={navigation}/>
       <Stack direction="row" sx={{ gap: 1 }}>
         <Search />
         <MenuButton showBadge aria-label="Open notifications">

@@ -15,13 +15,14 @@ import DialogTitle from '@mui/material/DialogTitle';
 import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import Card from '@mui/material/Card';
-import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 
 import { taskTypeMenuItems } from '../../../../data/tasks';
 import { taskAssigneeMenuItems } from '../../../../data/tasks';
 
 export const TaskForm = ({ task }) => {
+
+    const emptyLink = {name: '', type: '', url: ''}
 
     const [title, setTitle]  = useState(task.title)
     const [type, setType]  = useState(task.type)
@@ -31,15 +32,28 @@ export const TaskForm = ({ task }) => {
     const [comments, setComments]  = useState(task.comments)
 
     const [showLinkModal, setShowLinkModal] = useState(false)
-    const [linkModalDetails, setLinkModalDetails] = useState('')
-    const [newLink, setNewLink] = useState({name: '', type: '', url: ''})
+    const [linkModalDetails, setLinkModalDetails] = useState(emptyLink)
+    const [editLink, setEditLink] = useState(false)
 
-    const saveLinkDetails = (link) => {
-        setLinks([
-            ...links,
-            link,
-        ])
-        setNewLink({})
+    const saveLinkDetails = (newLink) => {
+        let nextLinks;
+
+        // check if newLink id in links
+        if (links.some(link => link.id == newLink.id)) {
+            // if yes, update links
+            nextLinks = links.map(link => link.id == newLink.id ? newLink : link)
+        }
+        else {
+            // if no, add newLink to links
+            nextLinks = [
+                ...links,
+                newLink
+            ]
+        }
+
+        setLinks(nextLinks)
+        setEditLink(false)
+        setLinkModalDetails(emptyLink)
     }
 
     return (
@@ -127,7 +141,8 @@ export const TaskForm = ({ task }) => {
                     avatar={<Avatar>+</Avatar>}
                     onClick={() => {
                         setShowLinkModal(true)
-                        setLinkModalDetails('')
+                        setEditLink(true)
+                        setLinkModalDetails(emptyLink)
                     }}
                 />
 
@@ -141,31 +156,16 @@ export const TaskForm = ({ task }) => {
                         >
 
                         {
-                            linkModalDetails ?
-                            
-                            <div>                            
-                                <DialogTitle id="alert-dialog-title">{linkModalDetails.name}</DialogTitle>
-                                <DialogContent>
-                                    <DialogContentText id="alert-dialog-description">
-                                        <Link href={linkModalDetails.url} target="_blank">
-                                            {linkModalDetails.url}
-                                        </Link>
-                                    </DialogContentText>
-                                </DialogContent>
-                                <DialogActions>
-                                    <Button onClick={() => setShowLinkModal(false)} autoFocus>Ok</Button>
-                                </DialogActions>
-                            </div>
-                            :
-                            <div>                            
+                            editLink ?
+                             <div>                            
                                 <DialogTitle id="alert-dialog-title">New</DialogTitle>
                                     <InputLabel id="link-title-label">Name</InputLabel>
                                     <TextField
                                         id="link-name"
-                                        value={newLink.name}
+                                        value={linkModalDetails.name}
                                         onChange={(event) => {
-                                            setNewLink({
-                                                ...newLink,
+                                            setLinkModalDetails({
+                                                ...linkModalDetails,
                                                 name: event.target.value,
                                             })
                                         }}
@@ -173,10 +173,10 @@ export const TaskForm = ({ task }) => {
                                     <InputLabel id="link-type-label">Type</InputLabel>
                                     <TextField
                                         id="link-type"
-                                        value={newLink.type}
+                                        value={linkModalDetails.type}
                                         onChange={(event) => {
-                                            setNewLink({
-                                                ...newLink,
+                                            setLinkModalDetails({
+                                                ...linkModalDetails,
                                                 type: event.target.value,
                                             })
                                         }}
@@ -184,10 +184,10 @@ export const TaskForm = ({ task }) => {
                                     <InputLabel id="link-type-label">Url</InputLabel>
                                     <TextField
                                         id="link-url"
-                                        value={newLink.url}
+                                        value={linkModalDetails.url}
                                         onChange={(event) => {
-                                            setNewLink({
-                                                ...newLink,
+                                            setLinkModalDetails({
+                                                ...linkModalDetails,
                                                 url: event.target.value,
                                             })
                                         }}
@@ -196,7 +196,11 @@ export const TaskForm = ({ task }) => {
                                         <Button 
                                             onClick={() => {
                                                 setShowLinkModal(false) 
-                                                saveLinkDetails(newLink)}
+                                                saveLinkDetails({
+                                                    ...linkModalDetails,
+                                                    id: linkModalDetails.id || `${task.id}_link-${links.length + 1}`
+                                                }
+                                            )}
                                             }
                                             autoFocus
                                         >
@@ -204,7 +208,23 @@ export const TaskForm = ({ task }) => {
                                         </Button>
                                     </DialogActions>
                             </div>
-
+                            :
+                            <div>                            
+                                <DialogTitle id="alert-dialog-title">{linkModalDetails.name}</DialogTitle>
+                                <DialogContent>
+                                    <DialogContentText id="alert-dialog-description">
+                                        {linkModalDetails.type}
+                                        <br />
+                                        <Link href={linkModalDetails.url} target="_blank">
+                                            {linkModalDetails.url}
+                                        </Link>
+                                    </DialogContentText>
+                                </DialogContent>
+                                <DialogActions>
+                                    <Button onClick={() => setEditLink(true)}>Edit</Button>
+                                    <Button onClick={() => setShowLinkModal(false)} autoFocus>Ok</Button>
+                                </DialogActions>
+                            </div>
                         }
                         </Dialog>
                 }

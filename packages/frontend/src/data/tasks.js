@@ -21,7 +21,7 @@ export const tasks = [
         assignee: '',
         description: '',
         links: [
-            { name: 'Proposal for this test', type: 'Document', url: 'http://google.com/' }
+            { id: 'abc-456_link-0', name: 'Proposal for this test', type: 'Document', url: 'http://google.com/' }
         ],
         comments: [
             { author: 'Bob Dylan', dateCreated: '2024-12-20 23:00:00', dateModified: '2025-02-15 02:00:00', comment: 'This is a comment on a task ticket' }

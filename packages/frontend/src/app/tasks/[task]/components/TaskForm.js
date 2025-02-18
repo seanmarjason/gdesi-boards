@@ -1,4 +1,5 @@
 import { useState } from "react";
+import dayjs from 'dayjs';
 
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
@@ -17,6 +18,10 @@ import Link from '@mui/material/Link';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 
+import { DatePicker } from '@mui/x-date-pickers/DatePicker'
+import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
+import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
+
 import { taskTypeMenuItems } from '../../../../data/tasks';
 import { taskAssigneeMenuItems } from '../../../../data/tasks';
 
@@ -24,6 +29,8 @@ export const TaskForm = ({ task }) => {
 
     const emptyLink = {name: '', type: '', url: ''}
     const emptyComment = {author: '', dateCreated: '', dateModified: '', comment: ''}
+
+    const [deadline, setDeadline] = useState(dayjs(task.deadline));
 
     const [title, setTitle]  = useState(task.title)
     const [type, setType]  = useState(task.type)
@@ -37,6 +44,12 @@ export const TaskForm = ({ task }) => {
     const [editLink, setEditLink] = useState(false)
 
     const [newComment, setNewComment] = useState(emptyComment)
+
+    const statusColours = {
+        'To Do': '',
+        'Doing': 'primary',
+        'Done': 'success',
+    }
 
     const saveLinkDetails = (newLink) => {
         let nextLinks;
@@ -60,7 +73,7 @@ export const TaskForm = ({ task }) => {
     }
 
     const saveComment = (comment) => {
-        const user = 'My Miyagi'
+        const user = 'Mr Miyagi'
         const date = new Date(Date.now()).toISOString()
 
         setComments([
@@ -84,14 +97,24 @@ export const TaskForm = ({ task }) => {
 
             <form>
 
-            <p>{task.status}</p>
-            <p>{task.deadline}</p>
-            <p>{task.estimate}</p>
+                <Chip label={task.status} color={statusColours[task.status]} variant="outlined" />
+                
+                <br />
+
+                <InputLabel id="task-deadline-label">Deadline</InputLabel>
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                    <DatePicker 
+                        value={deadline}
+                        disablePast
+                        onAccept={(value) => setDeadline(value)}
+                    />
+                </LocalizationProvider>
 
                 <InputLabel id="task-title-label">Title</InputLabel>
                 <TextField
                     id="task-title"
                     value={title}
+                    fullWidth
                     onChange={(event) => {
                         setTitle(event.target.value)
                     }}

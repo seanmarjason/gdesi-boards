@@ -10,7 +10,7 @@ export const tasks = [
         comments: [
             { author: '', dateCreated: '', dateModified: '', comment: '' }
         ],
-        status: '',
+        status: 'To Do',
         deadline: '',
         estimate: ''
     },
@@ -26,7 +26,7 @@ export const tasks = [
         comments: [
             { author: 'Bob Dylan', dateCreated: '2024-12-20T00:00:00.000Z', dateModified: '2025-02-15T12:00:00.000Z', comment: 'This is a comment on a task ticket' }
         ],
-        status: 'In Progress',
+        status: 'Doing',
         deadline: '2025-02-28 02:00:00',
         estimate: '5'
     },
@@ -42,7 +42,7 @@ export const tasks = [
         comments: [
             { author: '', dateCreated: '', dateModified: '', comment: '' }
         ],
-        status: '',
+        status: 'Done',
         deadline: '',
         estimate: ''
     }

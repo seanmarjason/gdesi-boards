@@ -23,7 +23,7 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
 import { taskTypeMenuItems } from '../../../../data/tasks';
-import { taskAssigneeMenuItems } from '../../../../data/tasks';
+import { boardUsers } from '../../../../data/boardUsers';
 
 export const TaskForm = ({ task }) => {
 
@@ -145,7 +145,7 @@ export const TaskForm = ({ task }) => {
                         setAssignee(event.target.value)
                     }}
                 >
-                    {taskAssigneeMenuItems.map((item, index) => 
+                    {boardUsers.map((item, index) => 
                         <MenuItem value={item} key={`select-assignee-${index}`}>{item}</MenuItem>
                     )}
                 </Select>

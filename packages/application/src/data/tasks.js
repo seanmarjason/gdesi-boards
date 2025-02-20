@@ -53,10 +53,3 @@ export const taskTypeMenuItems = [
     'Meeting',
     'Design',
 ]
-
-export const taskAssigneeMenuItems = [
-    'Bob Dylan',
-    'Freddie Mercury',
-    'Bon Jovi',
-    'Mr Miyagi',
-]

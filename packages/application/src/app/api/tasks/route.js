@@ -6,7 +6,7 @@ export async function GET(request) {
     if (searchParams) {
         const taskId = searchParams.get('task-id')
 
-        // TODO: Replace with query
+        // TODO: Replace with db query
         const task = tasks.find(taskRecord => 
             taskRecord.id == taskId.toLowerCase()
         )
@@ -14,7 +14,11 @@ export async function GET(request) {
         return Response.json({ task })
     }
 
-    // TODO: Replace with query
+    // TODO: Replace with db query
     return Response.json({ tasks })
 
+}
+
+export async function POST(request) {
+    // TODO: Handle change of task information (e.g. status)
 }

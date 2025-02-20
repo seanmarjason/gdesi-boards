@@ -13,7 +13,7 @@ import MainGrid from './components/MainGrid';
 import SideMenu from '../components/SideMenu';
 import AppTheme from '../shared-theme/AppTheme';
 
-import { columns } from '../../data/columns';
+import { board } from '../../data/boards';
 
 const xThemeComponents = {
 };
@@ -48,7 +48,7 @@ export default function Dashboard(props) {
           >
             <Header />
 
-            <MainGrid data={columns}/>
+            <MainGrid data={board.columns}/>
 
           </Stack>
         </Box>

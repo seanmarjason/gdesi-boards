@@ -5,16 +5,18 @@ import Breadcrumbs, { breadcrumbsClasses } from '@mui/material/Breadcrumbs';
 import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
 import Link from '@mui/material/Link';
 
-const StyledBreadcrumbs = styled(Breadcrumbs)(({ theme }) => ({
-  margin: theme.spacing(1, 0),
-  [`& .${breadcrumbsClasses.separator}`]: {
-    color: (theme.vars || theme).palette.action.disabled,
-    margin: 1,
-  },
-  [`& .${breadcrumbsClasses.ol}`]: {
-    alignItems: 'center',
-  },
-}));
+// const StyledBreadcrumbs = styled(Breadcrumbs)(({ theme }) => ({
+//   margin: theme.spacing(1, 0),
+//   [`& .${breadcrumbsClasses.separator}`]: {
+//     color: (theme.vars || theme).palette.action.disabled,
+//     margin: 1,
+//   },
+//   [`& .${breadcrumbsClasses.ol}`]: {
+//     alignItems: 'center',
+//   },
+// }));
+
+// const StyledBreadcrumbs = Breadcrumbs
 
 export default function NavbarBreadcrumbs({ nav=['Boards']}) {
 
@@ -22,7 +24,7 @@ export default function NavbarBreadcrumbs({ nav=['Boards']}) {
   const prevNav = nav.slice(0, -1)
 
   return (
-    <StyledBreadcrumbs
+    <Breadcrumbs
       aria-label="breadcrumb"
       separator={<NavigateNextRoundedIcon fontSize="small" />}
     >
@@ -36,6 +38,6 @@ export default function NavbarBreadcrumbs({ nav=['Boards']}) {
       <Typography variant="body1" sx={{ color: 'text.primary', fontWeight: 600 }}>
         {lastNav}
       </Typography>
-    </StyledBreadcrumbs>
+    </Breadcrumbs>
   );
 }

@@ -1,8 +1,10 @@
+'use client'
+
 import * as React from 'react';
 import { styled } from '@mui/material/styles';
 import Divider, { dividerClasses } from '@mui/material/Divider';
 import Menu from '@mui/material/Menu';
-import MuiMenuItem from '@mui/material/MenuItem';
+import MenuItem from '@mui/material/MenuItem';
 import { paperClasses } from '@mui/material/Paper';
 import { listClasses } from '@mui/material/List';
 import ListItemText from '@mui/material/ListItemText';
@@ -11,9 +13,11 @@ import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import MoreVertRoundedIcon from '@mui/icons-material/MoreVertRounded';
 import MenuButton from './MenuButton';
 
-const MenuItem = styled(MuiMenuItem)({
-  margin: '2px 0',
-});
+// const MenuItem = styled(MuiMenuItem)({
+//   margin: '2px 0',
+// });
+
+// const MenuItem = MuiMenuItem
 
 export default function OptionsMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);

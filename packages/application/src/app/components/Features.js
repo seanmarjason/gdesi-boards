@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Card from '@mui/material/Card';
-import MuiChip from '@mui/material/Chip';
+import Chip from '@mui/material/Chip';
 import Container from '@mui/material/Container';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
@@ -39,25 +39,25 @@ const items = [
   },
 ];
 
-const Chip = styled(MuiChip)(({ theme }) => ({
-  variants: [
-    {
-      props: ({ selected }) => selected,
-      style: {
-        background:
-          'linear-gradient(to bottom right, hsl(210, 98%, 48%), hsl(210, 98%, 35%))',
-        color: 'hsl(0, 0%, 100%)',
-        borderColor: (theme.vars || theme).palette.primary.light,
-        '& .MuiChip-label': {
-          color: 'hsl(0, 0%, 100%)',
-        },
-        ...theme.applyStyles('dark', {
-          borderColor: (theme.vars || theme).palette.primary.dark,
-        }),
-      },
-    },
-  ],
-}));
+// const Chip = styled(MuiChip)(({ theme }) => ({
+//   variants: [
+//     {
+//       props: ({ selected }) => selected,
+//       style: {
+//         background:
+//           'linear-gradient(to bottom right, hsl(210, 98%, 48%), hsl(210, 98%, 35%))',
+//         color: 'hsl(0, 0%, 100%)',
+//         borderColor: (theme.vars || theme).palette.primary.light,
+//         '& .MuiChip-label': {
+//           color: 'hsl(0, 0%, 100%)',
+//         },
+//         ...theme.applyStyles('dark', {
+//           borderColor: (theme.vars || theme).palette.primary.dark,
+//         }),
+//       },
+//     },
+//   ],
+// }));
 
 function MobileLayout({ selectedItemIndex, handleItemClick, selectedFeature }) {
   if (!items[selectedItemIndex]) {

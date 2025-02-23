@@ -8,11 +8,11 @@ import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import { ThemeProvider } from '@mui/material/styles';
 
-import AppNavbar from '../components/AppNavbar';
-import Header from '../components/Header';
+import AppNavbar from '../../components/AppNavbar';
+import Header from '../../components/Header';
 import MainGrid from './components/MainGrid';
-import SideMenu from '../components/SideMenu';
-import { theme } from '../shared-theme/AppTheme';
+import SideMenu from '../../components/SideMenu';
+import { theme } from '../../shared-theme/AppTheme';
 
 export default function Boards({ board }) {
     return (

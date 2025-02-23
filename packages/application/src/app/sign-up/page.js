@@ -15,9 +15,9 @@ import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
 import MuiCard from '@mui/material/Card';
 import { styled } from '@mui/material/styles';
-import AppTheme from '../shared-theme/AppTheme';
+import AppTheme from '../../shared-theme/AppTheme';
 import AppAppBar from '../../components/menu/AppAppBar';
-import GdesiIcon from '../components/GdesiIcon'
+import GdesiIcon from '../../components/GdesiIcon'
 
 import { GoogleIcon, FacebookIcon } from './components/CustomIcons';
 

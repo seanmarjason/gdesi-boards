@@ -3,7 +3,7 @@
 import * as React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
 import Stack from '@mui/material/Stack';
-import AppTheme from '../shared-theme/AppTheme';
+import AppTheme from '../../shared-theme/AppTheme';
 import AppAppBar from '../../components/menu/AppAppBar';
 
 import SignInCard from './components/SignInCard';

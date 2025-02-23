@@ -5,11 +5,11 @@ import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import { ThemeProvider } from '@mui/material/styles';
 
-import { theme } from '../../shared-theme/AppTheme';
+import { theme } from '../../../shared-theme/AppTheme';
 
-import AppNavbar from '../../components/AppNavbar';
-import SideMenu from '../../components/SideMenu';
-import Header from '../../components/Header';
+import AppNavbar from '../../../components/AppNavbar';
+import SideMenu from '../../../components/SideMenu';
+import Header from '../../../components/Header';
 import { TaskForm } from './components/TaskForm';
 
 export default function Task({ taskData }) {

@@ -11,7 +11,7 @@ export async function GET(request) {
             taskRecord.id == taskId.toLowerCase()
         )
 
-        return Response.json({ task })
+        return Response.json(task)
     }
 
     // TODO: Replace with db query

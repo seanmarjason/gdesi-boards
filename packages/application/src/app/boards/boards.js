@@ -6,18 +6,13 @@ import { alpha } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
-// import { ThemeProvider } from '@material-ui/core/styles';
+import { ThemeProvider } from '@mui/material/styles';
 
 import AppNavbar from '../components/AppNavbar';
 import Header from '../components/Header';
 import MainGrid from './components/MainGrid';
 import SideMenu from '../components/SideMenu';
 import { theme } from '../shared-theme/AppTheme';
-
-const xThemeComponents = {
-};
-
 
 export default function Boards({ board }) {
     return (

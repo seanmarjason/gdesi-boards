@@ -1,0 +1,10 @@
+{
+  "name": "@gdesi-boards/database",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {},
+  "dependencies": {
+    "postgres": "^3.4.5"
+  },
+  "devDependencies": {}
+}

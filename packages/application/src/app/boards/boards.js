@@ -15,13 +15,11 @@ import MainGrid from './components/MainGrid';
 import SideMenu from '../components/SideMenu';
 import { theme } from '../shared-theme/AppTheme';
 
-import { board } from '../../data/boards';
-
 const xThemeComponents = {
 };
 
 
-export default function Boards() {
+export default function Boards({ board }) {
     return (
         
     <ThemeProvider

@@ -49,11 +49,12 @@ export default function MainGrid({ data=[] }) {
   }
 
   return (
-    <Box sx={{ 
-      width: '100%', 
-      maxWidth: { sm: '100%', md: '1700px' },
-      height: '100%',
-      }}
+    <Box 
+      // sx={{ 
+      //   width: '100%', 
+      //   maxWidth: { sm: '100%', md: '1700px' },
+      //   height: '100%',
+      //   }}
     >
       {/* columns */}
       <Typography component="h2" variant="h6" sx={{ mb: 2 }}>

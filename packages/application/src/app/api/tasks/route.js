@@ -4,17 +4,18 @@ export async function GET(request) {
     const searchParams = request.nextUrl.searchParams
 
     if (searchParams) {
+        // GET specific task by id
         const taskId = searchParams.get('task-id')
 
-        // TODO: Replace with db query
-        const task = tasks.find(taskRecord => 
-            taskRecord.id == taskId.toLowerCase()
-        )
-
-        return Response.json(task)
+        if (taskId) {
+            const task = tasks.find(taskRecord => 
+                taskRecord.id == taskId.toLowerCase()
+            )
+            return Response.json(task)
+        }
     }
 
-    // TODO: Replace with db query
+    // GET all tasks
     return Response.json({ tasks })
 
 }

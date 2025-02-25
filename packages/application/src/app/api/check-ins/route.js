@@ -12,8 +12,8 @@ export async function GET(request) {
       }
       else {
         // GET list of check-ins (specific page)
-        searchPage = searchParams.get('page')
-        searchLimit = searchParams.get('limit')
+        let searchPage = searchParams.get('page')
+        let searchLimit = searchParams.get('limit')
 
         if ( (searchPage && searchPage < 10) && ( searchLimit && searchLimit < 50 )) {
           page = searchPage

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import dayjs from 'dayjs';
+import 'dayjs/locale/en-gb';
 
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
@@ -102,7 +103,7 @@ export const TaskForm = ({ task }) => {
                 <br />
 
                 <InputLabel id="task-deadline-label">Deadline</InputLabel>
-                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale={'en-gb'}>
                     <DatePicker 
                         value={deadline}
                         disablePast

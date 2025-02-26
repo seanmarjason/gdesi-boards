@@ -5,6 +5,12 @@ import { useState } from "react";
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemButton from '@mui/material/ListItemButton';
+import ListItemText from '@mui/material/ListItemText';
+import Avatar from '@mui/material/Avatar';
+import ImageIcon from '@mui/icons-material/Image';
 import Grid from '@mui/material/Grid2';
 import { ThemeProvider } from '@mui/material/styles';
 
@@ -15,6 +21,7 @@ import { theme } from '../../shared-theme/AppTheme';
 
 import CheckInRecord from "./components/CheckInRecord";
 import CheckInForm from "./components/CheckInForm";
+import { Card } from "@mui/material";
 
 export default function CheckIn({ checkIns }) {
 
@@ -57,7 +64,7 @@ export default function CheckIn({ checkIns }) {
                 <Grid container spacing={1}>
 
                     {/* FORM ELEMENT */}
-                    <Grid size={10}>
+                    <Grid size={8}>
                         {/* <div>Form</div> */}
                         { 
                             pastCheckIn
@@ -68,8 +75,36 @@ export default function CheckIn({ checkIns }) {
 
 
                     {/* LIST ELEMENT */}
-                    <Grid size={2}>
-                        <div>List</div>
+                    <Grid size={4}>
+                        {/* <div>List</div> */}
+                            { console.log("CHECKINS", checkIns)}
+                            <List component="nav" sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+                            {
+                                !pastCheckIn && 
+                                <ListItem>
+                                    <ListItemButton
+                                        selected
+                                        onClick={(event) => console.log(`Click`)}
+                                    >
+                                        <ListItemText primary={"New"} secondary={"Rating:"} />
+                                    </ListItemButton>
+                                </ListItem>
+                            }
+                            {
+                                checkIns.data.map((checkIn, index) => {
+                                    return (
+                                        <ListItem>
+                                            <ListItemButton
+                                                // selected
+                                                onClick={(event) => console.log(`Click`)}
+                                            >
+                                                <ListItemText primary={checkIn.date} secondary={`Rating: ${checkIn.rating}`} />
+                                            </ListItemButton>
+                                        </ListItem>
+                                    )
+                                })
+                            }
+                            </List>
                     </Grid>
 
                 </Grid>

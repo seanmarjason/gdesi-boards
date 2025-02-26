@@ -7,7 +7,8 @@ export async function GET(request) {
       let limit = 10
 
       // GET list of check-ins (default - first page)
-      if (!searchParams) {
+      console.log("searchParams", searchParams)
+      if (Object.keys(searchParams).length === 0) {
         return Response.json(checkIns)
       }
       else {

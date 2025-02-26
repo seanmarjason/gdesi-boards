@@ -23,10 +23,14 @@ export async function GET(request) {
 
         // GET specific task
         const id = searchParams.get('id')
-        console.log("ID:", id)
         if (id) {
-          console.log(`GET checkin ${id}`)
-          return Response.json(checkIn)
+          const item = checkIn.find(item => item.id === id);
+          if (item) {
+            return Response.json(item)
+          }
+          else {
+            return Response.json(checkIn[0])
+          }
         }
       }
 

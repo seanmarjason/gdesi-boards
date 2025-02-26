@@ -12,6 +12,7 @@ import ListItemText from '@mui/material/ListItemText';
 import Avatar from '@mui/material/Avatar';
 import ImageIcon from '@mui/icons-material/Image';
 import Grid from '@mui/material/Grid2';
+import Link from '@mui/material/Link';
 import { ThemeProvider } from '@mui/material/styles';
 
 import AppNavbar from '../../components/AppNavbar';
@@ -77,7 +78,6 @@ export default function CheckIn({ checkIns, pastCheckIn='' }) {
                     {/* LIST ELEMENT */}
                     <Grid size={4}>
                         {/* <div>List</div> */}
-                            { console.log("CHECKINS", checkIns)}
                             <List component="nav" sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
                             {
                                 // !selectedCheckIn && 
@@ -95,10 +95,12 @@ export default function CheckIn({ checkIns, pastCheckIn='' }) {
                                     return (
                                         <ListItem key={index}>
                                             <ListItemButton
-                                                selected={pastCheckIn && checkIn.id == selectedCheckIn.id}
+                                                selected={selectedCheckIn && checkIn.id == selectedCheckIn.id}
                                                 onClick={(event) => console.log(`Click`)}
                                             >
-                                                <ListItemText primary={checkIn.date} secondary={`Rating: ${checkIn.rating}`} />
+                                                <Link href={`/check-ins/${checkIn.id}`} >
+                                                    <ListItemText primary={checkIn.date} secondary={`Rating: ${checkIn.rating}`} />
+                                                </Link>
                                             </ListItemButton>
                                         </ListItem>
                                     )

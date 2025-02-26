@@ -26,16 +26,17 @@ export const checkIn = {
     id: '11',
     date: '2025-02-28 02:00:00',
     rating: 3,
-    thisWeek: {
-        tasksCompleted: ['xyz-456'],
-        tasksStarted: ['abc-456'],
-        tasksIntroduced: ['abc-123'],
-        tasksNotProgressed: ['some-task'],
-        comments: ["I'm not sure what to say in this comment"]
-    },
-    nextWeek: {
-        due: ['abc-456'],
-        comments: []
-    },
-    other: []
+    tasksCompleted: [
+        { id: 'XYZ-456', title: 'Project Strategy', type: 'Document', assignee: 'Bob Dylan' },
+        { id: 'XYZ-457', title: 'Other Project Thing', type: 'Document', assignee: 'Bob Dylan' }
+    ],
+    tasksStarted: [],
+    tasksIntroduced: [
+        { id: 'abc-123', title: 'Something', type: 'Document', assignee: 'Bob Dylan' }
+    ],
+    tasksNotProgressed: [],
+    tasksDueNext: [
+        { id: 'efg-123', title: 'Something', type: 'Meeting', assignee: 'Mr Miyagi' }
+    ],
+    comments: ["I'm not sure what to say in this comment"]
 }

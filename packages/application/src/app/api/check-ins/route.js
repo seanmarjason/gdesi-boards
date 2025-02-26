@@ -7,8 +7,7 @@ export async function GET(request) {
       let limit = 10
 
       // GET list of check-ins (default - first page)
-      console.log("searchParams", searchParams)
-      if (Object.keys(searchParams).length === 0) {
+      if (searchParams.size === 0) {
         return Response.json(checkIns)
       }
       else {
@@ -24,6 +23,7 @@ export async function GET(request) {
 
         // GET specific task
         const id = searchParams.get('id')
+        console.log("ID:", id)
         if (id) {
           console.log(`GET checkin ${id}`)
           return Response.json(checkIn)

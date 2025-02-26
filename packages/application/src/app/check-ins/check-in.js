@@ -23,9 +23,9 @@ import CheckInRecord from "./components/CheckInRecord";
 import CheckInForm from "./components/CheckInForm";
 import { Card } from "@mui/material";
 
-export default function CheckIn({ checkIns }) {
+export default function CheckIn({ checkIns, pastCheckIn='' }) {
 
-    const [pastCheckIn, setPastCheckIn] = useState('')
+    const [selectedCheckIn, setSelectedCheckIn] = useState(pastCheckIn)
 
     return (
         
@@ -67,8 +67,8 @@ export default function CheckIn({ checkIns }) {
                     <Grid size={8}>
                         {/* <div>Form</div> */}
                         { 
-                            pastCheckIn
-                            ? <CheckInRecord checkIn={ pastCheckIn }/>
+                            selectedCheckIn
+                            ? <CheckInRecord checkIn={ selectedCheckIn }/>
                             : <CheckInForm />
                         }
                     </Grid>
@@ -80,10 +80,10 @@ export default function CheckIn({ checkIns }) {
                             { console.log("CHECKINS", checkIns)}
                             <List component="nav" sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
                             {
-                                !pastCheckIn && 
+                                // !selectedCheckIn && 
                                 <ListItem>
                                     <ListItemButton
-                                        selected
+                                        selected={!selectedCheckIn}
                                         onClick={(event) => console.log(`Click`)}
                                     >
                                         <ListItemText primary={"New"} secondary={"Rating:"} />
@@ -93,7 +93,7 @@ export default function CheckIn({ checkIns }) {
                             {
                                 checkIns.data.map((checkIn, index) => {
                                     return (
-                                        <ListItem>
+                                        <ListItem key={index}>
                                             <ListItemButton
                                                 // selected
                                                 onClick={(event) => console.log(`Click`)}

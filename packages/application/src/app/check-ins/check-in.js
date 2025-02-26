@@ -95,7 +95,7 @@ export default function CheckIn({ checkIns, pastCheckIn='' }) {
                                     return (
                                         <ListItem key={index}>
                                             <ListItemButton
-                                                // selected
+                                                selected={pastCheckIn && checkIn.id == selectedCheckIn.id}
                                                 onClick={(event) => console.log(`Click`)}
                                             >
                                                 <ListItemText primary={checkIn.date} secondary={`Rating: ${checkIn.rating}`} />
@@ -108,8 +108,6 @@ export default function CheckIn({ checkIns, pastCheckIn='' }) {
                     </Grid>
 
                 </Grid>
-
-                {/* <MainGrid data={board.columns}/> */}
 
             </Stack>
             </Box>

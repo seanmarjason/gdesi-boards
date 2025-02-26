@@ -10,6 +10,10 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import Typography from '@mui/material/Typography';
 import InputLabel from '@mui/material/InputLabel';
 import Rating from '@mui/material/Rating';
+import Stack from '@mui/material/Stack';
+import TextField from '@mui/material/TextField';
+import Button from '@mui/material/Button';
+
 import CheckInTaskCard from "./CheckInTaskCard";
 
 
@@ -18,6 +22,7 @@ export default function CheckInForm() {
     const [submitDate, setSubmitDate] = useState(dayjs())
     const [rating, setRating] = useState(0)
     const [thisWeekTasks, setThisWeekTasks] = useState([])
+    const [comments, setComments] = useState('')
 
     useEffect(() => {
         async function fetchThisWeekTasks() {
@@ -27,6 +32,10 @@ export default function CheckInForm() {
         }
         fetchThisWeekTasks()
       }, [])
+
+    const submitCheckIn = () => {
+        console.log("Submit")
+    }
 
     return (
         <div>
@@ -61,19 +70,22 @@ export default function CheckInForm() {
                 </Typography>
 
                 <InputLabel id="checkin-tasksCompleted-label">Tasks Completed</InputLabel>
+                <Stack direction="row" spacing={2}>
                 {                    
-                    thisWeekTasks 
+                    thisWeekTasks && thisWeekTasks.tasksCompleted?.length > 0
                         ? thisWeekTasks.tasksCompleted?.map((task, index) => {
                             return (
                                 <CheckInTaskCard task={task} index={index} key={index}/>
                             )
                         })
                         : <p>nil</p>
-                }
+                    }
+                </Stack>
 
                 <InputLabel id="checkin-tasksStarted-label">Tasks Started</InputLabel>
+                <Stack direction="row" spacing={2}>
                 {                    
-                    thisWeekTasks 
+                    thisWeekTasks && thisWeekTasks.tasksStarted?.length > 0
                         ? thisWeekTasks.tasksStarted?.map((task, index) => {
                             return (
                                 <CheckInTaskCard task={task} index={index} key={index}/>
@@ -81,10 +93,12 @@ export default function CheckInForm() {
                         })
                         : <p>nil</p>
                 }
+                </Stack>
 
                 <InputLabel id="checkin-tasksIntroduced-label">Tasks Introduced</InputLabel>
+                <Stack direction="row" spacing={2}>
                 {                    
-                    thisWeekTasks 
+                    thisWeekTasks && thisWeekTasks.tasksIntroduced?.length > 0
                         ? thisWeekTasks.tasksIntroduced?.map((task, index) => {
                             return (
                                 <CheckInTaskCard task={task} index={index} key={index}/>
@@ -92,10 +106,12 @@ export default function CheckInForm() {
                         })
                         : <p>nil</p>
                 }
+                </Stack>
 
                 <InputLabel id="checkin-tasksNotProgressed-label">Tasks Not Progressed</InputLabel>
+                <Stack direction="row" spacing={2}>
                 {                    
-                    thisWeekTasks 
+                    thisWeekTasks && thisWeekTasks.tasksNotProgressed?.length > 0
                         ? thisWeekTasks.tasksNotProgressed?.map((task, index) => {
                             return (
                                 <CheckInTaskCard task={task} index={index} key={index}/>
@@ -103,6 +119,42 @@ export default function CheckInForm() {
                         })
                         : <p>nil</p>
                 }
+                </Stack>
+
+
+                <Typography variant="h3">
+                    Next Week
+                </Typography>
+
+                <InputLabel id="checkin-tasksDue-label">Tasks Due</InputLabel>
+                <Stack direction="row" spacing={2}>
+                {                    
+                    thisWeekTasks && thisWeekTasks.tasksDueNext?.length > 0
+                        ? thisWeekTasks.tasksDueNext?.map((task, index) => {
+                            return (
+                                <CheckInTaskCard task={task} index={index} key={index}/>
+                            )
+                        })
+                        : <p>nil</p>
+                }
+                </Stack>
+
+
+                <InputLabel id="checkin-comments-label">Comments</InputLabel>
+                <TextField
+                    fullWidth
+                    multiline
+                    // minRows={4} //TODO: Fix styling causing multiline to not expand
+                    id="checkin-comments"
+                    value={comments}
+                    onChange={(event) => {
+                        setComments(event.target.value)
+                    }}
+                />
+
+                <Button variant="contained" color="secondary" onClick={() => { submitCheckIn()} }>
+                Submit Check-in
+                </Button>
             
             </form>
 

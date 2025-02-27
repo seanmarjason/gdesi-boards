@@ -8,18 +8,18 @@ import Stack from '@mui/material/Stack';
 import Link from '@mui/material/Link';
 
 import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
-import AnalyticsRoundedIcon from '@mui/icons-material/AnalyticsRounded';
-import PeopleRoundedIcon from '@mui/icons-material/PeopleRounded';
-import AssignmentRoundedIcon from '@mui/icons-material/AssignmentRounded';
-import SettingsRoundedIcon from '@mui/icons-material/SettingsRounded';
-import InfoRoundedIcon from '@mui/icons-material/InfoRounded';
-import HelpRoundedIcon from '@mui/icons-material/HelpRounded';
+
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import TaskIcon from '@mui/icons-material/Task';
+import ChecklistIcon from '@mui/icons-material/Checklist';
+import SummarizeIcon from '@mui/icons-material/Summarize';
+
 
 const mainListItems = [
-  { text: 'Home', link: '/boards', icon: <HomeRoundedIcon /> },
-  { text: 'Tasks', link: '/tasks', icon: <AnalyticsRoundedIcon /> },
-  { text: 'Check Ins', link: '/check-ins', icon: <PeopleRoundedIcon /> },
-  { text: 'Reports', link: '/reports', icon: <AssignmentRoundedIcon /> },
+  { text: 'Boards', link: '/boards', icon: <DashboardIcon /> },
+  { text: 'Tasks', link: '/tasks', icon: <TaskIcon /> },
+  { text: 'Check Ins', link: '/check-ins', icon: <ChecklistIcon /> },
+  { text: 'Reports', link: '/reports', icon: <SummarizeIcon /> },
 ];
 
 // const secondaryListItems = [

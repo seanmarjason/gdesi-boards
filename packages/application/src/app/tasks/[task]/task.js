@@ -42,7 +42,7 @@ export default function Task({ taskData }) {
                         }}
                     >
                         {/* Main content */}
-                        <Header navigation={['Boards', 'Tasks', `${taskData.id}`]}/>
+                        <Header navigation={['Tasks', `${taskData.id}`]}/>
 
                         <TaskForm task={ taskData } />
 

@@ -1,7 +1,5 @@
 'use client'
 
-import { useRouter } from 'next/navigation'
-
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
@@ -13,25 +11,8 @@ import AppNavbar from '../../components/AppNavbar';
 import SideMenu from '../../components/SideMenu';
 import Header from '../../components/Header';
 
-import { DataGrid } from '@mui/x-data-grid';
 
-
-export default function TaskList({ taskData }) {
-    const router = useRouter()    
-
-    const columns = [
-        { field: 'id', headerName: 'ID', width: 90 },
-        { field: 'title', headerName: 'Title', width: 150 },
-        { field: 'type', headerName: 'Type', width: 150 },
-        { field: 'status', headerName: 'Status', width: 150 },
-        { field: 'deadline', headerName: 'Deadline', width: 150 },
-    ]
-
-    const rows = taskData
-
-    const handleEvent = (params) => {
-        router.push(`/tasks/${params.id}`)
-    };
+export default function TaskList({ }) {
 
     return (
         <ThemeProvider
@@ -62,27 +43,9 @@ export default function TaskList({ taskData }) {
                         }}
                     >
                         {/* Main content */}
-                        <Header navigation={['Tasks']}/>
+                        <Header navigation={['Boards', 'Reports']}/>
 
-                        {/* <TaskForm task={ taskData } /> */}
-
-                        <Box sx={{ width: '100%' }}>
-                            <DataGrid
-                                rows={rows}
-                                columns={columns}
-                                initialState={{
-                                pagination: {
-                                    paginationModel: {
-                                    pageSize: 20,
-                                    },
-                                },
-                                }}
-                                pageSizeOptions={[5]}
-                                disableRowSelectionOnClick
-                                onRowClick={handleEvent}
-                            />
-                        </Box>
-
+                        {/* INSERT STUFF HERE */}
 
                     </Stack>
                 </Box>

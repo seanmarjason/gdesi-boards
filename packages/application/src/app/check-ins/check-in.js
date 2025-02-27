@@ -60,7 +60,7 @@ export default function CheckIn({ checkIns, pastCheckIn='' }) {
                 }
                 }
             >
-                <Header />
+                <Header navigation={['Check-Ins']}/>
 
                 <Grid container spacing={1}>
 

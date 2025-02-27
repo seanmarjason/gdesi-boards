@@ -52,7 +52,7 @@ export default function SideMenu() {
           flexDirection: 'column',
         }}
       >
-        {/* <MenuContent /> */}
+        <MenuContent />
       </Box>
       <Stack
         direction="row"

@@ -16,7 +16,7 @@ export async function GET(request) {
     }
 
     // GET all tasks
-    return Response.json({ tasks })
+    return Response.json(tasks)
 
 }
 

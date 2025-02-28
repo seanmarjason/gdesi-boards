@@ -61,9 +61,6 @@ export default function MainGrid({ data=[] }) {
         Your Team's Work
       </Typography>
 
-      {console.log("columns", columns)}
-      
-
       <DragDropContext
         onDragEnd={
           handleOnDragEnd

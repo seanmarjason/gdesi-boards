@@ -1,5 +1,7 @@
 'use client'
 
+import { useRouter } from 'next/navigation'
+
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
@@ -11,8 +13,26 @@ import AppNavbar from '../../components/AppNavbar';
 import SideMenu from '../../components/SideMenu';
 import Header from '../../components/Header';
 
+import { DataGrid } from '@mui/x-data-grid';
 
-export default function TaskList({ }) {
+
+export default function Reports({ teamActivity }) {
+        const router = useRouter()    
+    
+        const columns = [
+            { field: 'id', headerName: 'Id', width: 90 },
+            { field: 'name', headerName: 'Name', width: 90 },
+            { field: 'date', headerName: 'Date', width: 150 },
+            { field: 'rating', headerName: 'Rating', width: 150 },
+        ]
+
+        console.log("teamActivity", teamActivity)
+
+        const rows = teamActivity
+    
+        const handleEvent = (params) => {
+            router.push(`/check-ins/${params.id}`)
+        };
 
     return (
         <ThemeProvider
@@ -46,6 +66,23 @@ export default function TaskList({ }) {
                         <Header navigation={['Boards', 'Reports']}/>
 
                         {/* INSERT STUFF HERE */}
+
+                        <Box sx={{ width: '100%' }}>
+                            <DataGrid
+                                rows={rows}
+                                columns={columns}
+                                initialState={{
+                                pagination: {
+                                    paginationModel: {
+                                    pageSize: 20,
+                                    },
+                                },
+                                }}
+                                pageSizeOptions={[5]}
+                                disableRowSelectionOnClick
+                                onRowClick={handleEvent}
+                            />
+                        </Box>
 
                     </Stack>
                 </Box>

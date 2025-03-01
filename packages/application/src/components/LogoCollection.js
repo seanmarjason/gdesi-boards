@@ -31,7 +31,7 @@ const logoStyle = {
 
 export default function LogoCollection() {
   const theme = useTheme();
-  const logos = theme.palette.mode === 'light' ? darkLogos : whiteLogos;
+  const logos = darkLogos;
 
   return (
     <Box id="logoCollection" sx={{ py: 4 }}>

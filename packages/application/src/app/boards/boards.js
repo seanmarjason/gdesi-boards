@@ -1,12 +1,13 @@
 'use client'
 
-import * as React from 'react';
+import { useState, useEffect } from "react";
 
 import { alpha } from '@mui/material/styles';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import { ThemeProvider } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 
 import AppNavbar from '../../components/AppNavbar';
 import Header from '../../components/Header';
@@ -14,9 +15,28 @@ import MainGrid from './components/MainGrid';
 import SideMenu from '../../components/SideMenu';
 import { theme } from '../../shared-theme/AppTheme';
 
-export default function Boards({ board }) {
+export default function Boards(props) {
+
+    const [board, setBoard] = useState()
+
+    useEffect(() => {
+        async function fetchData() {
+            const res = await fetch('/api/boards')
+            const data = await res.json()
+            setBoard(data)
+        }
+        fetchData()
+    }, [])
+
+    if (!board || Object.keys(board).length == 0) {
+        return (
+            <Typography element="h1" variant="h6">
+                Loading...
+            </Typography>
+        )
+    }
+
     return (
-        
     <ThemeProvider
         theme={theme}
         >

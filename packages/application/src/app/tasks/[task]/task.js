@@ -1,9 +1,12 @@
 'use client'
 
+import { useState, useEffect } from "react";
+
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import { ThemeProvider } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 
 import { theme } from '../../../shared-theme/AppTheme';
 
@@ -12,7 +15,27 @@ import SideMenu from '../../../components/SideMenu';
 import Header from '../../../components/Header';
 import { TaskForm } from './components/TaskForm';
 
-export default function Task({ taskData }) {
+export default function Task({ task }) {
+
+    const [taskData, setTaskData] = useState()
+
+    useEffect(() => {
+        async function fetchData() {
+            const res = await fetch(`/api/tasks?task-id=${task}`)
+            const data = await res.json()
+            setTaskData(data)
+        }
+        fetchData()
+    }, [])
+
+    if (!taskData || Object.keys(taskData).length == 0) {
+        return (
+            <Typography element="h1" variant="h6">
+                Loading...
+            </Typography>
+        )
+    }
+
     return (
         <ThemeProvider
             theme={theme}

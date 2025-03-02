@@ -1,11 +1,13 @@
 'use client'
 
+import { useState, useEffect } from "react";
 import { useRouter } from 'next/navigation'
 
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import { ThemeProvider } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 
 import { theme } from '../../shared-theme/AppTheme';
 
@@ -16,8 +18,27 @@ import Header from '../../components/Header';
 import { DataGrid } from '@mui/x-data-grid';
 
 
-export default function TaskList({ taskData }) {
+export default function TaskList(props) {
     const router = useRouter()    
+
+    const [taskData, setTaskData] = useState()
+
+    useEffect(() => {
+        async function fetchData() {
+            const res = await fetch('/api/tasks')
+            const data = await res.json()
+            setTaskData(data)
+        }
+        fetchData()
+    }, [])
+
+    if (!taskData || Object.keys(taskData).length == 0) {
+        return (
+            <Typography element="h1" variant="h6">
+                Loading...
+            </Typography>
+        )
+    }
 
     const columns = [
         { field: 'id', headerName: 'ID', width: 90 },

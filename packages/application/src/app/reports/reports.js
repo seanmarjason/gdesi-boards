@@ -1,11 +1,13 @@
 'use client'
 
+import { useState, useEffect } from "react";
 import { useRouter } from 'next/navigation'
 
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import { ThemeProvider } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 
 import { theme } from '../../shared-theme/AppTheme';
 
@@ -16,23 +18,40 @@ import Header from '../../components/Header';
 import { DataGrid } from '@mui/x-data-grid';
 
 
-export default function Reports({ teamActivity }) {
-        const router = useRouter()    
-    
-        const columns = [
-            { field: 'id', headerName: 'Id', width: 90 },
-            { field: 'name', headerName: 'Name', width: 90 },
-            { field: 'date', headerName: 'Date', width: 150 },
-            { field: 'rating', headerName: 'Rating', width: 150 },
-        ]
+export default function Reports(props) {
+    const router = useRouter()
 
-        console.log("teamActivity", teamActivity)
+    const [teamActivity, setTeamActivity] = useState()
 
-        const rows = teamActivity
+    useEffect(() => {
+        async function fetchData() {
+            const res = await fetch('/api/activity?team')
+            const data = await res.json()
+            setTeamActivity(data)
+        }
+        fetchData()
+    }, [])
+
+    if (!teamActivity || Object.keys(teamActivity).length == 0) {
+        return (
+            <Typography element="h1" variant="h6">
+                Loading...
+            </Typography>
+        )
+    }
     
-        const handleEvent = (params) => {
-            router.push(`/check-ins/${params.id}`)
-        };
+    const columns = [
+        { field: 'id', headerName: 'Id', width: 90 },
+        { field: 'name', headerName: 'Name', width: 90 },
+        { field: 'date', headerName: 'Date', width: 150 },
+        { field: 'rating', headerName: 'Rating', width: 150 },
+    ]
+
+    const rows = teamActivity
+
+    const handleEvent = (params) => {
+        router.push(`/check-ins/${params.id}`)
+    };
 
     return (
         <ThemeProvider
@@ -64,8 +83,6 @@ export default function Reports({ teamActivity }) {
                     >
                         {/* Main content */}
                         <Header navigation={['Boards', 'Reports']}/>
-
-                        {/* INSERT STUFF HERE */}
 
                         <Box sx={{ width: '100%' }}>
                             <DataGrid

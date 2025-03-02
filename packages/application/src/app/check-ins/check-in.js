@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
@@ -14,6 +14,7 @@ import ImageIcon from '@mui/icons-material/Image';
 import Grid from '@mui/material/Grid2';
 import Link from '@mui/material/Link';
 import { ThemeProvider } from '@mui/material/styles';
+import Typography from '@mui/material/Typography';
 
 import AppNavbar from '../../components/AppNavbar';
 import Header from '../../components/Header';
@@ -24,9 +25,30 @@ import CheckInRecord from "./components/CheckInRecord";
 import CheckInForm from "./components/CheckInForm";
 import { Card } from "@mui/material";
 
-export default function CheckIn({ checkIns, pastCheckIn='' }) {
+export default function CheckIn({ pastCheckIn='' }) {
 
-    const [selectedCheckIn, setSelectedCheckIn] = useState(pastCheckIn)
+    const [checkIns, setCheckIns] = useState()
+
+    useEffect(() => {
+        async function fetchData() {
+            const res = await fetch('/api/check-ins')
+            const data = await res.json()
+            setCheckIns(data)
+        }
+        fetchData()
+    }, [])
+
+    if (!checkIns || Object.keys(checkIns).length == 0) {
+        return (
+            <Typography element="h1" variant="h6">
+                Loading...
+            </Typography>
+        )
+    }
+
+    const selectedCheckIn = pastCheckIn 
+        ? checkIns.data.find(checkIn => checkIn.id == pastCheckIn) 
+        : ''
 
     return (
         

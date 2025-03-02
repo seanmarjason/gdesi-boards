@@ -11,7 +11,7 @@ import { DragDropContext } from '@hello-pangea/dnd';
 
 import { Column } from './Column';
 
-export default function MainGrid({ data=[] }) {
+export default function MainGrid({ data }) {
 
   const [columns, setColumns] = useState(data)
 

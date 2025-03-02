@@ -8,6 +8,7 @@
   "private": true,
   "workspaces": ["packages/*"],
   "scripts": {
-    "dev": "yarn workspace @gdesi-boards/frontend dev"
+    "dev": "yarn workspace @gdesi-boards/frontend dev",
+    "build": "yarn workspace @gdesi-boards/frontend build"
   }
 }

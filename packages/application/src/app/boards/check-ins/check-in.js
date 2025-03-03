@@ -23,7 +23,6 @@ import CheckInRecord from "../../../components/CheckInRecord";
 import CheckInForm from "../../../components/CheckInForm";
 
 import { theme } from '../../../shared-theme/AppTheme';
-import { Card } from "@mui/material";
 
 export default function CheckIn({ pastCheckIn='' }) {
 
@@ -51,12 +50,6 @@ export default function CheckIn({ pastCheckIn='' }) {
         : ''
 
     return (
-        
-    <ThemeProvider
-        theme={theme}
-        >
-
-        <CssBaseline enableColorScheme />
         <Box sx={{ display: 'flex' }}>
             <SideMenu />
             <AppNavbar />
@@ -65,10 +58,6 @@ export default function CheckIn({ pastCheckIn='' }) {
             component="main"
             sx={(theme) => ({
               flexGrow: 1,
-            //   backgroundColor: theme.vars
-            //     ? `rgba(${theme.vars.palette.background.defaultChannel} / 1)`
-            //     : alpha(theme.palette.background.default, 1),
-            //   height: '100vh'
             })}
             >
             <Stack
@@ -88,7 +77,6 @@ export default function CheckIn({ pastCheckIn='' }) {
 
                     {/* FORM ELEMENT */}
                     <Grid size={8}>
-                        {/* <div>Form</div> */}
                         { 
                             selectedCheckIn
                             ? <CheckInRecord checkIn={ selectedCheckIn }/>
@@ -99,10 +87,8 @@ export default function CheckIn({ pastCheckIn='' }) {
 
                     {/* LIST ELEMENT */}
                     <Grid size={4}>
-                        {/* <div>List</div> */}
                             <List component="nav" sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
                             {
-                                // !selectedCheckIn && 
                                 <ListItem>
                                     <ListItemButton
                                         selected={!selectedCheckIn}
@@ -136,7 +122,5 @@ export default function CheckIn({ pastCheckIn='' }) {
             </Stack>
             </Box>
         </Box>
-        </ThemeProvider>
-
     )
 }

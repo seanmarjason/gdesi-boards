@@ -3,13 +3,9 @@
 import { useState, useEffect } from "react";
 import { useRouter } from 'next/navigation'
 
-import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
-import { ThemeProvider } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-
-import { theme } from '../../../shared-theme/AppTheme';
 
 import AppNavbar from '../../../components/AppNavbar';
 import SideMenu from '../../../components/SideMenu';
@@ -51,14 +47,10 @@ export default function TaskList(props) {
     const rows = taskData
 
     const handleEvent = (params) => {
-        router.push(`/tasks/${params.id}`)
+        router.push(`/boards/tasks/${params.id}`)
     };
 
     return (
-        <ThemeProvider
-            theme={theme}
-        >
-            <CssBaseline enableColorScheme />
             <Box sx={{ display: 'flex' }}>
                 <SideMenu />
                 <AppNavbar />
@@ -66,10 +58,6 @@ export default function TaskList(props) {
                     component="main"
                     sx={(theme) => ({
                         flexGrow: 1,
-                        // backgroundColor: theme.vars
-                        // ? `rgba(${theme.vars.palette.background.defaultChannel} / 1)`
-                        // : alpha(theme.palette.background.default, 1),
-                        // height: '100vh'
                     })}
                 >
                     <Stack
@@ -84,8 +72,6 @@ export default function TaskList(props) {
                     >
                         {/* Main content */}
                         <Header navigation={['Tasks']}/>
-
-                        {/* <TaskForm task={ taskData } /> */}
 
                         <Box sx={{ width: '100%' }}>
                             <DataGrid
@@ -103,11 +89,8 @@ export default function TaskList(props) {
                                 onRowClick={handleEvent}
                             />
                         </Box>
-
-
                     </Stack>
                 </Box>
             </Box>
-        </ThemeProvider>
     )
 }

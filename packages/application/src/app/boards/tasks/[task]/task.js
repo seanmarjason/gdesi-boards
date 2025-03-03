@@ -2,13 +2,9 @@
 
 import { useState, useEffect } from "react";
 
-import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
-import { ThemeProvider } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
-
-import { theme } from '../../../../shared-theme/AppTheme';
 
 import AppNavbar from '../../../../components/AppNavbar';
 import SideMenu from '../../../../components/SideMenu';
@@ -37,10 +33,6 @@ export default function Task({ task }) {
     }
 
     return (
-        <ThemeProvider
-            theme={theme}
-        >
-            <CssBaseline enableColorScheme />
             <Box sx={{ display: 'flex' }}>
                 <SideMenu />
                 <AppNavbar />
@@ -48,10 +40,6 @@ export default function Task({ task }) {
                     component="main"
                     sx={(theme) => ({
                         flexGrow: 1,
-                        // backgroundColor: theme.vars
-                        // ? `rgba(${theme.vars.palette.background.defaultChannel} / 1)`
-                        // : alpha(theme.palette.background.default, 1),
-                        // height: '100vh'
                     })}
                 >
                     <Stack
@@ -72,6 +60,5 @@ export default function Task({ task }) {
                     </Stack>
                 </Box>
             </Box>
-        </ThemeProvider>
     )
 }

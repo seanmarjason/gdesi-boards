@@ -2,18 +2,14 @@
 
 import { useState, useEffect } from "react";
 
-import { alpha } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
-import { ThemeProvider } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 
 import AppNavbar from '../../components/AppNavbar';
 import Header from '../../components/Header';
 import MainGrid from '../../components/MainGrid';
 import SideMenu from '../../components/SideMenu';
-import { theme } from '../../shared-theme/AppTheme';
 
 export default function Board(props) {
 
@@ -37,11 +33,6 @@ export default function Board(props) {
     }
 
     return (
-    <ThemeProvider
-        theme={theme}
-        >
-
-        <CssBaseline enableColorScheme />
         <Box sx={{ display: 'flex' }}>
             <SideMenu />
             <AppNavbar />
@@ -73,7 +64,5 @@ export default function Board(props) {
             </Stack>
             </Box>
         </Box>
-        </ThemeProvider>
-
     )
 }

@@ -1,8 +1,8 @@
-import Boards from './boards';
+import Board from './boards';
 
 export default async function BoardPage(props) {
 
   return (
-    <Boards />
+    <Board />
   );
 }

@@ -5,7 +5,7 @@ import Paper from '@mui/material/Paper';
 
 import { Droppable, Draggable } from '@hello-pangea/dnd';
 
-import { TaskCard } from './TaskCard'
+import { TaskCard } from '../components/TaskCard';
 
 export const Column = ({ column, handleColumnChange }) => {
 

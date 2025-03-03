@@ -13,7 +13,7 @@ import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 import ForgotPassword from './ForgotPassword';
 import { GoogleIcon, FacebookIcon } from './CustomIcons';
-import GdesiIcon from '../../../components/GdesiIcon';
+import GdesiIcon from './GdesiIcon';
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: 'flex',

@@ -9,48 +9,49 @@ import Stack from '@mui/material/Stack';
 import { ThemeProvider } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 
-import { theme } from '../../shared-theme/AppTheme';
+import { theme } from '../../../shared-theme/AppTheme';
 
-import AppNavbar from '../../components/AppNavbar';
-import SideMenu from '../../components/SideMenu';
-import Header from '../../components/Header';
+import AppNavbar from '../../../components/AppNavbar';
+import SideMenu from '../../../components/SideMenu';
+import Header from '../../../components/Header';
 
 import { DataGrid } from '@mui/x-data-grid';
 
 
-export default function Reports(props) {
-    const router = useRouter()
+export default function TaskList(props) {
+    const router = useRouter()    
 
-    const [teamActivity, setTeamActivity] = useState()
+    const [taskData, setTaskData] = useState()
 
     useEffect(() => {
         async function fetchData() {
-            const res = await fetch('/api/activity?team')
+            const res = await fetch('/api/tasks')
             const data = await res.json()
-            setTeamActivity(data)
+            setTaskData(data)
         }
         fetchData()
     }, [])
 
-    if (!teamActivity || Object.keys(teamActivity).length == 0) {
+    if (!taskData || Object.keys(taskData).length == 0) {
         return (
             <Typography element="h1" variant="h6">
                 Loading...
             </Typography>
         )
     }
-    
+
     const columns = [
-        { field: 'id', headerName: 'Id', width: 90 },
-        { field: 'name', headerName: 'Name', width: 90 },
-        { field: 'date', headerName: 'Date', width: 150 },
-        { field: 'rating', headerName: 'Rating', width: 150 },
+        { field: 'id', headerName: 'ID', width: 90 },
+        { field: 'title', headerName: 'Title', width: 150 },
+        { field: 'type', headerName: 'Type', width: 150 },
+        { field: 'status', headerName: 'Status', width: 150 },
+        { field: 'deadline', headerName: 'Deadline', width: 150 },
     ]
 
-    const rows = teamActivity
+    const rows = taskData
 
     const handleEvent = (params) => {
-        router.push(`/check-ins/${params.id}`)
+        router.push(`/tasks/${params.id}`)
     };
 
     return (
@@ -82,7 +83,9 @@ export default function Reports(props) {
                         }}
                     >
                         {/* Main content */}
-                        <Header navigation={['Boards', 'Reports']}/>
+                        <Header navigation={['Tasks']}/>
+
+                        {/* <TaskForm task={ taskData } /> */}
 
                         <Box sx={{ width: '100%' }}>
                             <DataGrid
@@ -100,6 +103,7 @@ export default function Reports(props) {
                                 onRowClick={handleEvent}
                             />
                         </Box>
+
 
                     </Stack>
                 </Box>

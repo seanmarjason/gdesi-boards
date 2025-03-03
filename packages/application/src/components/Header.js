@@ -1,10 +1,10 @@
 import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import NotificationsRoundedIcon from '@mui/icons-material/NotificationsRounded';
-import NavbarBreadcrumbs from '../app/boards/components/NavbarBreadcrumbs';
+import NavbarBreadcrumbs from './NavbarBreadcrumbs';
 import MenuButton from './MenuButton';
 
-import Search from '../app/boards/components/Search';
+import Search from './Search';
 
 export default function Header({ navigation }) {
   return (

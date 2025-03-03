@@ -18,10 +18,10 @@ import SummarizeIcon from '@mui/icons-material/Summarize';
 
 
 const mainListItems = [
-  { text: 'Boards', link: '/boards', icon: <DashboardIcon /> },
-  { text: 'Tasks', link: '/tasks', icon: <TaskIcon /> },
-  { text: 'Check Ins', link: '/check-ins', icon: <ChecklistIcon /> },
-  { text: 'Reports', link: '/reports', icon: <SummarizeIcon /> },
+  { text: 'Board', link: '/boards', icon: <DashboardIcon /> },
+  { text: 'Tasks', link: '/boards/tasks', icon: <TaskIcon /> },
+  { text: 'Check Ins', link: '/boards/check-ins', icon: <ChecklistIcon /> },
+  { text: 'Reports', link: '/boards/reports', icon: <SummarizeIcon /> },
 ];
 
 // const secondaryListItems = [

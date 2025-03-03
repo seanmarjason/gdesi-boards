@@ -1,11 +1,13 @@
 'use client'
 
 import * as React from 'react';
+
 import CssBaseline from '@mui/material/CssBaseline';
 import Divider from '@mui/material/Divider';
-import AppAppBar from '../components/menu/AppAppBar';
-
 import { ThemeProvider } from '@mui/material/styles';
+
+
+import AppAppBar from '../components/menu/AppAppBar';
 import { theme } from '../shared-theme/AppTheme';
 
 import Hero from '../components/Hero';

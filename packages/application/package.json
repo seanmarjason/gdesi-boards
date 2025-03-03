@@ -9,11 +9,12 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@gdesi-boards/database": "^0.1.0",
+    "@auth/pg-adapter": "^1.8.0",
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@fontsource/roboto": "^5.1.1",
+    "@gdesi-boards/database": "^0.1.0",
     "@hello-pangea/dnd": "^17.0.0",
     "@material-ui/core": "^4.12.4",
     "@mui/icons-material": "^6.4.2",
@@ -27,6 +28,8 @@
     "eslint": "latest",
     "eslint-config-next": "^15.0.0",
     "next": "15.1.6",
+    "next-auth": "^4.24.11",
+    "pg": "^8.13.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
   },

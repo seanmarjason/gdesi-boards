@@ -23,8 +23,8 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
-import { taskTypeMenuItems } from '../../../../data/tasks';
-import { boardUsers } from '../../../../data/boardUsers';
+import { taskTypeMenuItems } from '../data/tasks';
+import { boardUsers } from '../data/boardUsers';
 
 export const TaskForm = ({ task }) => {
 

@@ -1,7 +1,6 @@
 'use client'
 
 import { useState, useEffect } from "react";
-import { useRouter } from 'next/navigation'
 
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
@@ -9,23 +8,20 @@ import Stack from '@mui/material/Stack';
 import { ThemeProvider } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 
-import { theme } from '../../shared-theme/AppTheme';
+import { theme } from '../../../../shared-theme/AppTheme';
 
-import AppNavbar from '../../components/AppNavbar';
-import SideMenu from '../../components/SideMenu';
-import Header from '../../components/Header';
+import AppNavbar from '../../../../components/AppNavbar';
+import SideMenu from '../../../../components/SideMenu';
+import Header from '../../../../components/Header';
+import { TaskForm } from '../../../../components/TaskForm';
 
-import { DataGrid } from '@mui/x-data-grid';
-
-
-export default function TaskList(props) {
-    const router = useRouter()    
+export default function Task({ task }) {
 
     const [taskData, setTaskData] = useState()
 
     useEffect(() => {
         async function fetchData() {
-            const res = await fetch('/api/tasks')
+            const res = await fetch(`/api/tasks?task-id=${task}`)
             const data = await res.json()
             setTaskData(data)
         }
@@ -39,20 +35,6 @@ export default function TaskList(props) {
             </Typography>
         )
     }
-
-    const columns = [
-        { field: 'id', headerName: 'ID', width: 90 },
-        { field: 'title', headerName: 'Title', width: 150 },
-        { field: 'type', headerName: 'Type', width: 150 },
-        { field: 'status', headerName: 'Status', width: 150 },
-        { field: 'deadline', headerName: 'Deadline', width: 150 },
-    ]
-
-    const rows = taskData
-
-    const handleEvent = (params) => {
-        router.push(`/tasks/${params.id}`)
-    };
 
     return (
         <ThemeProvider
@@ -83,27 +65,9 @@ export default function TaskList(props) {
                         }}
                     >
                         {/* Main content */}
-                        <Header navigation={['Tasks']}/>
+                        <Header navigation={['Tasks', `${taskData.id}`]}/>
 
-                        {/* <TaskForm task={ taskData } /> */}
-
-                        <Box sx={{ width: '100%' }}>
-                            <DataGrid
-                                rows={rows}
-                                columns={columns}
-                                initialState={{
-                                pagination: {
-                                    paginationModel: {
-                                    pageSize: 20,
-                                    },
-                                },
-                                }}
-                                pageSizeOptions={[5]}
-                                disableRowSelectionOnClick
-                                onRowClick={handleEvent}
-                            />
-                        </Box>
-
+                        <TaskForm task={ taskData } />
 
                     </Stack>
                 </Box>

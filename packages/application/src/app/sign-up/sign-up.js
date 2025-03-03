@@ -22,7 +22,7 @@ import { theme } from '../../shared-theme/AppTheme';
 import AppAppBar from '../../components/menu/AppAppBar';
 import GdesiIcon from '../../components/GdesiIcon'
 
-import { GoogleIcon, FacebookIcon } from './components/CustomIcons';
+import { GoogleIcon, FacebookIcon } from '../../components/CustomIcons';
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: 'flex',

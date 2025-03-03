@@ -25,7 +25,7 @@ export const TaskCard = ({card, index}) => {
                     {/* <CardActionArea> */}
                             <CardContent>
                                 <Typography gutterBottom sx={{ fontSize: 14 }}>
-                                    <Link href={`/tasks/${card.id}`} underline="none" onClick={handleTaskClick}>
+                                    <Link href={`/boards/tasks/${card.id}`} underline="none" onClick={handleTaskClick}>
                                         {card.id}
                                     </Link>
                                 </Typography>

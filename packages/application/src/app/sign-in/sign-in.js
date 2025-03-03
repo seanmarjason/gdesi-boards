@@ -8,8 +8,8 @@ import { ThemeProvider } from '@mui/material/styles';
 
 import AppAppBar from '../../components/menu/AppAppBar';
 
-import SignInCard from './components/SignInCard';
-import Content from './components/Content';
+import SignInCard from '../../components/SignInCard';
+import Content from '../../components/Content';
 
 import { theme } from '../../shared-theme/AppTheme';
 

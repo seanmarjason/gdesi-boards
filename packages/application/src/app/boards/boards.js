@@ -11,11 +11,11 @@ import Typography from '@mui/material/Typography';
 
 import AppNavbar from '../../components/AppNavbar';
 import Header from '../../components/Header';
-import MainGrid from './components/MainGrid';
+import MainGrid from '../../components/MainGrid';
 import SideMenu from '../../components/SideMenu';
 import { theme } from '../../shared-theme/AppTheme';
 
-export default function Boards(props) {
+export default function Board(props) {
 
     const [board, setBoard] = useState()
 

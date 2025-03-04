@@ -15,6 +15,8 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import GdesiIcon from '../GdesiIcon';
 
+import { signIn } from 'next-auth/react';
+
 // const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 //   display: 'flex',
 //   alignItems: 'center',
@@ -81,7 +83,7 @@ export default function AppAppBar() {
             <Button component={NextLink} href="/sign-up" variant="contained" color="primary">
               Register
             </Button>
-            <Button component={NextLink} href="/sign-in" variant="contained" color="secondary">
+            <Button onClick={() => signIn()} variant="contained" color="secondary">
               Sign in
             </Button>
           </Box>
@@ -121,7 +123,7 @@ export default function AppAppBar() {
                   </Button>
                 </MenuItem>
                 <MenuItem>
-                  <Button component={NextLink} href="/sign-in" variant="contained" color="secondary">
+                  <Button onClick={() => signIn()} variant="contained" color="secondary">
                     Sign in
                   </Button>
                 </MenuItem>

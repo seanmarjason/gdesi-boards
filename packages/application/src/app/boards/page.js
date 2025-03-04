@@ -1,10 +1,13 @@
-import { auth } from '../auth';
 import Board from './boards';
+import { auth } from '../auth';
+import Unauthenticated from './unauthenticated';
 
 export default async function BoardPage(props) {
-  let session = await auth();
+  const session = await auth();
 
-  console.log(`Session:`, session)
+  if (!session) {
+    return <Unauthenticated />
+  }
 
   return (
     <Board />

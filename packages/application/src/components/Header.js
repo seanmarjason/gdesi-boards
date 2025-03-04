@@ -1,6 +1,10 @@
 import * as React from 'react';
 import Stack from '@mui/material/Stack';
+import Button from '@mui/material/Button';
 import NotificationsRoundedIcon from '@mui/icons-material/NotificationsRounded';
+
+import { signOut } from 'next-auth/react';
+
 import NavbarBreadcrumbs from './NavbarBreadcrumbs';
 import MenuButton from './MenuButton';
 
@@ -26,6 +30,9 @@ export default function Header({ navigation }) {
         <MenuButton showBadge aria-label="Open notifications">
           <NotificationsRoundedIcon />
         </MenuButton>
+        <Button onClick={() => signOut()} variant="contained" color="primary">
+            Sign out
+        </Button>
       </Stack>
     </Stack>
   );

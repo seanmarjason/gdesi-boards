@@ -14,7 +14,7 @@ import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 
-import CheckInTaskCard from "./CheckInTaskCard";
+import CheckInTaskCard from "../components/CheckInTaskCard";
 
 
 export default function CheckInForm() {

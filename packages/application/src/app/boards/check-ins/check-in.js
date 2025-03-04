@@ -106,7 +106,7 @@ export default function CheckIn({ pastCheckIn='' }) {
                                                 selected={selectedCheckIn && checkIn.id == selectedCheckIn.id}
                                                 onClick={(event) => console.log(`Click`)}
                                             >
-                                                <Link href={`/check-ins/${checkIn.id}`} >
+                                                <Link href={`/boards/check-ins/${checkIn.id}`} >
                                                     <ListItemText primary={checkIn.date} secondary={`Rating: ${checkIn.rating}`} />
                                                 </Link>
                                             </ListItemButton>

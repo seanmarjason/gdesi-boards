@@ -9,7 +9,7 @@ export default function CheckInTaskCard({task, index}) {
         <Card sx={{ minWidth: 275, maxWidth: 400 }} key={index}>
         <CardContent>
             <Typography gutterBottom sx={{ fontSize: 14 }}>
-                <Link href={`/tasks/${task.id}`} underline="none" >
+                <Link href={`/boards/tasks/${task.id}`} underline="none" >
                     {task.id}
                 </Link>
             </Typography>

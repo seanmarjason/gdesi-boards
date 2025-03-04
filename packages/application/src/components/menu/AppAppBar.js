@@ -1,5 +1,4 @@
-import * as React from 'react';
-import { styled, alpha } from '@mui/material/styles';
+import { useState } from 'react';
 import Box from '@mui/material/Box';
 import AppBar from '@mui/material/AppBar';
 import Toolbar from '@mui/material/Toolbar';
@@ -15,7 +14,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
 import GdesiIcon from '../GdesiIcon';
 
-import { signIn } from 'next-auth/react';
+import { signIn, signOut } from 'next-auth/react';
 
 // const StyledToolbar = styled(Toolbar)(({ theme }) => ({
 //   display: 'flex',
@@ -33,8 +32,8 @@ import { signIn } from 'next-auth/react';
 //   padding: '8px 12px',
 // }));
 
-export default function AppAppBar() {
-  const [open, setOpen] = React.useState(false);
+export default function AppAppBar({ user='' }) {  
+  const [open, setOpen] = useState(false);
 
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
@@ -80,12 +79,23 @@ export default function AppAppBar() {
               BOARDS
             </Button>
             <p>|</p>
-            <Button component={NextLink} href="/sign-up" variant="contained" color="primary">
-              Register
-            </Button>
-            <Button onClick={() => signIn()} variant="contained" color="secondary">
-              Sign in
-            </Button>
+
+            { 
+              user 
+              ? <>
+                  <Button onClick={() => signOut()} variant="contained" color="primary">
+                    Sign out
+                  </Button>  
+                </>
+              : <>
+                  <Button component={NextLink} href="/sign-up" variant="contained" color="primary">
+                    Register
+                  </Button>
+                  <Button onClick={() => signIn()} variant="contained" color="secondary">
+                    Sign in
+                  </Button>
+                </>
+            }
           </Box>
           <Box sx={{ display: { xs: 'flex', md: 'none' }, gap: 1 }}>
             <IconButton aria-label="Menu button" onClick={toggleDrawer(true)}>

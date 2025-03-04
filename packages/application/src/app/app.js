@@ -19,13 +19,13 @@ import Testimonials from '../components/Testimonials';
 import FAQ from '../components/FAQ';
 import Footer from '../components/Footer';
 
-export default function App(props) {
+export default function App({ session }) {
   return (
     <ThemeProvider
         theme={theme}
     >
         <CssBaseline enableColorScheme />
-        <AppAppBar />
+        <AppAppBar user={ session?.user?.email }/>
         <Hero />
         <div>
             <LogoCollection />

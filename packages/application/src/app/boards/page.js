@@ -1,4 +1,4 @@
-import { auth, signOut } from '../auth';
+import { auth } from '../auth';
 import Board from './boards';
 
 export default async function BoardPage(props) {

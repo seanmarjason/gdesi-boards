@@ -143,7 +143,7 @@ export default function Testimonials() {
                 }}
               >
                 <CardHeader
-                  avatar={testimonial.avatar}
+                  // avatar={testimonial.avatar}
                   title={testimonial.name}
                   subheader={testimonial.occupation}
                 />

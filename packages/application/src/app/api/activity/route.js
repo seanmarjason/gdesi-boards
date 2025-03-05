@@ -1,6 +1,9 @@
+import { auth } from '../../auth';
 import { weeklyActivity, teamActivity } from '../../../data/activity';
 
-export async function GET(request) {
+export const GET = auth(async function GET(request) {
+    if (!request.auth) return Response.json({ message: "Not authenticated" }, { status: 401 })
+
     const searchParams = request.nextUrl.searchParams
 
     if (searchParams) {
@@ -19,4 +22,4 @@ export async function GET(request) {
         }
     }
 
-}
+})

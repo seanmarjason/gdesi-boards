@@ -1,6 +1,9 @@
+import { auth } from '../../auth';
 import { tasks } from '../../../data/tasks';
 
-export async function GET(request) {
+export const GET = auth(async function GET(request) {
+    if (!request.auth) return Response.json({ message: "Not authenticated" }, { status: 401 })
+
     const searchParams = request.nextUrl.searchParams
 
     if (searchParams) {
@@ -18,8 +21,9 @@ export async function GET(request) {
     // GET all tasks
     return Response.json(tasks)
 
-}
+})
 
-export async function POST(request) {
+export const POST = auth(async function POST(request) {
+    if (!request.auth) return Response.json({ message: "Not authenticated" }, { status: 401 })
     // TODO: Handle change of task information (e.g. status)
-}
+})

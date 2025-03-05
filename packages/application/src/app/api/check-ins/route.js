@@ -1,6 +1,8 @@
+import { auth } from '../../auth';
 import { checkIns, checkIn } from '../../../data/checkIns';
 
-export async function GET(request) {
+export const GET = auth(async function GET(request) {
+      if (!request.auth) return Response.json({ message: "Not authenticated" }, { status: 401 })
 
       const searchParams = request.nextUrl.searchParams
       let page = 1
@@ -37,4 +39,4 @@ export async function GET(request) {
       return Response.json(
         { error: 'Invalid query parameters' }, { status: 400 } 
       )
-}
+})

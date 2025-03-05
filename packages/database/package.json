@@ -4,6 +4,7 @@
   "private": true,
   "scripts": {},
   "dependencies": {
+    "neonctl": "^2.9.0",
     "postgres": "^3.4.5"
   },
   "devDependencies": {}

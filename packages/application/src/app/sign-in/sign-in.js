@@ -14,6 +14,7 @@ import Content from '../../components/Content';
 import { theme } from '../../shared-theme/AppTheme';
 
 
+// TODO: Consider adding as custom sign in page or remove component
 export default function SignInSide(props) {
   return (
     <ThemeProvider theme={theme}>

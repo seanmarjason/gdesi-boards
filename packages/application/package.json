@@ -9,6 +9,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@auth/neon-adapter": "^1.8.0",
     "@auth/pg-adapter": "^1.8.0",
     "@emotion/cache": "^11.14.0",
     "@emotion/react": "^11.14.0",
@@ -24,6 +25,7 @@
     "@mui/x-data-grid": "^7.24.1",
     "@mui/x-date-pickers": "^7.24.1",
     "@mui/x-tree-view": "^7.24.1",
+    "@neondatabase/serverless": "^0.10.4",
     "dayjs": "^1.11.13",
     "eslint": "latest",
     "eslint-config-next": "^15.0.0",

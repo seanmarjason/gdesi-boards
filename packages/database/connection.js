@@ -2,7 +2,7 @@ import postgres from 'postgres';
 
 let { PGHOST, PGDATABASE, PGUSER, PGPASSWORD } = process.env;
 
-const sql = postgres({
+export const sql = postgres({
   host: PGHOST,
   database: PGDATABASE,
   username: PGUSER,

@@ -12,6 +12,6 @@ export default async function BoardPage(props) {
   }
 
   return (
-    <Board />
+    <Board user={session.user} />
   );
 }

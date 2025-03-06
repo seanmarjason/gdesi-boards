@@ -11,7 +11,7 @@ import Header from '../../components/Header';
 import MainGrid from '../../components/MainGrid';
 import SideMenu from '../../components/SideMenu';
 
-export default function Board(props) {
+export default function Board({ user }) {
 
     const [board, setBoard] = useState()
 
@@ -34,7 +34,7 @@ export default function Board(props) {
 
     return (
         <Box sx={{ display: 'flex' }}>
-            <SideMenu />
+            <SideMenu user={user} />
             <AppNavbar />
             {/* Main content */}
             <Box

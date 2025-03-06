@@ -18,10 +18,10 @@ import SummarizeIcon from '@mui/icons-material/Summarize';
 
 
 const mainListItems = [
-  { text: 'Board', link: '/boards', icon: <DashboardIcon /> },
-  { text: 'Tasks', link: '/boards/tasks', icon: <TaskIcon /> },
-  { text: 'Check Ins', link: '/boards/check-ins', icon: <ChecklistIcon /> },
-  { text: 'Reports', link: '/boards/reports', icon: <SummarizeIcon /> },
+  { text: 'Board', link: '/boards', icon: <DashboardIcon />, roles: ['user', 'manager', 'admin'] },
+  { text: 'Tasks', link: '/boards/tasks', icon: <TaskIcon />, roles: ['user', 'manager', 'admin'] },
+  { text: 'Check Ins', link: '/boards/check-ins', icon: <ChecklistIcon />, roles: ['user', 'manager', 'admin'] },
+  { text: 'Reports', link: '/boards/reports', icon: <SummarizeIcon />, roles: ['manager', 'admin'] },
 ];
 
 // const secondaryListItems = [
@@ -32,19 +32,21 @@ const mainListItems = [
 
 
 // TODO: Fix React Hydration error caused by Box
-export default function MenuContent() {
+export default function MenuContent({ role=null }) {
   return (
     <Stack sx={{ flexGrow: 1, p: 1, justifyContent: 'space-between' }}>
       <List dense>
-        {mainListItems.map((item, index) => (
-          <ListItem key={index} disablePadding sx={{ display: 'block' }}>
-            <Link href={item.link}>
-              <ListItemButton>
-                  <ListItemIcon>{item.icon}</ListItemIcon>
-                  <ListItemText primary={item.text} />
-              </ListItemButton>
-            </Link>
-          </ListItem>
+        {mainListItems
+          .filter(item => item.roles.includes(role))
+          .map((item, index) => (
+            <ListItem key={index} disablePadding sx={{ display: 'block' }}>
+              <Link href={item.link}>
+                <ListItemButton>
+                    <ListItemIcon>{item.icon}</ListItemIcon>
+                    <ListItemText primary={item.text} />
+                </ListItemButton>
+              </Link>
+            </ListItem>
         ))}
       </List>
       {/* <List dense>

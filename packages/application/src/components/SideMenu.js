@@ -23,7 +23,7 @@ const Drawer = styled(MuiDrawer)({
   },
 });
 
-export default function SideMenu() {
+export default function SideMenu({ user=null }) {
   return (
     <Drawer
       variant="permanent"
@@ -52,7 +52,7 @@ export default function SideMenu() {
           flexDirection: 'column',
         }}
       >
-        <MenuContent />
+        <MenuContent role={user?.role}/>
       </Box>
       <Stack
         direction="row"
@@ -66,16 +66,16 @@ export default function SideMenu() {
       >
         <Avatar
           sizes="small"
-          alt="Riley Carter"
+          alt={user.name}
           src="/static/images/avatar/7.jpg"
           sx={{ width: 36, height: 36 }}
         />
         <Box sx={{ mr: 'auto' }}>
           <Typography variant="body2" sx={{ fontWeight: 500, lineHeight: '16px' }}>
-            Riley Carter
+            {user.name}
           </Typography>
           <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-            riley@email.com
+            {user.email}
           </Typography>
         </Box>
         <OptionsMenu />

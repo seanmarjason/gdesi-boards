@@ -3,9 +3,7 @@ import Credentials from "next-auth/providers/credentials"
 import { getUser } from '@gdesi-boards/database'
 import { hashPassword, isPasswordValid } from "./utils/hashPassword"
  
-export const { handlers, signIn, signOut, auth } = NextAuth(() => {
-
-  return {
+export const { handlers, signIn, signOut, auth } = NextAuth({
     providers: [
       Credentials({
         // You can specify which fields should be submitted, by adding keys to the `credentials` object.
@@ -37,5 +35,4 @@ export const { handlers, signIn, signOut, auth } = NextAuth(() => {
         },
       }),
     ],
-  }
 })

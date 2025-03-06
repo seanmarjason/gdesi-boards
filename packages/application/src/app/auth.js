@@ -29,10 +29,23 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
           // return user object with their profile data
           return {
+            name: user.name,
             email: user.email,
-            password: user.pwhash
+            role: user.role 
           }
         },
       }),
     ],
+    callbacks: {
+      async jwt({ token, user, account, profile }) {
+        if (user) {
+          token.role = user.role
+        }
+        return token
+      },
+      async session({ session, token, user }) {
+        session.user.role = token.role
+        return session
+      }
+    }    
 })

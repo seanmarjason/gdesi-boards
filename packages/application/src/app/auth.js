@@ -23,8 +23,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           authorised = isPasswordValid(user, credentials.password)
 
           if (!user || !authorised) {
-            // No user found, so this is their first attempt to login
-            throw new Error("Invalid credentials.")
+            return null
           }
 
           // return user object with their profile data

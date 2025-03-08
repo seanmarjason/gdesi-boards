@@ -9,6 +9,7 @@
   "workspaces": ["packages/*"],
   "scripts": {
     "dev": "yarn workspace @gdesi-boards/frontend dev",
-    "build": "yarn workspace @gdesi-boards/frontend build"
+    "build": "yarn workspace @gdesi-boards/frontend build",
+    "db": "yarn neon connection-string main --database-name neondb --psql"
   }
 }

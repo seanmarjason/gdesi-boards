@@ -1,25 +1,14 @@
 import { auth } from '../../auth';
-import { getBoard, getTasksSummary } from '@gdesi-boards/database';
+import { getBoards } from '@gdesi-boards/database';
 
 
 export const GET = auth(async function GET(request) {
       if (!request.auth) return Response.json({ message: "Not authenticated" }, { status: 401 })
       
-      const boardData = await getBoard(1)
-      const tasks = await getTasksSummary(1)
+      const boards = await getBoards()
 
-      const board = {
-            id: boardData.id,
-            name: boardData.name,
-            columns: boardData.columns.map((column, index) => {
-                  return({
-                        id: index + 1,
-                        title: column,
-                        cards: tasks.filter(task => task.status == column)
-                  })
-            })
-      };
+      console.log(boards)
 
       // TODO: Handle missing board data
-      return Response.json(board) 
+      return Response.json(boards) 
 })

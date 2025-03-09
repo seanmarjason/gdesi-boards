@@ -5,26 +5,28 @@ import { useState, useEffect } from "react";
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import Card from '@mui/material/Card';
+import CardContent from '@mui/material/CardContent';
+import Link from '@mui/material/Link';
 
 import AppNavbar from '../../components/AppNavbar';
 import Header from '../../components/Header';
-import MainGrid from '../../components/MainGrid';
 import SideMenu from '../../components/SideMenu';
 
-export default function Board({ user }) {
+export default function Boards({ user }) {
 
-    const [board, setBoard] = useState()
+    const [boards, setBoards] = useState()
 
     useEffect(() => {
         async function fetchData() {
             const res = await fetch('/api/boards')
             const data = await res.json()
-            setBoard(data)
+            setBoards(data)
         }
         fetchData()
     }, [])
 
-    if (!board || Object.keys(board).length == 0) {
+    if (!boards || Object.keys(boards).length == 0) {
         return (
             <Typography element="h1" variant="h6">
                 Loading...
@@ -60,6 +62,21 @@ export default function Board({ user }) {
                 <Header />
 
                 <Typography element="h2" variant="h6">List Boards to Select</Typography>
+
+                { boards.map((board, index) => 
+                  <Card sx={{ minWidth: 275 }} key={index}>
+                    <CardContent>
+                        <Typography gutterBottom sx={{ fontSize: 14 }}>
+                            <Link href={`/boards/${board.id}`} underline="none">
+                                {board.id}
+                            </Link>
+                        </Typography>
+                        <Typography variant="h5" component="div">
+                        {board.name}
+                        </Typography>
+                    </CardContent>
+                  </Card>
+                )}
 
             </Stack>
             </Box>

@@ -16,13 +16,13 @@ import Link from '@mui/material/Link';
 import { ThemeProvider } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 
-import AppNavbar from '../../../components/AppNavbar';
-import Header from '../../../components/Header';
-import SideMenu from '../../../components/SideMenu';
-import CheckInRecord from "../../../components/CheckInRecord";
-import CheckInForm from "../../../components/CheckInForm";
+import AppNavbar from '../../../../components/AppNavbar';
+import Header from '../../../../components/Header';
+import SideMenu from '../../../../components/SideMenu';
+import CheckInRecord from "../../../../components/CheckInRecord";
+import CheckInForm from "../../../../components/CheckInForm";
 
-import { theme } from '../../../shared-theme/AppTheme';
+import { theme } from '../../../../shared-theme/AppTheme';
 
 export default function CheckIn({ pastCheckIn='' }) {
 

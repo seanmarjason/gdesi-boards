@@ -1,15 +1,17 @@
-import CheckIn from './check-in';
+import Board from './board';
 import { auth } from '../../auth';
 import Unauthenticated from '../unauthenticated';
 
-export default async function CheckInsPage(props) {
+export default async function BoardPage({ props, params }) {
   const session = await auth();
 
   if (!session) {
     return <Unauthenticated />
   }
-  
+
+  const { board } = await params
+
   return (
-    <CheckIn />
+    <Board user={session.user} boardId={board} />
   );
 }

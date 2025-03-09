@@ -23,7 +23,7 @@ const drawerWidth = 240;
 //   },
 // });
 
-export default function SideMenu({ user=null, boardName=null }) {
+export default function SideMenu({ user=null, boardName=null, showMenuContent=true}) {
   return (
     <Drawer
       variant="permanent"
@@ -52,7 +52,7 @@ export default function SideMenu({ user=null, boardName=null }) {
           flexDirection: 'column',
         }}
       >
-        <MenuContent role={user?.role}/>
+        { showMenuContent && <MenuContent role={user?.role}/> }
       </Box>
       <Stack
         direction="row"

@@ -6,18 +6,18 @@ import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-import AppNavbar from '../../components/AppNavbar';
-import Header from '../../components/Header';
-import MainGrid from '../../components/MainGrid';
-import SideMenu from '../../components/SideMenu';
+import AppNavbar from '../../../components/AppNavbar';
+import Header from '../../../components/Header';
+import MainGrid from '../../../components/MainGrid';
+import SideMenu from '../../../components/SideMenu';
 
-export default function Board({ user }) {
+export default function Board({ user, boardId }) {
 
     const [board, setBoard] = useState()
 
     useEffect(() => {
         async function fetchData() {
-            const res = await fetch('/api/boards')
+            const res = await fetch(`/api/boards/${boardId}`)
             const data = await res.json()
             setBoard(data)
         }
@@ -34,7 +34,7 @@ export default function Board({ user }) {
 
     return (
         <Box sx={{ display: 'flex' }}>
-            <SideMenu user={user} boardName={''} showMenuContent={false}/>
+            <SideMenu user={user} boardName={ board.name } />
             <AppNavbar />
             {/* Main content */}
             <Box
@@ -59,7 +59,7 @@ export default function Board({ user }) {
             >
                 <Header />
 
-                <Typography element="h2" variant="h6">List Boards to Select</Typography>
+                <MainGrid data={board.columns}/>
 
             </Stack>
             </Box>

@@ -7,9 +7,9 @@ import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-import AppNavbar from '../../../components/AppNavbar';
-import SideMenu from '../../../components/SideMenu';
-import Header from '../../../components/Header';
+import AppNavbar from '../../../../components/AppNavbar';
+import SideMenu from '../../../../components/SideMenu';
+import Header from '../../../../components/Header';
 
 import { DataGrid } from '@mui/x-data-grid';
 

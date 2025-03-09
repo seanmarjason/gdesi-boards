@@ -1,8 +1,8 @@
-import Board from './boards';
+import Boards from './boards';
 import { auth } from '../auth';
 import Unauthenticated from './unauthenticated';
 
-export default async function BoardPage(props) {
+export default async function BoardSelectionPage(props) {
   const session = await auth();
 
   if (!session) {
@@ -10,6 +10,6 @@ export default async function BoardPage(props) {
   }
 
   return (
-    <Board user={session.user} />
+    <Boards user={session.user} />
   );
 }

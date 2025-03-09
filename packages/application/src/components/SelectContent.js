@@ -9,30 +9,14 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import ListSubheader from '@mui/material/ListSubheader';
 import Select, { selectClasses } from '@mui/material/Select';
 import Divider from '@mui/material/Divider';
-import { styled } from '@mui/material/styles';
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import DevicesRoundedIcon from '@mui/icons-material/DevicesRounded';
-import SmartphoneRoundedIcon from '@mui/icons-material/SmartphoneRounded';
 import ConstructionRoundedIcon from '@mui/icons-material/ConstructionRounded';
 
-// const Avatar = styled(MuiAvatar)(({ theme }) => ({
-//   width: 28,
-//   height: 28,
-//   backgroundColor: (theme.vars || theme).palette.background.paper,
-//   color: (theme.vars || theme).palette.text.secondary,
-//   border: `1px solid ${(theme.vars || theme).palette.divider}`,
-// }));
-
-// const Avatar = MuiAvatar
-
-// const ListItemAvatar = styled(MuiListItemAvatar)({
-//   minWidth: 0,
-//   marginRight: 12,
-// });
 
 const ListItemAvatar = MuiListItemAvatar
 
-export default function SelectContent() {
+export default function SelectContent({ boardName=''}) {
   const [company, setCompany] = React.useState('');
 
   const handleChange = (event) => {
@@ -62,23 +46,13 @@ export default function SelectContent() {
         },
       }}
     >
-      <ListSubheader sx={{ pt: 0 }}>Teams</ListSubheader>
       <MenuItem value="">
         <ListItemAvatar>
-          <Avatar alt="Operations Helpdesk">
+          <Avatar alt={boardName}>
             <DevicesRoundedIcon sx={{ fontSize: '1rem' }} />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary="Operations Helpdesk" secondary="6 teammates" />
-      </MenuItem>
-      <ListSubheader>Projects</ListSubheader>
-      <MenuItem value={30}>
-        <ListItemAvatar>
-          <Avatar alt="Helpesk Queue System">
-            <ConstructionRoundedIcon sx={{ fontSize: '1rem' }} />
-          </Avatar>
-        </ListItemAvatar>
-        <ListItemText primary="Helpesk Queue System" secondary="10 teammates" />
+        <ListItemText primary={boardName} />
       </MenuItem>
       <Divider sx={{ mx: -1 }} />
       <MenuItem value={40}>

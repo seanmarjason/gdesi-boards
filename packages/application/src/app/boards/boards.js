@@ -34,7 +34,7 @@ export default function Board({ user }) {
 
     return (
         <Box sx={{ display: 'flex' }}>
-            <SideMenu user={user} />
+            <SideMenu user={user} boardName={ board.name } />
             <AppNavbar />
             {/* Main content */}
             <Box

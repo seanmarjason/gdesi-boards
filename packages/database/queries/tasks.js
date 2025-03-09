@@ -9,3 +9,13 @@ export async function getTasksSummary(board) {
 
   return result ? result : null;
 }
+
+export async function getTask(taskId) {
+  const result = await sql`
+    SELECT *
+    FROM tasks
+    WHERE id = ${ taskId };
+  `;
+
+  return result ? result[0] : null;
+}

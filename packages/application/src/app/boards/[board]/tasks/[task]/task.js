@@ -11,7 +11,7 @@ import SideMenu from '../../../../../components/SideMenu';
 import Header from '../../../../../components/Header';
 import { TaskForm } from '../../../../../components/TaskForm';
 
-export default function Task({ task }) {
+export default function Task({ task, user }) {
 
     const [taskData, setTaskData] = useState()
 
@@ -34,7 +34,7 @@ export default function Task({ task }) {
 
     return (
             <Box sx={{ display: 'flex' }}>
-                <SideMenu />
+                <SideMenu user={user}/>
                 <AppNavbar />
                 <Box
                     component="main"

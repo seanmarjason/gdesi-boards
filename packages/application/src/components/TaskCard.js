@@ -7,9 +7,12 @@ import CardActionArea from '@mui/material/CardActionArea';
 import Typography from '@mui/material/Typography';
 import Link from '@mui/material/Link';
 
+import { usePathname } from 'next/navigation'
+
 import { Draggable } from '@hello-pangea/dnd';
 
 export const TaskCard = ({card, index}) => {
+    const pathname = usePathname()
 
     const handleTaskClick = (event) => {
         // event.preventDefault()
@@ -25,7 +28,7 @@ export const TaskCard = ({card, index}) => {
                     {/* <CardActionArea> */}
                             <CardContent>
                                 <Typography gutterBottom sx={{ fontSize: 14 }}>
-                                    <Link href={`/boards/tasks/${card.id}`} underline="none" onClick={handleTaskClick}>
+                                    <Link href={`${pathname}/tasks/${card.id}`} underline="none" onClick={handleTaskClick}>
                                         {card.id}
                                     </Link>
                                 </Typography>

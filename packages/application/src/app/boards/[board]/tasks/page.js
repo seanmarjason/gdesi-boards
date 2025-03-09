@@ -2,14 +2,16 @@ import TaskList from './taskList'
 import { auth } from '../../../auth';
 import Unauthenticated from '../../unauthenticated';
 
-export default async function TasksPage(props) {
+export default async function TasksPage({ props, params }) {
     const session = await auth();
 
     if (!session) {
-    return <Unauthenticated />
+        return <Unauthenticated />
     }
 
+    const { board } = await params
+
     return (
-        <TaskList />
+        <TaskList user={session.user} boardId={board}/>
     )
 }

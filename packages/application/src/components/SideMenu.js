@@ -12,17 +12,6 @@ import OptionsMenu from './OptionsMenu';
 
 const drawerWidth = 240;
 
-// const Drawer = styled(MuiDrawer)({
-//   width: drawerWidth,
-//   flexShrink: 0,
-//   boxSizing: 'border-box',
-//   mt: 10,
-//   [`& .${drawerClasses.paper}`]: {
-//     width: drawerWidth,
-//     boxSizing: 'border-box',
-//   },
-// });
-
 export default function SideMenu({ user=null, boardName=null, showMenuContent=true}) {
   return (
     <Drawer
@@ -66,16 +55,16 @@ export default function SideMenu({ user=null, boardName=null, showMenuContent=tr
       >
         <Avatar
           sizes="small"
-          alt={user.name}
+          alt={user?.name}
           src="/static/images/avatar/7.jpg"
           sx={{ width: 36, height: 36 }}
         />
         <Box sx={{ mr: 'auto' }}>
           <Typography variant="body2" sx={{ fontWeight: 500, lineHeight: '16px' }}>
-            {user.name}
+            {user?.name}
           </Typography>
           <Typography variant="caption" sx={{ color: 'text.secondary' }}>
-            {user.email}
+            {user?.email}
           </Typography>
         </Box>
         <OptionsMenu />

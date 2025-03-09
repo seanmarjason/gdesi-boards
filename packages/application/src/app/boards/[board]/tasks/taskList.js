@@ -14,7 +14,7 @@ import Header from '../../../../components/Header';
 import { DataGrid } from '@mui/x-data-grid';
 
 
-export default function TaskList(props) {
+export default function TaskList({ user }) {
     const router = useRouter()    
 
     const [taskData, setTaskData] = useState()
@@ -52,7 +52,7 @@ export default function TaskList(props) {
 
     return (
             <Box sx={{ display: 'flex' }}>
-                <SideMenu />
+                <SideMenu user={user}/>
                 <AppNavbar />
                 <Box
                     component="main"

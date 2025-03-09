@@ -1,4 +1,5 @@
 import { auth } from '../../auth';
+import { getTask } from '@gdesi-boards/database';
 import { tasks } from '../../../data/tasks';
 
 export const GET = auth(async function GET(request) {
@@ -11,10 +12,8 @@ export const GET = auth(async function GET(request) {
         const taskId = searchParams.get('task-id')
 
         if (taskId) {
-            const task = tasks.find(taskRecord => 
-                taskRecord.id == taskId.toLowerCase()
-            )
-            return Response.json(task)
+            const taskData = await getTask(taskId)
+            return Response.json(taskData)
         }
     }
 

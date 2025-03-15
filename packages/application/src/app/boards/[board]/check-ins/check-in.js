@@ -13,16 +13,12 @@ import Avatar from '@mui/material/Avatar';
 import ImageIcon from '@mui/icons-material/Image';
 import Grid from '@mui/material/Grid2';
 import Link from '@mui/material/Link';
-import { ThemeProvider } from '@mui/material/styles';
 import Typography from '@mui/material/Typography';
 
-import AppNavbar from '../../../../components/AppNavbar';
 import Header from '../../../../components/Header';
-import SideMenu from '../../../../components/SideMenu';
 import CheckInRecord from "../../../../components/CheckInRecord";
 import CheckInForm from "../../../../components/CheckInForm";
 
-import { theme } from '../../../../shared-theme/AppTheme';
 
 export default function CheckIn({ pastCheckIn='' }) {
 
@@ -50,10 +46,6 @@ export default function CheckIn({ pastCheckIn='' }) {
         : ''
 
     return (
-        <Box sx={{ display: 'flex' }}>
-            <SideMenu />
-            <AppNavbar />
-            {/* Main content */}
             <Box
             component="main"
             sx={(theme) => ({
@@ -121,6 +113,5 @@ export default function CheckIn({ pastCheckIn='' }) {
 
             </Stack>
             </Box>
-        </Box>
     )
 }

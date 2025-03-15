@@ -13,6 +13,7 @@ import Rating from '@mui/material/Rating';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
 
 import CheckInTaskCard from "../components/CheckInTaskCard";
 
@@ -38,7 +39,12 @@ export default function CheckInForm() {
     }
 
     return (
-        <div>
+        <Box
+            component="main"
+            sx={(theme) => ({
+                flexGrow: 1,
+            })}
+        >
         <Typography variant="h2" gutterBottom>
             Complete your check in
         </Typography>
@@ -158,7 +164,7 @@ export default function CheckInForm() {
             
             </form>
 
-        </div>
+        </Box>
 
 
     )

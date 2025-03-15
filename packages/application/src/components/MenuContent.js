@@ -29,7 +29,7 @@ import SummarizeIcon from '@mui/icons-material/Summarize';
 export default function MenuContent({ role=null, boardId=null }) {
 
   const mainListItems = [
-    { text: 'Board', link: `/boards`, icon: <DashboardIcon />, roles: ['user', 'manager', 'admin'] },
+    { text: 'Board', link: `/boards/${boardId}`, icon: <DashboardIcon />, roles: ['user', 'manager', 'admin'] },
     { text: 'Tasks', link: `/boards/${boardId}/tasks`, icon: <TaskIcon />, roles: ['user', 'manager', 'admin'] },
     { text: 'Check Ins', link: `/boards/${boardId}/check-ins`, icon: <ChecklistIcon />, roles: ['user', 'manager', 'admin'] },
     { text: 'Reports', link: `/boards/${boardId}/reports`, icon: <SummarizeIcon />, roles: ['manager', 'admin'] },

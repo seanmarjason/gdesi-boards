@@ -7,6 +7,7 @@ import SideMenu from '../../../components/SideMenu';
 import AppNavbar from '../../../components/AppNavbar';
 
 import Unauthenticated from '../unauthenticated';
+import Grid from '@mui/material/Grid2';
 
 export default async function BoardsLayout({children, params}) {
   const session = await auth();
@@ -18,10 +19,14 @@ export default async function BoardsLayout({children, params}) {
   }
   
   return (
-      <Box sx={{ display: 'flex' }}>
-        <SideMenu user={session.user} boardId={board} showMenuContent={board}/>
-        <AppNavbar />
+      <Grid container >
+        <Grid size={2}>
+          <SideMenu user={session.user} boardId={board} showMenuContent={board}/>
+          <AppNavbar />
+        </Grid>
+        <Grid size={8}>
           {children}
-      </Box>
+        </Grid>
+      </Grid>
   );
 }

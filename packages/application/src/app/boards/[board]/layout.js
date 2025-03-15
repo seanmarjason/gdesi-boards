@@ -1,17 +1,27 @@
 import * as React from 'react';
 
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
+import { auth } from '../../auth';
 
-// TOOO: Fix theme issues caused by passing functions through theme
-// import { theme } from '../../shared-theme/AppTheme';
-import theme from '@/theme';
+import Box from '@mui/material/Box';
+import SideMenu from '../../../components/SideMenu';
+import AppNavbar from '../../../components/AppNavbar';
 
-export default function BoardsLayout(props) {
+import Unauthenticated from '../unauthenticated';
+
+export default async function BoardsLayout({children, params}) {
+  const session = await auth();
+
+  const { board } = await params
+
+  if (!session) {
+    return <Unauthenticated />
+  }
+  
   return (
-      <ThemeProvider theme={theme}>
-        <CssBaseline enableColorScheme />
-        {props.children}
-      </ThemeProvider>
+      <Box sx={{ display: 'flex' }}>
+        <SideMenu user={session.user} boardName={''} showMenuContent={board}/>
+        <AppNavbar />
+          {children}
+      </Box>
   );
 }

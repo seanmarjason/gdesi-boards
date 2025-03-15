@@ -5,6 +5,8 @@ export async function getBoards() {
     SELECT * FROM boards;
   `;
 
+// TODO: Update select for only boards user has access to
+
   return result ? result : null;
 }
 

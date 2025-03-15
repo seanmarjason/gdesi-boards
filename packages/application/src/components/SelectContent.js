@@ -16,7 +16,7 @@ import ConstructionRoundedIcon from '@mui/icons-material/ConstructionRounded';
 
 const ListItemAvatar = MuiListItemAvatar
 
-export default function SelectContent({ boardName=''}) {
+export default function SelectContent({ boardId=null}) {
   const [company, setCompany] = React.useState('');
 
   const handleChange = (event) => {
@@ -48,11 +48,11 @@ export default function SelectContent({ boardName=''}) {
     >
       <MenuItem value="">
         <ListItemAvatar>
-          <Avatar alt={boardName}>
+          <Avatar alt={boardId}>
             <DevicesRoundedIcon sx={{ fontSize: '1rem' }} />
           </Avatar>
         </ListItemAvatar>
-        <ListItemText primary={boardName} />
+        <ListItemText primary={boardId} />
       </MenuItem>
       <Divider sx={{ mx: -1 }} />
       <MenuItem value={40}>

@@ -19,3 +19,12 @@ export async function getTask(taskId) {
 
   return result ? result[0] : null;
 }
+
+export async function getTaskList() {
+  const result = await sql`
+    SELECT *
+    FROM tasks;
+  `;
+
+  return result ? result[0] : null;
+}

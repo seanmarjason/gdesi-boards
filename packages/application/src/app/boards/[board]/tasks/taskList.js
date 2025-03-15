@@ -14,7 +14,7 @@ import Header from '../../../../components/Header';
 import { DataGrid } from '@mui/x-data-grid';
 
 
-export default function TaskList({ user }) {
+export default function TaskList({ user, boardId }) {
     const router = useRouter()    
 
     const [taskData, setTaskData] = useState()
@@ -47,12 +47,12 @@ export default function TaskList({ user }) {
     const rows = taskData
 
     const handleEvent = (params) => {
-        router.push(`/boards/tasks/${params.id}`)
+        router.push(`/boards/${boardId}/tasks/${params.id}`)
     };
 
     return (
             <Box sx={{ display: 'flex' }}>
-                <SideMenu user={user}/>
+                <SideMenu user={user} boardId={boardId}/>
                 <AppNavbar />
                 <Box
                     component="main"

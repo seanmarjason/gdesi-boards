@@ -1,6 +1,6 @@
 import { auth } from '../../auth';
 import { getTask } from '@gdesi-boards/database';
-import { tasks } from '../../../data/tasks';
+// import { tasks } from '../../../data/tasks';
 
 export const GET = auth(async function GET(request) {
     if (!request.auth) return Response.json({ message: "Not authenticated" }, { status: 401 })
@@ -18,6 +18,7 @@ export const GET = auth(async function GET(request) {
     }
 
     // GET all tasks
+    const tasks = await getTaskList()
     return Response.json(tasks)
 
 })

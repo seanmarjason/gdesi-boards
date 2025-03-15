@@ -17,12 +17,6 @@ import ChecklistIcon from '@mui/icons-material/Checklist';
 import SummarizeIcon from '@mui/icons-material/Summarize';
 
 
-const mainListItems = [
-  { text: 'Board', link: '/boards', icon: <DashboardIcon />, roles: ['user', 'manager', 'admin'] },
-  { text: 'Tasks', link: '/boards/tasks', icon: <TaskIcon />, roles: ['user', 'manager', 'admin'] },
-  { text: 'Check Ins', link: '/boards/check-ins', icon: <ChecklistIcon />, roles: ['user', 'manager', 'admin'] },
-  { text: 'Reports', link: '/boards/reports', icon: <SummarizeIcon />, roles: ['manager', 'admin'] },
-];
 
 // const secondaryListItems = [
 //   { text: 'Settings', icon: <SettingsRoundedIcon /> },
@@ -32,7 +26,15 @@ const mainListItems = [
 
 
 // TODO: Fix React Hydration error caused by Box
-export default function MenuContent({ role=null }) {
+export default function MenuContent({ role=null, boardId=null }) {
+
+  const mainListItems = [
+    { text: 'Board', link: `/boards`, icon: <DashboardIcon />, roles: ['user', 'manager', 'admin'] },
+    { text: 'Tasks', link: `/boards/${boardId}/tasks`, icon: <TaskIcon />, roles: ['user', 'manager', 'admin'] },
+    { text: 'Check Ins', link: `/boards/${boardId}/check-ins`, icon: <ChecklistIcon />, roles: ['user', 'manager', 'admin'] },
+    { text: 'Reports', link: `/boards/${boardId}/reports`, icon: <SummarizeIcon />, roles: ['manager', 'admin'] },
+  ];
+
   return (
     <Stack sx={{ flexGrow: 1, p: 1, justifyContent: 'space-between' }}>
       <List dense>

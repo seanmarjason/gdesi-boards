@@ -12,7 +12,7 @@ import OptionsMenu from './OptionsMenu';
 
 const drawerWidth = 240;
 
-export default function SideMenu({ user=null, boardName=null, showMenuContent=true}) {
+export default function SideMenu({ user=null, boardId=null, showMenuContent=true}) {
   return (
     <Drawer
       variant="permanent"
@@ -30,7 +30,7 @@ export default function SideMenu({ user=null, boardName=null, showMenuContent=tr
           p: 1.5,
         }}
       >
-        <SelectContent boardName={boardName}/>
+        <SelectContent boardId={boardId}/>
       </Box>
       <Divider />
       <Box
@@ -41,7 +41,7 @@ export default function SideMenu({ user=null, boardName=null, showMenuContent=tr
           flexDirection: 'column',
         }}
       >
-        { showMenuContent && <MenuContent role={user?.role}/> }
+        { showMenuContent && <MenuContent boardId={boardId} role={user?.role}/> }
       </Box>
       <Stack
         direction="row"

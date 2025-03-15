@@ -33,32 +33,28 @@ export default function Task({ task, user }) {
     }
 
     return (
-            <Box sx={{ display: 'flex' }}>
-                <SideMenu user={user}/>
-                <AppNavbar />
-                <Box
-                    component="main"
-                    sx={(theme) => ({
-                        flexGrow: 1,
-                    })}
-                >
-                    <Stack
-                        spacing={2}
-                        sx={{
-                        alignItems: 'center',
-                        mx: 3,
-                        pb: 5,
-                        mt: { xs: 8, md: 0 },
-                        height: '100%'
-                        }}
-                    >
-                        {/* Main content */}
-                        <Header navigation={['Tasks', `${taskData.id}`]}/>
+        <Box
+            component="main"
+            sx={(theme) => ({
+                flexGrow: 1,
+            })}
+        >
+            <Stack
+                spacing={2}
+                sx={{
+                alignItems: 'center',
+                mx: 3,
+                pb: 5,
+                mt: { xs: 8, md: 0 },
+                height: '100%'
+                }}
+            >
+                {/* Main content */}
+                <Header navigation={['Tasks', `${taskData.id}`]}/>
 
-                        <TaskForm task={ taskData } />
+                <TaskForm task={ taskData } />
 
-                    </Stack>
-                </Box>
-            </Box>
+            </Stack>
+        </Box>
     )
 }

@@ -26,5 +26,5 @@ export async function getTaskList() {
     FROM tasks;
   `;
 
-  return result ? result[0] : null;
+  return result ? result : null;
 }

@@ -19,7 +19,7 @@ export default async function BoardsLayout({children, params}) {
   
   return (
       <Box sx={{ display: 'flex' }}>
-        <SideMenu user={session.user} boardName={''} showMenuContent={board}/>
+        <SideMenu user={session.user} boardId={board} showMenuContent={board}/>
         <AppNavbar />
           {children}
       </Box>

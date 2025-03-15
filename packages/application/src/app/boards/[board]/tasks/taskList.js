@@ -7,14 +7,12 @@ import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-import AppNavbar from '../../../../components/AppNavbar';
-import SideMenu from '../../../../components/SideMenu';
 import Header from '../../../../components/Header';
 
 import { DataGrid } from '@mui/x-data-grid';
 
 
-export default function TaskList({ user, boardId }) {
+export default function TaskList({ boardId }) {
     const router = useRouter()    
 
     const [taskData, setTaskData] = useState()
@@ -51,46 +49,41 @@ export default function TaskList({ user, boardId }) {
     };
 
     return (
-            <Box sx={{ display: 'flex' }}>
-                <SideMenu user={user} boardId={boardId}/>
-                <AppNavbar />
-                <Box
-                    component="main"
-                    sx={(theme) => ({
-                        flexGrow: 1,
-                    })}
-                >
-                    <Stack
-                        spacing={2}
-                        sx={{
-                        alignItems: 'center',
-                        mx: 3,
-                        pb: 5,
-                        mt: { xs: 8, md: 0 },
-                        height: '100%'
-                        }}
-                    >
-                        {/* Main content */}
-                        <Header navigation={['Tasks']}/>
+        <Box
+            component="main"
+            sx={(theme) => ({
+                flexGrow: 1,
+            })}
+        >
+            <Stack
+                spacing={2}
+                sx={{
+                alignItems: 'center',
+                mx: 3,
+                pb: 5,
+                mt: { xs: 8, md: 0 },
+                height: '100%'
+                }}
+            >
+                {/* Main content */}
+                <Header navigation={['Tasks']}/>
 
-                        <Box sx={{ width: '100%' }}>
-                            <DataGrid
-                                rows={rows}
-                                columns={columns}
-                                initialState={{
-                                pagination: {
-                                    paginationModel: {
-                                    pageSize: 20,
-                                    },
-                                },
-                                }}
-                                pageSizeOptions={[5]}
-                                disableRowSelectionOnClick
-                                onRowClick={handleEvent}
-                            />
-                        </Box>
-                    </Stack>
-                </Box>
-            </Box>
+                <DataGrid
+                    rows={rows}
+                    columns={columns}
+                    initialState={{
+                    pagination: {
+                        paginationModel: {
+                        pageSize: 20,
+                        },
+                    },
+                    }}
+                    pageSizeOptions={[5]}
+                    disableRowSelectionOnClick
+                    onRowClick={handleEvent}
+                    sx={{ width: '70%' }}
+                />
+            </Stack>
+        </Box>
     )
 }

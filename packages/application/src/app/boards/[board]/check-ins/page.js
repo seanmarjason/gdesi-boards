@@ -1,7 +1,9 @@
 import CheckIn from './check-in';
 
-export default async function CheckInsPage(props) {
+export default async function CheckInsPage({params}) {
+  const { board } = await params
+
   return (
-    <CheckIn />
+    <CheckIn boardId={board}/>
   );
 }

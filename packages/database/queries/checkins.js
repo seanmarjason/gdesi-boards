@@ -7,8 +7,10 @@ export async function getCheckInList(page, limit) {
   const result = await sql`
   SELECT id, date, rating
   FROM checkins
-  WHERE id BETWEEN ${start} AND ${end};
+  WHERE id BETWEEN ${start} AND ${end}; 
   `;
 
+  // TODO: Reverse order of checkins returned
+  // TODO: JOIN on task mapping to get tasks per check in (and populate this data)
   return result ? result : null;
 }

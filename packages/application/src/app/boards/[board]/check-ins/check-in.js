@@ -20,7 +20,7 @@ import CheckInRecord from "../../../../components/CheckInRecord";
 import CheckInForm from "../../../../components/CheckInForm";
 
 
-export default function CheckIn({ pastCheckIn='' }) {
+export default function CheckIn({ pastCheckIn='', boardId=null }) {
 
     const [checkIns, setCheckIns] = useState()
 
@@ -98,7 +98,7 @@ export default function CheckIn({ pastCheckIn='' }) {
                                                 selected={selectedCheckIn && checkIn.id == selectedCheckIn.id}
                                                 onClick={(event) => console.log(`Click`)}
                                             >
-                                                <Link href={`/boards/check-ins/${checkIn.id}`} >
+                                                <Link href={`/boards/${boardId}/check-ins/${checkIn.id}`} >
                                                     <ListItemText primary={checkIn.date} secondary={`Rating: ${checkIn.rating}`} />
                                                 </Link>
                                             </ListItemButton>

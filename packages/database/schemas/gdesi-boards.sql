@@ -31,13 +31,35 @@ CREATE TABLE users
   type VARCHAR(255),
   assignee SERIAL,
   description TEXT,
-  links VARChAR(255) [], -- TODO: Confirm if needs relation
+  links VARCHAR(255) [], -- TODO: Confirm if needs relation
   comments TEXT [], -- TODO: Confirm if needs relation
   status VARCHAR(255), -- TODO: Move to reference table
   deadline DATE,
 
-  PRIMARY KEY (taskId),
+  PRIMARY KEY (id),
   FOREIGN KEY (boardId) REFERENCES boards(id),
   FOREIGN KEY (assignee) REFERENCES users(id)
  );
 
+CREATE TABLE checkins
+(
+  id SERIAL,
+  boardId SERIAL,
+  date DATE,
+  rating INTEGER,
+  comments TEXT [],
+
+  PRIMARY KEY (id),
+  FOREIGN KEY (boardId) REFERENCES boards(id),
+);
+
+CREATE TABLE checkInTasksMapping
+(
+  checkinId SERIAL,
+  taskId SERIAL,
+  status VARCHAR(255),
+
+  PRIMARY KEY (checkinId, taskId),
+  FOREIGN KEY (checkinId) REFERENCES checkins(id),
+  FOREIGN KEY (taskId) REFERENCES tasks(id)
+);

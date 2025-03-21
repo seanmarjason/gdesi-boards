@@ -101,33 +101,6 @@ export default function CheckInForm() {
                 }
                 </Stack>
 
-                <InputLabel id="checkin-tasksIntroduced-label">Tasks Introduced</InputLabel>
-                <Stack direction="row" spacing={2}>
-                {                    
-                    thisWeekTasks && thisWeekTasks.tasksIntroduced?.length > 0
-                        ? thisWeekTasks.tasksIntroduced?.map((task, index) => {
-                            return (
-                                <CheckInTaskCard task={task} index={index} key={index}/>
-                            )
-                        })
-                        : <p>nil</p>
-                }
-                </Stack>
-
-                <InputLabel id="checkin-tasksNotProgressed-label">Tasks Not Progressed</InputLabel>
-                <Stack direction="row" spacing={2}>
-                {                    
-                    thisWeekTasks && thisWeekTasks.tasksNotProgressed?.length > 0
-                        ? thisWeekTasks.tasksNotProgressed?.map((task, index) => {
-                            return (
-                                <CheckInTaskCard task={task} index={index} key={index}/>
-                            )
-                        })
-                        : <p>nil</p>
-                }
-                </Stack>
-
-
                 <Typography variant="h3">
                     Next Week
                 </Typography>

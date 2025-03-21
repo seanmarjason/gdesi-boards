@@ -5,7 +5,7 @@ export default async function CheckInPage({ props, params }) {
 
   if (checkin) {
     return (
-      <CheckIn pastCheckIn={checkin}/>
+      <CheckIn pastCheckInId={checkin}/>
     );
   }
   

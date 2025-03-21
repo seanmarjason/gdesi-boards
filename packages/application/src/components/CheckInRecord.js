@@ -48,33 +48,6 @@ export default function CheckInRecord({ checkIn }) {
             }
             </Stack>
 
-            <Typography variant="body1">Tasks Introduced</Typography>
-            <Stack direction="row" spacing={2}>
-            {                    
-                checkIn && checkIn.tasksIntroduced?.length > 0
-                    ? checkIn.tasksIntroduced?.map((task, index) => {
-                        return (
-                            <CheckInTaskCard task={task} index={index} key={index}/>
-                        )
-                    })
-                    : <p>nil</p>
-            }
-            </Stack>
-
-            <Typography variant="body1">Tasks Not Progressed</Typography>
-            <Stack direction="row" spacing={2}>
-            {                    
-                checkIn && checkIn.tasksNotProgressed?.length > 0
-                    ? checkIn.tasksNotProgressed?.map((task, index) => {
-                        return (
-                            <CheckInTaskCard task={task} index={index} key={index}/>
-                        )
-                    })
-                    : <p>nil</p>
-            }
-            </Stack>
-
-
             <Typography variant="h3">
                 Next Week
             </Typography>

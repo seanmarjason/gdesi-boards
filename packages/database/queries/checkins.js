@@ -1,16 +1,37 @@
 import { sql } from '../connection'
 
-export async function getCheckInList(page, limit) {
-  const start = ((page-1) * limit) + 1
-  const end = ((page-1) * limit) + limit
-
+export async function getCheckInList() {
   const result = await sql`
   SELECT id, date, rating
   FROM checkins
-  WHERE id BETWEEN ${start} AND ${end}; 
+  ORDER BY date DESC;
   `;
 
-  // TODO: Reverse order of checkins returned
+  // TODO: JOIN on task mapping to get tasks per check in (and populate this data)
+  return result ? result : null;
+}
+
+export async function getCheckIn(id) {
+  const result = await sql`
+  SELECT *
+  FROM checkins
+  WHERE id=${id};
+  `;
+
+  // TODO: JOIN on task mapping to get tasks per check in (and populate this data)
+  return result ? result[0] : null;
+}
+
+export async function getCheckInData(id) {
+  const result = await sql`
+  SELECT t.id as id, t.title as title, t.type as type, m.status as checkinStatus
+  FROM 
+  checkInTasksMapping m 
+  INNER JOIN checkins c ON m.checkinId = c.id
+  INNER JOIN tasks t ON m.taskId = t.id
+  WHERE c.id=${id};
+  `;
+
   // TODO: JOIN on task mapping to get tasks per check in (and populate this data)
   return result ? result : null;
 }

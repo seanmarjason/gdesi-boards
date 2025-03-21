@@ -2,15 +2,12 @@
 
 import { useState, useEffect } from "react";
 
-import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import Avatar from '@mui/material/Avatar';
-import ImageIcon from '@mui/icons-material/Image';
 import Grid from '@mui/material/Grid2';
 import Link from '@mui/material/Link';
 import Typography from '@mui/material/Typography';
@@ -20,15 +17,30 @@ import CheckInRecord from "../../../../components/CheckInRecord";
 import CheckInForm from "../../../../components/CheckInForm";
 
 
-export default function CheckIn({ pastCheckIn='', boardId=null }) {
+export default function CheckIn({ pastCheckInId='', boardId=null }) {
 
-    const [checkIns, setCheckIns] = useState()
+    const [checkIns, setCheckIns] = useState([])
+    const [selectedCheckIn, setSelectedCheckIn] = useState('')
 
     useEffect(() => {
         async function fetchData() {
-            const res = await fetch('/api/check-ins')
-            const data = await res.json()
-            setCheckIns(data)
+            const checkInsResponse = await fetch('/api/check-ins')
+            const checkInsData = await checkInsResponse.json()
+            setCheckIns(checkInsData)
+        }
+        fetchData()
+    }, [])
+
+    useEffect(() => {
+        async function fetchData() {
+            if (pastCheckInId) {
+                const params = new URLSearchParams();
+                params.append("id", pastCheckInId);
+                const selectedCheckInResponse = await fetch(`/api/check-ins?${params}`)
+                const selectedCheckInData = await selectedCheckInResponse.json()
+                
+                setSelectedCheckIn(selectedCheckInData)
+            }
         }
         fetchData()
     }, [])
@@ -40,10 +52,6 @@ export default function CheckIn({ pastCheckIn='', boardId=null }) {
             </Typography>
         )
     }
-
-    const selectedCheckIn = pastCheckIn 
-        ? checkIns.data.find(checkIn => checkIn.id == pastCheckIn) 
-        : ''
 
     return (
             <Box

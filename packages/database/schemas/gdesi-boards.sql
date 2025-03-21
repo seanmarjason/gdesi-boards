@@ -50,7 +50,7 @@ CREATE TABLE checkins
   comments TEXT [],
 
   PRIMARY KEY (id),
-  FOREIGN KEY (boardId) REFERENCES boards(id),
+  FOREIGN KEY (boardId) REFERENCES boards(id)
 );
 
 CREATE TABLE checkInTasksMapping
@@ -59,7 +59,7 @@ CREATE TABLE checkInTasksMapping
   taskId SERIAL,
   status VARCHAR(255),
 
-  PRIMARY KEY (checkinId, taskId),
+  PRIMARY KEY (checkinId, taskId, status),
   FOREIGN KEY (checkinId) REFERENCES checkins(id),
   FOREIGN KEY (taskId) REFERENCES tasks(id)
 );

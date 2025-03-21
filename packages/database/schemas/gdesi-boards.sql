@@ -45,12 +45,14 @@ CREATE TABLE checkins
 (
   id SERIAL,
   boardId SERIAL,
+  userId SERIAL,
   date DATE,
   rating INTEGER,
   comments TEXT [],
 
   PRIMARY KEY (id),
-  FOREIGN KEY (boardId) REFERENCES boards(id)
+  FOREIGN KEY (boardId) REFERENCES boards(id),
+  FOREIGN KEY (userId) REFERENCES users(id)
 );
 
 CREATE TABLE checkInTasksMapping

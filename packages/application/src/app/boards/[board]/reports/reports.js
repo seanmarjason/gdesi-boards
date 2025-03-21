@@ -21,20 +21,21 @@ export default function Reports({ boardId, reportDate }) {
     const [selectedReportDate, setSelectedReportDate] = useState(reportDate ?? getDate())
     const [teamActivity, setTeamActivity] = useState()
 
+    const reportWeekEndDate = getEndOfWeek(selectedReportDate)
+
     useEffect(() => {
         async function fetchData() {
             const params = new URLSearchParams();
-            if (reportDate) {
-                params.append("date", reportDate);
-            }
+            params.append("date", reportWeekEndDate);
             const res = await fetch(`/api/activity?${params}`)
             const data = await res.json()
+            console.log("Reports data", data)
             setTeamActivity(data)
         }
         fetchData()
     }, [])
 
-    if (!teamActivity || Object.keys(teamActivity).length == 0) {
+    if (!selectedReportDate) {
         return (
             <Typography element="h1" variant="h6">
                 Loading...
@@ -47,15 +48,16 @@ export default function Reports({ boardId, reportDate }) {
         { field: 'name', headerName: 'Team Member', width: 150 },
         { field: 'rating', headerName: 'Rating', width: 150 },
         { field: 'date', headerName: 'Date', width: 150 },
+        { field: 'count', headerName: 'Total', width: 90 }, // TODO: Remove
         { field: 'completed', headerName: 'Completed', width: 90 },
         { field: 'started', headerName: 'Started', width: 90 },
-        { field: 'due-next', headerName: 'Due Next', width: 90 },
+        { field: 'due', headerName: 'Due Next', width: 90 },
     ]
 
     const rows = teamActivity
 
     const handleEvent = (params) => {
-        router.push(`/boards/check-ins/${params.id}`)
+        router.push(`/boards/${boardId}/check-ins/${params.id}`)
     };
 
     return (
@@ -83,7 +85,7 @@ export default function Reports({ boardId, reportDate }) {
                             <Grid container >
                             <Link href={`/boards/${boardId}/reports/${getLastWeek(selectedReportDate)}`}>{"< "}Previous Week</Link>
                             <Typography>
-                                Team Check-ins for week ending {getEndOfWeek(selectedReportDate)}
+                                Team Check-ins for week ending {reportWeekEndDate}
                             </Typography>
                             <Link href={`/boards/${boardId}/reports/${getNextWeek(selectedReportDate)}`}>Next Week{" >"}</Link>
                             </Grid>

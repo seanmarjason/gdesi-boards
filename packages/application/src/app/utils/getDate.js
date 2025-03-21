@@ -7,12 +7,12 @@ export const getEndOfWeek = (date) => {
 
 export const getNextWeek = (date) => {
   const parsedDate = moment(date);
-  return parsedDate.add(7, 'days').day(7).format('YYYY-MM-DD');
+  return parsedDate.add(7, 'days').format('YYYY-MM-DD');
 }
 
 export const getLastWeek = (date) => {
   const parsedDate = moment(date);
-  return parsedDate.subtract(7, 'days').day(7).format('YYYY-MM-DD');
+  return parsedDate.subtract(7, 'days').format('YYYY-MM-DD');
 }
 
 export const getDate = () => {

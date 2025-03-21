@@ -4,24 +4,30 @@ import { useState, useEffect } from "react";
 import { useRouter } from 'next/navigation'
 
 import Box from '@mui/material/Box';
+import Grid from '@mui/material/Grid2';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import Link from '@mui/material/Link';
 
-import AppNavbar from '../../../../components/AppNavbar';
-import SideMenu from '../../../../components/SideMenu';
 import Header from '../../../../components/Header';
 
 import { DataGrid } from '@mui/x-data-grid';
 
+import { getDate, getEndOfWeek, getLastWeek, getNextWeek } from "../../../utils/getDate";
 
-export default function Reports(props) {
+export default function Reports({ boardId, reportDate }) {
     const router = useRouter()
 
+    const [selectedReportDate, setSelectedReportDate] = useState(reportDate ?? getDate())
     const [teamActivity, setTeamActivity] = useState()
 
     useEffect(() => {
         async function fetchData() {
-            const res = await fetch('/api/activity?team')
+            const params = new URLSearchParams();
+            if (reportDate) {
+                params.append("date", reportDate);
+            }
+            const res = await fetch(`/api/activity?${params}`)
             const data = await res.json()
             setTeamActivity(data)
         }
@@ -38,9 +44,12 @@ export default function Reports(props) {
     
     const columns = [
         { field: 'id', headerName: 'Id', width: 90 },
-        { field: 'name', headerName: 'Name', width: 90 },
-        { field: 'date', headerName: 'Date', width: 150 },
+        { field: 'name', headerName: 'Team Member', width: 150 },
         { field: 'rating', headerName: 'Rating', width: 150 },
+        { field: 'date', headerName: 'Date', width: 150 },
+        { field: 'completed', headerName: 'Completed', width: 90 },
+        { field: 'started', headerName: 'Started', width: 90 },
+        { field: 'due-next', headerName: 'Due Next', width: 90 },
     ]
 
     const rows = teamActivity
@@ -51,8 +60,6 @@ export default function Reports(props) {
 
     return (
             <Box sx={{ display: 'flex' }}>
-                <SideMenu />
-                <AppNavbar />
                 <Box
                     component="main"
                     sx={(theme) => ({
@@ -71,6 +78,16 @@ export default function Reports(props) {
                     >
                         {/* Main content */}
                         <Header navigation={['Boards', 'Reports']}/>
+
+                        <Grid container spacing={5} sx={{ width: '100%' }}>
+                            <Grid container >
+                            <Link href={`/boards/${boardId}/reports/${getLastWeek(selectedReportDate)}`}>{"< "}Previous Week</Link>
+                            <Typography>
+                                Team Check-ins for week ending {getEndOfWeek(selectedReportDate)}
+                            </Typography>
+                            <Link href={`/boards/${boardId}/reports/${getNextWeek(selectedReportDate)}`}>Next Week{" >"}</Link>
+                            </Grid>
+                        </Grid>
 
                         <Box sx={{ width: '100%' }}>
                             <DataGrid

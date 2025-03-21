@@ -1,15 +1,9 @@
 import Reports from './reports';
-import { auth } from '../../../auth';
-import Unauthenticated from '../../unauthenticated';
 
-export default async function ReportPage() {
-  const session = await auth();
-
-  if (!session) {
-    return <Unauthenticated />
-  }
+export default async function ReportPage({ params }) {
+  const { board } = await params
 
   return (
-    <Reports />
+    <Reports boardId={board}/>
   );
 }

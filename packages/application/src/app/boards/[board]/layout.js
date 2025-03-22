@@ -5,11 +5,19 @@ import { auth } from '../../auth';
 import SideMenu from '../../../components/SideMenu';
 import AppNavbar from '../../../components/AppNavbar';
 
+import Unauthorised from '../unauthorised';
+
 import Grid from '@mui/material/Grid2';
 
 export default async function BoardsLayout({children, params}) {
   const session = await auth();
   const { board } = await params
+
+  if (!session?.user?.boards.includes(board)) {
+    return (
+      <Unauthorised />
+    )
+  }
 
   return (
       <Grid container >

@@ -18,7 +18,7 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
           // get user record from db
           user = await getUser(credentials.email)
-  
+
           // validate password
           authorised = isPasswordValid(user, credentials.password)
 
@@ -28,9 +28,11 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
 
           // return user object with their profile data
           return {
+            id: user.id,
             name: user.name,
             email: user.email,
-            role: user.role 
+            role: user.role,
+            boards: user.boards
           }
         },
       }),
@@ -39,11 +41,13 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       async jwt({ token, user, account, profile }) {
         if (user) {
           token.role = user.role
+          token.id = user.id
         }
         return token
       },
       async session({ session, token, user }) {
         session.user.role = token.role
+        session.user.id = token.id
         return session
       }
     }    

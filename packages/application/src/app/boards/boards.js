@@ -68,6 +68,16 @@ export default function Boards() {
                 </Card>
             )}
 
+            <Card sx={{ minWidth: 275 }}>
+                <CardContent>
+                    <Typography variant="h5" component="div">
+                        <Link href={`/boards/new`} underline="none">
+                            + Add New Board
+                        </Link>
+                    </Typography>
+                </CardContent>
+                </Card>
+
         </Stack>
         </Box>
     )

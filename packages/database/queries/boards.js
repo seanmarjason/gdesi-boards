@@ -1,11 +1,13 @@
 import { sql } from '../connection'
 
-export async function getBoards() {
+export async function getBoards(userId) {
   const result = await sql`
-    SELECT * FROM boards;
+    SELECT * 
+    FROM boards b
+    INNER JOIN boardUserMapping m ON b.id = m.boardid
+    WHERE m.userid = ${userId}
+    ;
   `;
-
-// TODO: Update select for only boards user has access to
 
   return result ? result : null;
 }

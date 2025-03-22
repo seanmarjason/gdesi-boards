@@ -61,7 +61,7 @@ export default function NewBoard() {
       })
     }
     saveData()
-    // router.push(`/boards`)
+    router.push(`/boards`)
   }
 
   return (

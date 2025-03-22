@@ -11,10 +11,6 @@ export default async function BoardsLayout({children, params}) {
   const session = await auth();
   const { board } = await params
 
-  const { user } = session;
-
-  console.log("user", user)
-  
   return (
       <Grid container >
         <Grid size={2}>

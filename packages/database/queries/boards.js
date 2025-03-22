@@ -18,3 +18,25 @@ export async function getBoard(board) {
 
   return result ? result[0] : null;
 }
+
+export async function createBoard(name, users) {
+  const boardResult = await sql`
+    INSERT INTO boards ( name, columns ) 
+    VALUES (
+      ${name}, '{"To Do", "Doing", "Done"}'
+    )
+    RETURNING id;
+  `;
+
+  const { id: boardId } = boardResult[0]
+
+  const boardUserResult = await sql`
+    INSERT INTO boardUserMapping ( boardId, userId )
+    VALUES
+      ${users.map(u => {
+        return('(' + boardId + ',' + u + ')') 
+      })}
+    ;
+  `
+  return boardId;
+}

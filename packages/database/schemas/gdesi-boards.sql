@@ -65,3 +65,14 @@ CREATE TABLE checkInTasksMapping
   FOREIGN KEY (checkinId) REFERENCES checkins(id),
   FOREIGN KEY (taskId) REFERENCES tasks(id)
 );
+
+CREATE TABLE boardUserMapping
+(
+  boardId SERIAL,
+  userId SERIAL,
+
+  PRIMARY KEY (boardId, userId),
+  FOREIGN KEY (boardId) REFERENCES boards(id),
+  FOREIGN KEY (userId) REFERENCES users(id)
+);
+

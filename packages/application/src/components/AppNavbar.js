@@ -13,23 +13,6 @@ import DashboardRoundedIcon from '@mui/icons-material/DashboardRounded';
 import SideMenuMobile from './SideMenuMobile';
 import MenuButton from './MenuButton';
 
-// const Toolbar = styled(MuiToolbar)({
-//   width: '100%',
-//   padding: '12px',
-//   display: 'flex',
-//   flexDirection: 'column',
-//   alignItems: 'start',
-//   justifyContent: 'center',
-//   gap: '12px',
-//   flexShrink: 0,
-//   [`& ${tabsClasses.flexContainer}`]: {
-//     gap: '8px',
-//     p: '8px',
-//     pb: 0,
-//   },
-// });
-
-// const Toolbar = MuiToolbar
 
 export default function AppNavbar() {
   const [open, setOpen] = React.useState(false);

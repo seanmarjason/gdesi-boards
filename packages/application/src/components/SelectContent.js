@@ -1,6 +1,8 @@
 'use client'
 
 import * as React from 'react';
+import NextLink from 'next/link';
+
 import Avatar from '@mui/material/Avatar';
 import MuiListItemAvatar from '@mui/material/ListItemAvatar';
 import MenuItem from '@mui/material/MenuItem';
@@ -55,7 +57,15 @@ export default function SelectContent({ boardId=null}) {
         <ListItemText primary={boardId} />
       </MenuItem>
       <Divider sx={{ mx: -1 }} />
-      <MenuItem value={40}>
+
+      <MenuItem value={40} component={NextLink} href="/boards">
+        <ListItemIcon>
+          <AddRoundedIcon />
+        </ListItemIcon>
+        <ListItemText primary="Switch Boards" />
+      </MenuItem>
+
+      <MenuItem value={40} component={NextLink} href="/boards/new">
         <ListItemIcon>
           <AddRoundedIcon />
         </ListItemIcon>

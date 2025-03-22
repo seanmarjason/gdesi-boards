@@ -19,19 +19,6 @@ import Button from '@mui/material/Button';
 
 import NextLink from 'next/link';
 
-const names = [
-  'Oliver Hansen',
-  'Van Henry',
-  'April Tucker',
-  'Ralph Hubbard',
-  'Omar Alexander',
-  'Carlos Abbott',
-  'Miriam Wagner',
-  'Bradley Wilkerson',
-  'Virginia Andrews',
-  'Kelly Snyder',
-];
-
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
 const MenuProps = {
@@ -72,10 +59,9 @@ export default function NewBoard() {
           users: selectedUsers.map(user => user.id)
         })
       })
-      // const data = await res.json()
     }
     saveData()
-    router.push(`/boards`)
+    // router.push(`/boards`)
   }
 
   return (

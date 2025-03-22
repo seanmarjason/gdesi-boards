@@ -1,4 +1,3 @@
-import { NONAME } from 'node:dns';
 import { auth } from '../../auth';
 import { getBoards, createBoard } from '@gdesi-boards/database';
 

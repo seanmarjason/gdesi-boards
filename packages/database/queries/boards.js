@@ -30,13 +30,14 @@ export async function createBoard(name, users) {
 
   const { id: boardId } = boardResult[0]
 
+  // Buikd array of objects
+  const userMap = users.map(u => ({boardid: boardId, userid: u}))
+
   const boardUserResult = await sql`
-    INSERT INTO boardUserMapping ( boardId, userId )
-    VALUES
-      ${users.map(u => {
-        return('(' + boardId + ',' + u + ')') 
-      })}
+    INSERT INTO boardUserMapping
+      ${ sql(userMap, 'boardid', 'userid')} 
     ;
   `
+  
   return boardId;
 }

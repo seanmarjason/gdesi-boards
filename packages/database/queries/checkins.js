@@ -15,11 +15,12 @@ export async function getCheckInList(boardid, userid) {
 
 export async function getCheckIn(id, boardid, userid) {
   const result = await sql`
-  SELECT *
-  FROM checkins
-  WHERE id=${id}
+  SELECT c.id, c.date, c.rating, c.comments, c.userid, u.name
+  FROM checkins c
+  INNER JOIN users u ON c.userid = u.id
+  WHERE c.id=${id}
   AND boardid=${boardid}
-  AND userid=${userid};
+  AND (c.userid=${userid} OR u.manager=${userid});
   `;
 
   // TODO: JOIN on task mapping to get tasks per check in (and populate this data)

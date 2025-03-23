@@ -27,9 +27,8 @@ export default function Reports({ boardId, reportDate }) {
         async function fetchData() {
             const params = new URLSearchParams();
             params.append("date", reportWeekEndDate);
-            const res = await fetch(`/api/activity?${params}`)
+            const res = await fetch(`/api/boards/${boardId}/activity?${params}`)
             const data = await res.json()
-            console.log("Reports data", data)
             setTeamActivity(data)
         }
         fetchData()
@@ -45,7 +44,8 @@ export default function Reports({ boardId, reportDate }) {
     
     const columns = [
         { field: 'id', headerName: 'Id', width: 90 },
-        { field: 'name', headerName: 'Team Member', width: 150 },
+        { field: 'userid', headerName: 'User Id', width: 150 },
+        { field: 'name', headerName: 'User Name', width: 150 },
         { field: 'rating', headerName: 'Rating', width: 150 },
         { field: 'date', headerName: 'Date', width: 150 },
         { field: 'count', headerName: 'Total', width: 90 }, // TODO: Remove

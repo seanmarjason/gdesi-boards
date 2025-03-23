@@ -4,12 +4,14 @@ CREATE TABLE users
   id SERIAL,
   name VARCHAR(255),
   email VARCHAR(255),
+  manager SERIAL,
   role  VARCHAR(255),
   pwHash  VARCHAR(255),
   salt VARCHAR(255),
   iterations INTEGER,
  
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  FOREIGN KEY (manager) REFERENCES users(id)
 );
  
 

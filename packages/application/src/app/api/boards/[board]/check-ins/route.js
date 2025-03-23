@@ -20,9 +20,6 @@ export const GET = auth(async function GET(request, { params }) {
       const checkInData = await getCheckInData(id, board, userid)
 
       if (checkIn) {
-
-        console.log("checkIn", checkIn)
-
         const item = {
           ...checkIn,
           tasksCompleted: checkInData.filter(task => task.	checkinstatus == 'completed'),

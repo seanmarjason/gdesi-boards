@@ -17,14 +17,14 @@ import CheckInRecord from "../../../../components/CheckInRecord";
 import CheckInForm from "../../../../components/CheckInForm";
 
 
-export default function CheckIn({ pastCheckInId='', boardId=null }) {
+export default function CheckIn({ pastCheckInId='', boardId }) {
 
     const [checkIns, setCheckIns] = useState([])
     const [selectedCheckIn, setSelectedCheckIn] = useState('')
 
     useEffect(() => {
         async function fetchData() {
-            const checkInsResponse = await fetch('/api/check-ins')
+            const checkInsResponse = await fetch(`/api/boards/${boardId}/check-ins`)
             const checkInsData = await checkInsResponse.json()
             setCheckIns(checkInsData)
         }
@@ -36,7 +36,7 @@ export default function CheckIn({ pastCheckInId='', boardId=null }) {
             if (pastCheckInId) {
                 const params = new URLSearchParams();
                 params.append("id", pastCheckInId);
-                const selectedCheckInResponse = await fetch(`/api/check-ins?${params}`)
+                const selectedCheckInResponse = await fetch(`/api/boards/${boardId}/check-ins?${params}`)
                 const selectedCheckInData = await selectedCheckInResponse.json()
                 
                 setSelectedCheckIn(selectedCheckInData)

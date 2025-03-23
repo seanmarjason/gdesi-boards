@@ -30,3 +30,14 @@ export async function getTaskList(board) {
 
   return result ? result : null;
 }
+
+export async function updateTaskStatus(task, status) {
+  const result = await sql`
+    UPDATE tasks
+    SET status = ${status}
+    WHERE id = ${task}
+    ;
+`;
+
+return result ? result : null;
+}

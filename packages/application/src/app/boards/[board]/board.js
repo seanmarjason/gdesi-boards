@@ -22,6 +22,17 @@ export default function Board({ boardId }) {
         fetchData()
     }, [])
 
+    const updateCardStatus = async (taskId, status) => {
+        const res = await fetch(`/api/boards/${boardId}/tasks`, {
+          method: 'POST',
+          body: JSON.stringify({
+            type: 'status',
+            taskId,
+            status
+          })
+        })
+    }
+
     if (!board || Object.keys(board).length == 0) {
         return (
             <Typography element="h1" variant="h6">
@@ -49,7 +60,7 @@ export default function Board({ boardId }) {
         >
             <Header />
 
-            <MainGrid data={board.columns}/>
+            <MainGrid data={board.columns} updateCardStatus={updateCardStatus}/>
 
         </Stack>
         </Box>

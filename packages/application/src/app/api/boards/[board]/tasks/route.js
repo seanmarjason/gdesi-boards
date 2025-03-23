@@ -1,5 +1,5 @@
 import { auth } from '../../../../auth';
-import { getTask, getTaskList } from '@gdesi-boards/database';
+import { getTask, getTaskList, updateTaskStatus } from '@gdesi-boards/database';
 
 export const GET = auth(async function GET(request, { params }) {
     if (!request.auth) return Response.json({ message: "Not authenticated" }, { status: 401 })
@@ -30,5 +30,12 @@ export const GET = auth(async function GET(request, { params }) {
 
 export const POST = auth(async function POST(request) {
     if (!request.auth) return Response.json({ message: "Not authenticated" }, { status: 401 })
-    // TODO: Handle change of task information (e.g. status)
+    
+    const { type, taskId, status } = await request.json()
+
+    if (type == 'status') {
+        updateTaskStatus(taskId, status)
+    }
+
+    return Response.json({message: 'done!'})
 })

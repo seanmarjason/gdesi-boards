@@ -11,7 +11,7 @@ import { DragDropContext } from '@hello-pangea/dnd';
 
 import { Column } from './Column';
 
-export default function MainGrid({ data }) {
+export default function MainGrid({ data, updateCardStatus }) {
 
   const [columns, setColumns] = useState(data)
 
@@ -28,35 +28,29 @@ export default function MainGrid({ data }) {
     const cards = columns.flatMap( column => column.cards)
     const activeCardDetails = cards.find(card => card.id == activeCard)
 
-    // Move card
-    setColumns(columns.map(column => { 
-      // // remove card from old column
-      column.cards = column.cards.filter(card => card.id != activeCard)
-      // add card to new column
-      if (column.id === activeColumn) {
-        return {
-            ...column,
-            cards: [
-              activeCardDetails,
-              ...column.cards
-            ] 
-          };
-      }
-      return column;
-      })
+    updateCardStatus(activeCard, columns[activeColumn - 1].title).then(
+      // Move card
+      setColumns(columns.map(column => { 
+        // // remove card from old column
+        column.cards = column.cards.filter(card => card.id != activeCard)
+        // add card to new column
+        if (column.id === activeColumn) {
+          return {
+              ...column,
+              cards: [
+                activeCardDetails,
+                ...column.cards
+              ] 
+            };
+        }
+        return column;
+        })
+      )
     )
-
   }
 
   return (
-    <Box 
-      // sx={{ 
-      //   width: '100%', 
-      //   maxWidth: { sm: '100%', md: '1700px' },
-      //   height: '100%',
-      //   }}
-    >
-      {/* columns */}
+    <Box>
       <Typography component="h2" variant="h6" sx={{ mb: 2 }}>
         Your Team's Work
       </Typography>

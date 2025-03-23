@@ -11,13 +11,13 @@ import SideMenu from '../../../../../components/SideMenu';
 import Header from '../../../../../components/Header';
 import { TaskForm } from '../../../../../components/TaskForm';
 
-export default function Task({ task, user }) {
+export default function Task({ task, boardId }) {
 
     const [taskData, setTaskData] = useState()
 
     useEffect(() => {
         async function fetchData() {
-            const res = await fetch(`/api/tasks?task-id=${task}`)
+            const res = await fetch(`/api/boards/${boardId}/tasks?task-id=${task}`)
             const data = await res.json()
             setTaskData(data)
         }

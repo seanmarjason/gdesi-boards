@@ -10,4 +10,5 @@ VALUES
   ( 1, 'Sample Task 8', 'Document', 2, 'Some description', '{}', '{}', 'Done', '2025-02-28 02:00:00'),
   ( 1, 'Sample Task 9', 'Document', 2, 'Some description', '{}', '{}', 'Done', '2025-02-28 02:00:00'),
   ( 1, 'Sample Task 10', 'Document', 2, 'Some description', '{}', '{}', 'Done', '2025-02-28 02:00:00')
+  ( 20, 'Sample Restricted Task', 'Document', 2, 'Some description', '{}', '{}', 'Done', '2025-02-28 02:00:00')
 ;

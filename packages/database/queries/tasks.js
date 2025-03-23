@@ -20,10 +20,12 @@ export async function getTask(taskId) {
   return result ? result[0] : null;
 }
 
-export async function getTaskList() {
+export async function getTaskList(board) {
   const result = await sql`
     SELECT *
-    FROM tasks;
+    FROM tasks
+    WHERE boardid = ${ board };
+    ;
   `;
 
   return result ? result : null;

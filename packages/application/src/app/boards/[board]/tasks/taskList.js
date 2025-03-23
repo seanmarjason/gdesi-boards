@@ -19,7 +19,7 @@ export default function TaskList({ boardId }) {
 
     useEffect(() => {
         async function fetchData() {
-            const res = await fetch('/api/tasks')
+            const res = await fetch(`/api/boards/${boardId}/tasks`)
             const data = await res.json()
             setTaskData(data)
         }

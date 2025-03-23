@@ -13,7 +13,7 @@ export default async function BoardsLayout({children, params}) {
   const session = await auth();
   const { board } = await params
 
-  if (!session?.user?.boards.includes(board)) {
+  if (!session?.user?.boards.includes(parseInt(board))) {
     return (
       <Unauthorised />
     )

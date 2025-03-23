@@ -3,8 +3,11 @@ import { auth } from '../../../auth';
 
 export const GET = auth(async function GET(request, { params }) {
       if (!request.auth) return Response.json({ message: "Not authenticated" }, { status: 401 })
-      
       const { board } = await params
+
+      if (!request.auth?.user?.boards.includes(parseInt(board))) {
+            return Response.json({ error: 'Unauthorised' }, { status: 401 }) 
+      }
 
       const boardData = await getBoard(board)
       const tasks = await getTasksSummary(board)

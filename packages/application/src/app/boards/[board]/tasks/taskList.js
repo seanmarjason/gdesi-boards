@@ -3,9 +3,12 @@
 import { useState, useEffect } from "react";
 import { useRouter } from 'next/navigation'
 
+import NextLink from 'next/link';
+
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
+import Button from '@mui/material/Button';
 
 import Header from '../../../../components/Header';
 
@@ -67,6 +70,10 @@ export default function TaskList({ boardId }) {
             >
                 {/* Main content */}
                 <Header navigation={['Tasks']}/>
+
+                <Button component={NextLink} href={`/boards/${boardId}/tasks/new`} variant="contained" color="secondary">
+                    Create New Task
+                </Button>
 
                 <DataGrid
                     rows={rows}

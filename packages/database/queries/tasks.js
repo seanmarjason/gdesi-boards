@@ -64,15 +64,3 @@ export async function createNewTask(taskData) {
 
   return result ? result : null;
 }
-
-
-// // id SERIAL,
-// // boardId SERIAL,
-// // title VARCHAR(255), -- TODO: Move to reference table
-// // type VARCHAR(255),
-// assignee SERIAL,
-// // description TEXT,
-// links VARCHAR(255) [], -- TODO: Confirm if needs relation
-// comments TEXT [], -- TODO: Confirm if needs relation
-// // status VARCHAR(255), -- TODO: Move to reference table
-// // deadline DATE,

@@ -25,7 +25,6 @@ export const TaskCard = ({card, index}) => {
         >
             {(provided, snapshot) => 
                 <Card sx={{ minWidth: 275 }} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                    {/* <CardActionArea> */}
                             <CardContent>
                                 <Typography gutterBottom sx={{ fontSize: 14 }}>
                                     <Link href={`${pathname}/tasks/${card.id}`} underline="none" onClick={handleTaskClick}>
@@ -43,11 +42,6 @@ export const TaskCard = ({card, index}) => {
                                 <br />
                                 </Typography>
                             </CardContent>
-                    {/* </CardActionArea> */}
-                    {/* <CardActions>
-                        <Button size="small">Back</Button>
-                        <Button size="small">Forward</Button>
-                    </CardActions> */}
                 </Card>
             }
         </Draggable>

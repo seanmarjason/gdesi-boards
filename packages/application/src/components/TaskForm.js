@@ -2,6 +2,8 @@ import { useState } from "react";
 import dayjs from 'dayjs';
 import 'dayjs/locale/en-gb';
 
+import NextLink from 'next/link';
+
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import InputLabel from '@mui/material/InputLabel';
@@ -24,21 +26,21 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
 import { taskTypeMenuItems } from '../data/tasks';
-import { boardUsers } from '../data/boardUsers';
+// import { boardUsers } from '../data/boardUsers';
 
-export const TaskForm = ({ task }) => {
+export const TaskForm = ({ task, boardId, users, saveTask }) => {
 
     const emptyLink = {name: '', type: '', url: ''}
     const emptyComment = {author: '', dateCreated: '', dateModified: '', comment: ''}
 
-    const [deadline, setDeadline] = useState(dayjs(task.deadline));
+    const [deadline, setDeadline] = useState(task?.deadline ? dayjs(task?.deadline) : dayjs().add(7, 'day'));
 
-    const [title, setTitle]  = useState(task.title)
-    const [type, setType]  = useState(task.type)
-    const [assignee, setAssignee]  = useState(task.assignee)
-    const [description, setDescription]  = useState(task.description)
-    const [links, setLinks]  = useState(task.links)
-    const [comments, setComments]  = useState(task.comments)
+    const [title, setTitle]  = useState(task?.title ?? '')
+    const [type, setType]  = useState(task?.type ?? '')
+    const [assignee, setAssignee]  = useState(task?.assignee ?? '')
+    const [description, setDescription]  = useState(task?.description ?? '')
+    const [links, setLinks]  = useState(task?.links ?? [])
+    const [comments, setComments]  = useState(task?.comments ?? [])
 
     const [showLinkModal, setShowLinkModal] = useState(false)
     const [linkModalDetails, setLinkModalDetails] = useState(emptyLink)
@@ -93,12 +95,12 @@ export const TaskForm = ({ task }) => {
     return (
         <div>
             <Typography variant="h1" gutterBottom>
-                {task.id}
+                {task?.id ?? 'New Task'}
             </Typography>
 
             <form>
 
-                <Chip label={task.status} color={statusColours[task.status]} variant="outlined" />
+                <Chip label={task?.status ?? 'To Do'} color={statusColours[task?.status]} variant="outlined" />
                 
                 <br />
 
@@ -146,8 +148,8 @@ export const TaskForm = ({ task }) => {
                         setAssignee(event.target.value)
                     }}
                 >
-                    {boardUsers.map((item, index) => 
-                        <MenuItem value={item} key={`select-assignee-${index}`}>{item}</MenuItem>
+                    {users.map((user, index) => 
+                        <MenuItem value={user.id} key={`select-assignee-${index}`}>{user.name}</MenuItem>
                     )}
                 </Select>
 
@@ -308,6 +310,24 @@ export const TaskForm = ({ task }) => {
                         }}
                     />
                     <Button onClick={() => saveComment(newComment)}>Save</Button>
+
+
+            <Button component={NextLink} href={`/boards/${boardId}`} variant="contained" color="error">Cancel</Button>
+            <Button 
+                variant="contained" 
+                color="secondary"
+                onClick={() => saveTask({
+                    deadline,
+                    title,
+                    type,
+                    assignee,
+                    description,
+                    links,
+                    comments,
+                })} 
+            >
+                Save
+            </Button>
 
             </form>
 

@@ -37,7 +37,42 @@ export async function updateTaskStatus(task, status) {
     SET status = ${status}
     WHERE id = ${task}
     ;
-`;
+  `;
 
-return result ? result : null;
+  return result ? result : null;
 }
+
+export async function createNewTask(taskData) {
+  const {
+    boardid,
+    deadline,
+    title,
+    type,
+    assignee,
+    description,
+    links,
+    comments,
+  } = taskData
+
+  const result = await sql`
+    INSERT INTO tasks (boardid, deadline, title, type, assignee, description, links, comments, status )
+    VALUES (
+      ${boardid}, ${deadline}, ${title}, ${type}, ${assignee}, ${description}, ${links}, ${comments}, 'To Do'
+    )
+    ;
+  `;
+
+  return result ? result : null;
+}
+
+
+// // id SERIAL,
+// // boardId SERIAL,
+// // title VARCHAR(255), -- TODO: Move to reference table
+// // type VARCHAR(255),
+// assignee SERIAL,
+// // description TEXT,
+// links VARCHAR(255) [], -- TODO: Confirm if needs relation
+// comments TEXT [], -- TODO: Confirm if needs relation
+// // status VARCHAR(255), -- TODO: Move to reference table
+// // deadline DATE,

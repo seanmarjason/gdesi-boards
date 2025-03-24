@@ -1,9 +1,9 @@
 import Task from '../task';
 
 export default async function TaskPage({ params }) {
-    const { task, board } = await params
+    const { board } = await params
 
     return (
-        <Task task={ task } boardId={ board }/>
+        <Task boardId={ board }/>
     )
 }

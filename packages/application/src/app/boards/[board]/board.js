@@ -28,7 +28,9 @@ export default function Board({ boardId }) {
           body: JSON.stringify({
             type: 'status',
             taskId,
-            status
+            data: {
+                status
+            }
           })
         })
     }
@@ -60,7 +62,7 @@ export default function Board({ boardId }) {
         >
             <Header />
 
-            <MainGrid data={board.columns} updateCardStatus={updateCardStatus}/>
+            <MainGrid data={board.columns} boardId={boardId} updateCardStatus={updateCardStatus}/>
 
         </Stack>
         </Box>

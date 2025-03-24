@@ -22,9 +22,13 @@ export async function getUser(email) {
   return result ? result[0] : null;
 }
 
-export async function getUsers() {
+export async function getUsers(boardid) {
   const result = await sql`
-    SELECT id, name FROM users;
+    SELECT u.id, u.name 
+    FROM users u
+    INNER JOIN boardUserMapping b ON u.id = b.userid
+    WHERE b.boardid = ${boardid};
   `;
-return result ? result : null;
+
+  return result ? result : null;
 }

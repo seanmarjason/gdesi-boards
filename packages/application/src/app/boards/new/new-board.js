@@ -130,7 +130,7 @@ export default function NewBoard() {
                 </Select>
 
                 <Button component={NextLink} href="/boards" variant="contained" color="error">Cancel</Button>
-                <Button onClick={() => createBoard()} variant="contained" color="primary">Create</Button>
+                <Button onClick={() => createBoard()} variant="contained" color="secondary">Create</Button>
 
               </form>
 

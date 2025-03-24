@@ -28,7 +28,7 @@ CREATE TABLE users
  CREATE TABLE tasks
  (
   id SERIAL,
-  boardId SERIAL,
+  boardid SERIAL,
   title VARCHAR(255), -- TODO: Move to reference table
   type VARCHAR(255),
   assignee SERIAL,
@@ -39,7 +39,7 @@ CREATE TABLE users
   deadline DATE,
 
   PRIMARY KEY (id),
-  FOREIGN KEY (boardId) REFERENCES boards(id),
+  FOREIGN KEY (boardid) REFERENCES boards(id),
   FOREIGN KEY (assignee) REFERENCES users(id)
  );
 

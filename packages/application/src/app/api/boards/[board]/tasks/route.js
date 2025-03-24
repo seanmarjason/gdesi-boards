@@ -1,5 +1,5 @@
 import { auth } from '../../../../auth';
-import { getTask, getTaskList, updateTaskStatus } from '@gdesi-boards/database';
+import { getTask, getTaskList, updateTaskStatus, createNewTask } from '@gdesi-boards/database';
 
 export const GET = auth(async function GET(request, { params }) {
     if (!request.auth) return Response.json({ message: "Not authenticated" }, { status: 401 })
@@ -28,13 +28,21 @@ export const GET = auth(async function GET(request, { params }) {
 
 })
 
-export const POST = auth(async function POST(request) {
+export const POST = auth(async function POST(request, { params }) {
     if (!request.auth) return Response.json({ message: "Not authenticated" }, { status: 401 })
-    
-    const { type, taskId, status } = await request.json()
+   
+    const { board } = await params 
+    const { type, taskId, data } = await request.json()
 
     if (type == 'status') {
-        updateTaskStatus(taskId, status)
+        updateTaskStatus(taskId, data.status)
+    }
+
+    if (type == 'new') {
+        createNewTask({
+            ...data,
+            boardid: board
+        })
     }
 
     return Response.json({message: 'done!'})

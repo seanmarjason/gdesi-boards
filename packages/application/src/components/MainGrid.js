@@ -2,16 +2,18 @@
 
 import { useState } from 'react';
 
+import NextLink from 'next/link';
+
 import Typography from '@mui/material/Typography';
-import Grid from '@mui/material/Grid2';
 import Box from '@mui/material/Box';
 import { Container } from '@mui/material';
+import Button from '@mui/material/Button';
 
 import { DragDropContext } from '@hello-pangea/dnd';
 
 import { Column } from './Column';
 
-export default function MainGrid({ data, updateCardStatus }) {
+export default function MainGrid({ data, updateCardStatus, boardId }) {
 
   const [columns, setColumns] = useState(data)
 
@@ -54,6 +56,10 @@ export default function MainGrid({ data, updateCardStatus }) {
       <Typography component="h2" variant="h6" sx={{ mb: 2 }}>
         Your Team's Work
       </Typography>
+
+      <Button component={NextLink} href={`/boards/${boardId}/tasks/new`} variant="contained" color="secondary">
+        Create New Task
+      </Button>
 
       <DragDropContext
         onDragEnd={

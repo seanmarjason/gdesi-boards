@@ -55,8 +55,6 @@ export const POST = auth(async function POST(request, { params }) {
       comments
     } = data
 
-    console.log(board, userid, submitDate, rating, tasks.tasksCompleted, tasks.tasksStarted, tasks.tasksDueNext, comments)
-
     await createNewCheckin(board, userid, submitDate, rating, tasks.tasksCompleted, tasks.tasksStarted, tasks.tasksDueNext, comments)
 
     return Response.json({message: 'done!'})

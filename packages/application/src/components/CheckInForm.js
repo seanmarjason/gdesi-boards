@@ -51,7 +51,7 @@ export default function CheckInForm({ boardId }) {
                         tasksStarted: thisWeekTasks.tasksStarted.map(task => task.id),
                         tasksDueNext: thisWeekTasks.tasksDueNext.map(task => task.id)
                     },
-                    comments
+                    comments    
                 }
               })
             })

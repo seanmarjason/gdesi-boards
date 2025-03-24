@@ -6,6 +6,7 @@ import CheckInTaskCard from "./CheckInTaskCard";
 
 
 export default function CheckInRecord({ checkIn }) {
+
     return (
         <div>
 
@@ -66,17 +67,9 @@ export default function CheckInRecord({ checkIn }) {
             </Stack>
 
             <Typography variant="body1">Comments</Typography>
-            {/* <TextField
-                fullWidth
-                multiline
-                // minRows={4} //TODO: Fix styling causing multiline to not expand
-                id="checkin-comments"
-                value={comments}
-                onChange={(event) => {
-                    setComments(event.target.value)
-                }}
-            /> */}
-
+            <Typography variant="body2">
+                {checkIn.comments}
+            </Typography>
 
         </div>
     )

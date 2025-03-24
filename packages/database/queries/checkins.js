@@ -54,18 +54,26 @@ export async function createNewCheckin(boardid, userid, date, rating, tasksCompl
 
   const { id: checkinid } = checkinResult[0]
 
-  // // Build array of objects
-  // const taskCompletedMap = tasksCompleted.map(task => ({ checkinid: checkinid, taskid: task, status: 'completed'}))
-  // const tasksStartedMap = tasksStarted.map(task => ({ checkinid: checkinid, taskid: task, status: 'started'}))
-  // const tasksDueNextMap = tasksDueNext.map(task => ({ checkinid: checkinid, taskid: task, status: 'due next'}))
+  // Build array of objects
+  const taskCompletedMap = tasksCompleted.map(task => ({ checkinid: checkinid, taskid: task, status: 'completed'}))
+  const tasksStartedMap = tasksStarted.map(task => ({ checkinid: checkinid, taskid: task, status: 'started'}))
+  const tasksDueNextMap = tasksDueNext.map(task => ({ checkinid: checkinid, taskid: task, status: 'due next'}))
 
-  // const taskMappingResult = await sql`
-  //   INSERT INTO checkInTasksMapping
-  //     ${ sql(taskCompletedMap, 'checkinid', 'taskid', 'status')} 
-  //     ${ sql(tasksStartedMap, 'checkinid', 'taskid', 'status')} 
-  //     ${ sql(tasksDueNextMap, 'checkinid', 'taskid', 'status')} 
-  //   ;
-  // `
+  const taskCompletedResult = await sql`
+    INSERT INTO checkInTasksMapping
+      ${ sql(taskCompletedMap, 'checkinid', 'taskid', 'status')}
+    ;
+  `
+  const tasksStartedResult = await sql`
+    INSERT INTO checkInTasksMapping
+      ${ sql(tasksStartedMap, 'checkinid', 'taskid', 'status')}
+    ;
+  `
+  const tasksDueNextResult = await sql`
+    INSERT INTO checkInTasksMapping
+      ${ sql(tasksDueNextMap, 'checkinid', 'taskid', 'status')} 
+    ;
+  `
 
-  // return checkinResult ? checkinResult : null;
+  return checkinResult ? checkinResult : null;
 }

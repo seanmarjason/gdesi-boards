@@ -64,3 +64,34 @@ export async function createNewTask(taskData) {
 
   return result ? result : null;
 }
+
+export async function getTasksCompleted(date) {
+  const result = await sql`
+    SELECT *
+    FROM tasks
+    WHERE completedDate BETWEEN (TO_DATE(${date}, 'YYYY-MM-DD') - 7) AND ${date} 
+  `;
+
+  return result ? result : null;
+}
+
+export async function getTasksStarted(date) {
+  const result = await sql`
+    SELECT *
+    FROM tasks
+    WHERE startedDate BETWEEN (TO_DATE(${date}, 'YYYY-MM-DD') - 7) AND ${date} 
+  `;
+
+  return result ? result : null;
+}
+
+export async function getTasksDue(date) {
+  const result = await sql`
+    SELECT *
+    FROM tasks
+    WHERE deadline BETWEEN ${date} AND (TO_DATE(${date}, 'YYYY-MM-DD') + 7) 
+  `;
+
+  return result ? result : null;
+}
+

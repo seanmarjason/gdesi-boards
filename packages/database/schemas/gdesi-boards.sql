@@ -37,6 +37,8 @@ CREATE TABLE users
   comments TEXT [], -- TODO: Confirm if needs relation
   status VARCHAR(255), -- TODO: Move to reference table
   deadline DATE,
+  startedDate DATE,
+  completedDate DATE,
 
   PRIMARY KEY (id),
   FOREIGN KEY (boardid) REFERENCES boards(id),
@@ -50,7 +52,7 @@ CREATE TABLE checkins
   userId SERIAL,
   date DATE,
   rating INTEGER,
-  comments TEXT [],
+  comments TEXT,
 
   PRIMARY KEY (id),
   FOREIGN KEY (boardId) REFERENCES boards(id),

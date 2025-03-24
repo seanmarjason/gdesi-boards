@@ -80,7 +80,7 @@ export default function CheckIn({ pastCheckInId='', boardId }) {
                         { 
                             selectedCheckIn
                             ? <CheckInRecord checkIn={ selectedCheckIn }/>
-                            : <CheckInForm />
+                            : <CheckInForm boardId={ boardId }/>
                         }
                     </Grid>
 

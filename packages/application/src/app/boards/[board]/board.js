@@ -33,6 +33,7 @@ export default function Board({ boardId }) {
             }
           })
         })
+        // TODO: Update dateStarted / dateCompleted
     }
 
     if (!board || Object.keys(board).length == 0) {

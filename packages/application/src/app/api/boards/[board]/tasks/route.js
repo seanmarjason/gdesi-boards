@@ -1,5 +1,14 @@
 import { auth } from '../../../../auth';
-import { getTask, getTaskList, updateTaskStatus, createNewTask } from '@gdesi-boards/database';
+import { 
+    getTask, 
+    getTaskList, 
+    updateTaskStatus, 
+    createNewTask,
+    getTasksCompleted,
+    getTasksStarted,
+    getTasksDue
+ } from '@gdesi-boards/database';
+
 
 export const GET = auth(async function GET(request, { params }) {
     if (!request.auth) return Response.json({ message: "Not authenticated" }, { status: 401 })
@@ -15,10 +24,22 @@ export const GET = auth(async function GET(request, { params }) {
     if (searchParams) {
         // GET specific task by id
         const taskId = searchParams.get('task-id')
-
         if (taskId) {
             const taskData = await getTask(taskId)
             return Response.json(taskData)
+        }
+
+        // GET tasks by date
+        const date = searchParams.get('date')
+        if (date) {
+            const tasksCompleted = await getTasksCompleted(date)
+            const tasksStarted = await getTasksStarted(date)
+            const tasksDueNext = await getTasksDue(date)
+            return Response.json({
+                tasksCompleted,
+                tasksStarted,
+                tasksDueNext
+            })
         }
     }
 

@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 
+import { useRouter } from 'next/navigation'
+
 import dayjs from 'dayjs';
 import 'dayjs/locale/en-gb';
 
@@ -18,7 +20,8 @@ import Box from '@mui/material/Box';
 import CheckInTaskCard from "../components/CheckInTaskCard";
 
 
-export default function CheckInForm() {
+export default function CheckInForm({ boardId }) {
+    const router = useRouter()    
 
     const [submitDate, setSubmitDate] = useState(dayjs())
     const [rating, setRating] = useState(0)
@@ -26,16 +29,35 @@ export default function CheckInForm() {
     const [comments, setComments] = useState('')
 
     useEffect(() => {
-        async function fetchThisWeekTasks() {
-          const res = await fetch('/api/activity?this-week')
+        async function fetchThisWeekTasks(date) {
+          const res = await fetch(`/api/boards/${boardId}/tasks?date=${date}`)
           const data = await res.json()
           setThisWeekTasks(data)
         }
-        fetchThisWeekTasks()
+        const d = new Date(); // TODO: Update to fetch this week
+        fetchThisWeekTasks(d.toISOString())
       }, [])
 
     const submitCheckIn = () => {
-        console.log("Submit")
+        async function saveData() {
+            const res = await fetch(`/api/boards/${boardId}/check-ins`, {
+              method: 'POST',
+              body: JSON.stringify({
+                data: {
+                    submitDate,
+                    rating,
+                    tasks: {
+                        tasksCompleted: thisWeekTasks.tasksCompleted.map(task => task.id),
+                        tasksStarted: thisWeekTasks.tasksStarted.map(task => task.id),
+                        tasksDueNext: thisWeekTasks.tasksDueNext.map(task => task.id)
+                    },
+                    comments
+                }
+              })
+            })
+          }
+          saveData()
+        // router.push(`/boards/${boardId}/check-ins`)
     }
 
     return (
@@ -131,10 +153,9 @@ export default function CheckInForm() {
                     }}
                 />
 
-                <Button variant="contained" color="secondary" onClick={() => { submitCheckIn()} }>
+                <Button variant="contained" color="secondary" onClick={() => { submitCheckIn() } }>
                 Submit Check-in
                 </Button>
-            
             </form>
 
         </Box>

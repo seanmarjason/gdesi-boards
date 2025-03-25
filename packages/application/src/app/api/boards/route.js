@@ -16,8 +16,9 @@ export const POST = auth(async function POST(request) {
       if (!request.auth) return Response.json({ message: "Not authenticated" }, { status: 401 })
       
       const { name, users } = await request.json()
+      const {id: userId} = request.auth.user
 
-      const newBoard = await createBoard(name, users);
+      const newBoard = await createBoard(name, [userId, ...users]);
       // TODO: Handle missing board data
       return Response.json(newBoard) 
 })

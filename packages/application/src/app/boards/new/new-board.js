@@ -39,7 +39,7 @@ export default function NewBoard() {
 
   useEffect(() => {
     async function fetchData() {
-        const res = await fetch('/api/users')
+        const res = await fetch(`/api/boards/new/users`)
         const data = await res.json()
         setUsers(data)
     }

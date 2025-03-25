@@ -127,7 +127,7 @@ export default function SignUp(props) {
       })
     }
     saveData()
-    signIn()
+    signIn(undefined, { callbackUrl: '/boards' })
   };
 
   return (

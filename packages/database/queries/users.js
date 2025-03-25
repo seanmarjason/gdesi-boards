@@ -32,3 +32,12 @@ export async function getUsers(boardid) {
 
   return result ? result : null;
 }
+
+export async function getAllUsers() {
+  const result = await sql`
+    SELECT id, name 
+    FROM users
+  `;
+
+  return result ? result : null;
+}

@@ -1,10 +1,15 @@
 import { auth } from '../../../../auth';
-import { getUsers } from '@gdesi-boards/database';
+import { getUsers, getAllUsers } from '@gdesi-boards/database';
 
 export const GET = auth(async function GET(request, { params }) {
       if (!request.auth) return Response.json({ message: "Not authenticated" }, { status: 401 })
 
       const { board } = await params 
+
+      if (board == 'new') {
+            const users = await getAllUsers()
+            return Response.json( users )   
+      }
 
       const users = await getUsers(board)
       return Response.json( users )

@@ -13,7 +13,7 @@ import Header from '../../components/Header';
 
 export default function Boards() {
 
-    const [boards, setBoards] = useState()
+    const [boards, setBoards] = useState([])
 
     useEffect(() => {
         async function fetchData() {
@@ -23,14 +23,6 @@ export default function Boards() {
         }
         fetchData()
     }, [])
-
-    if (!boards || Object.keys(boards).length == 0) {
-        return (
-            <Typography element="h1" variant="h6">
-                Loading...
-            </Typography>
-        )
-    }
 
     return (
         <Box
@@ -51,7 +43,7 @@ export default function Boards() {
         >
             <Header />
 
-            <Typography element="h2" variant="h6">List Boards to Select</Typography>
+            <Typography element="h2" variant="h6">Select a Board</Typography>
 
             { boards.map((board, index) => 
                 <Card sx={{ minWidth: 275 }} key={index}>

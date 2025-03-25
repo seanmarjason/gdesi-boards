@@ -3,6 +3,8 @@
 import { useState, useEffect } from "react";
 import { useRouter } from 'next/navigation'
 
+import { useSession } from "next-auth/react"
+
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
@@ -32,6 +34,7 @@ const MenuProps = {
 
 export default function NewBoard() {
   const router = useRouter()
+  const { data: session, status, update: updateSession } = useSession()
 
   const [name, setName]  = useState('')
   const [users, setUsers] = useState([])
@@ -59,8 +62,11 @@ export default function NewBoard() {
           users: selectedUsers.map(user => user.id)
         })
       })
+      const newBoardId = await res.json()
+      return newBoardId;
     }
-    saveData()
+    const boardId = await saveData()
+    await updateSession({ boards: [...session.user.boards, boardId] })
     router.push(`/boards`)
   }
 

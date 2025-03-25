@@ -38,18 +38,24 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       }),
     ],
     callbacks: {
-      async jwt({ token, user, account, profile }) {
+      async jwt({ token, user, trigger, session }) {
         if (user) {
           token.role = user.role
           token.id = user.id
           token.boards = user.boards
         }
+        if (trigger === "update") {
+          token.boards = session.boards
+        }
         return token
       },
-      async session({ session, token, user }) {
+      async session({ session, token, trigger }) {
         session.user.role = token.role
         session.user.id = token.id
         session.user.boards = token.boards
+        if (trigger === "update") {
+          token.boards = session.boards
+        }
         return session
       }
     }    

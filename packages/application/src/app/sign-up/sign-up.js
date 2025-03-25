@@ -1,15 +1,13 @@
 'use client'
 
-import * as React from 'react';
+import { useState } from 'react';
+import { signIn } from 'next-auth/react';
+
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
-import Checkbox from '@mui/material/Checkbox';
 import CssBaseline from '@mui/material/CssBaseline';
-import Divider from '@mui/material/Divider';
-import FormControlLabel from '@mui/material/FormControlLabel';
 import FormLabel from '@mui/material/FormLabel';
 import FormControl from '@mui/material/FormControl';
-import Link from '@mui/material/Link';
 import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import Stack from '@mui/material/Stack';
@@ -22,7 +20,6 @@ import { theme } from '../../shared-theme/AppTheme';
 import AppAppBar from '../../components/menu/AppAppBar';
 import GdesiIcon from '../../components/GdesiIcon'
 
-import { GoogleIcon, FacebookIcon } from '../../components/CustomIcons';
 
 const Card = styled(MuiCard)(({ theme }) => ({
   display: 'flex',
@@ -67,21 +64,22 @@ const SignUpContainer = styled(Stack)(({ theme }) => ({
 }));
 
 export default function SignUp(props) {
-  const [emailError, setEmailError] = React.useState(false);
-  const [emailErrorMessage, setEmailErrorMessage] = React.useState('');
-  const [passwordError, setPasswordError] = React.useState(false);
-  const [passwordErrorMessage, setPasswordErrorMessage] = React.useState('');
-  const [nameError, setNameError] = React.useState(false);
-  const [nameErrorMessage, setNameErrorMessage] = React.useState('');
+  const [name, setName] = useState('')
+  const [email, setEmail] = useState('')
+  const [password, setPassword] = useState('')
+
+  const [emailError, setEmailError] = useState(false);
+  const [emailErrorMessage, setEmailErrorMessage] = useState('');
+  const [passwordError, setPasswordError] = useState(false);
+  const [passwordErrorMessage, setPasswordErrorMessage] = useState('');
+  const [nameError, setNameError] = useState(false);
+  const [nameErrorMessage, setNameErrorMessage] = useState('');
+
 
   const validateInputs = () => {
-    const email = document.getElementById('email');
-    const password = document.getElementById('password');
-    const name = document.getElementById('name');
-
     let isValid = true;
 
-    if (!email.value || !/\S+@\S+\.\S+/.test(email.value)) {
+    if (!email || !/\S+@\S+\.\S+/.test(email)) {
       setEmailError(true);
       setEmailErrorMessage('Please enter a valid email address.');
       isValid = false;
@@ -90,7 +88,7 @@ export default function SignUp(props) {
       setEmailErrorMessage('');
     }
 
-    if (!password.value || password.value.length < 6) {
+    if (!password || password.length < 6) {
       setPasswordError(true);
       setPasswordErrorMessage('Password must be at least 6 characters long.');
       isValid = false;
@@ -99,7 +97,7 @@ export default function SignUp(props) {
       setPasswordErrorMessage('');
     }
 
-    if (!name.value || name.value.length < 1) {
+    if (!name || name.length < 1) {
       setNameError(true);
       setNameErrorMessage('Name is required.');
       isValid = false;
@@ -111,18 +109,25 @@ export default function SignUp(props) {
     return isValid;
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = () => {
+    validateInputs()
+
     if (nameError || emailError || passwordError) {
-      event.preventDefault();
-      return;
+      // TODO: Show error
     }
-    const data = new FormData(event.currentTarget);
-    console.log({
-      name: data.get('name'),
-      lastName: data.get('lastName'),
-      email: data.get('email'),
-      password: data.get('password'),
-    });
+
+    async function saveData() {
+      const res = await fetch(`/api/register`, {
+        method: 'POST',
+        body: JSON.stringify({
+            name,
+            email,
+            password
+        })
+      })
+    }
+    saveData()
+    signIn()
   };
 
   return (
@@ -141,7 +146,6 @@ export default function SignUp(props) {
           </Typography>
           <Box
             component="form"
-            onSubmit={handleSubmit}
             sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}
           >
             <FormControl>
@@ -149,6 +153,10 @@ export default function SignUp(props) {
               <TextField
                 autoComplete="name"
                 name="name"
+                value={name}
+                onChange={(event) => {
+                  setName(event.target.value)
+                }}
                 required
                 fullWidth
                 id="name"
@@ -166,6 +174,10 @@ export default function SignUp(props) {
                 id="email"
                 placeholder="your@email.com"
                 name="email"
+                value={email}
+                onChange={(event) => {
+                  setEmail(event.target.value)
+                }}
                 autoComplete="email"
                 variant="outlined"
                 error={emailError}
@@ -179,6 +191,10 @@ export default function SignUp(props) {
                 required
                 fullWidth
                 name="password"
+                value={password}
+                onChange={(event) => {
+                  setPassword(event.target.value)
+                }}
                 placeholder="••••••"
                 type="password"
                 id="password"
@@ -189,49 +205,13 @@ export default function SignUp(props) {
                 color={passwordError ? 'error' : 'primary'}
               />
             </FormControl>
-            <FormControlLabel
-              control={<Checkbox value="allowExtraEmails" color="primary" />}
-              label="I want to receive updates via email."
-            />
             <Button
-              type="submit"
               fullWidth
               variant="contained"
-              onClick={validateInputs}
+              onClick={() => handleSubmit()}
             >
               Sign up
             </Button>
-          </Box>
-          <Divider>
-            <Typography sx={{ color: 'text.secondary' }}>or</Typography>
-          </Divider>
-          <Box sx={{ display: 'flex', flexDirection: 'column', gap: 2 }}>
-            <Button
-              fullWidth
-              variant="outlined"
-              onClick={() => alert('Sign up with Google')}
-              startIcon={<GoogleIcon />}
-            >
-              Sign up with Google
-            </Button>
-            <Button
-              fullWidth
-              variant="outlined"
-              onClick={() => alert('Sign up with Facebook')}
-              startIcon={<FacebookIcon />}
-            >
-              Sign up with Facebook
-            </Button>
-            <Typography sx={{ textAlign: 'center' }}>
-              Already have an account?{' '}
-              <Link
-                href="/sign-in"
-                variant="body2"
-                sx={{ alignSelf: 'center' }}
-              >
-                Sign in
-              </Link>
-            </Typography>
           </Box>
         </Card>
       </SignUpContainer>

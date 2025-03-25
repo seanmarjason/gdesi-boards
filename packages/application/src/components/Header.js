@@ -30,7 +30,7 @@ export default function Header({ navigation }) {
         <MenuButton showBadge aria-label="Open notifications">
           <NotificationsRoundedIcon />
         </MenuButton>
-        <Button onClick={() => signOut()} variant="contained" color="primary">
+        <Button onClick={() => signOut({ callbackUrl: '/' })} variant="contained" color="primary">
             Sign out
         </Button>
       </Stack>

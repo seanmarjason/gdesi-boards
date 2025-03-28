@@ -19,10 +19,12 @@ export default async function BoardsLayout({children, params}) {
     )
   }
 
+  const role = session?.user?.manager.includes(parseInt(board)) ? 'manager' : 'user'
+
   return (
       <Grid container >
         <Grid size={2}>
-          <SideMenu user={session?.user} boardId={board} showMenuContent={board}/>
+          <SideMenu user={{...session?.user, role}} boardId={board} showMenuContent={board}/>
           <AppNavbar />
         </Grid>
         <Grid size={8}>

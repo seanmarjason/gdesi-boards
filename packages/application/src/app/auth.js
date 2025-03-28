@@ -31,8 +31,8 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
             id: user.id,
             name: user.name,
             email: user.email,
-            role: user.role,
-            boards: user.boards
+            boards: user.boards,
+            manager: user.manager,
           }
         },
       }),
@@ -40,9 +40,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
     callbacks: {
       async jwt({ token, user, trigger, session }) {
         if (user) {
-          token.role = user.role
           token.id = user.id
           token.boards = user.boards
+          token.manager = user.manager
         }
         if (trigger === "update") {
           token.boards = session.boards
@@ -50,9 +50,9 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
         return token
       },
       async session({ session, token, trigger }) {
-        session.user.role = token.role
         session.user.id = token.id
         session.user.boards = token.boards
+        session.user.manager = token.manager
         if (trigger === "update") {
           token.boards = session.boards
         }

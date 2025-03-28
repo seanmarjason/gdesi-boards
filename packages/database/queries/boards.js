@@ -21,11 +21,11 @@ export async function getBoard(board) {
   return result ? result[0] : null;
 }
 
-export async function createBoard(name, users) {
+export async function createBoard(name, manager, users) {
   const boardResult = await sql`
-    INSERT INTO boards ( name, columns ) 
+    INSERT INTO boards ( name, manager, columns ) 
     VALUES (
-      ${name}, '{"To Do", "Doing", "Done"}'
+      ${name}, ${manager}, '{"To Do", "Doing", "Done"}'
     )
     RETURNING id;
   `;

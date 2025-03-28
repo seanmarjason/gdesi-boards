@@ -57,11 +57,8 @@ export default function OptionsMenu() {
           },
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <Divider />
-        <MenuItem onClick={handleClose}>Add another account</MenuItem>
-        <MenuItem onClick={handleClose}>Settings</MenuItem>
+        {/* TODO: Create new page to define new user's manager (or display / change curent manager - must be part of current board) */}
+        <MenuItem onClick={handleClose}>Profile</MenuItem> 
         <Divider />
         <MenuItem
           onClick={handleClose}

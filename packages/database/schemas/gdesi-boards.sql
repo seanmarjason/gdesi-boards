@@ -4,14 +4,11 @@ CREATE TABLE users
   id SERIAL,
   name VARCHAR(255),
   email VARCHAR(255),
-  manager SERIAL,
-  role  VARCHAR(255),
   pwHash  VARCHAR(255),
   salt VARCHAR(255),
   iterations INTEGER,
  
   PRIMARY KEY (id),
-  FOREIGN KEY (manager) REFERENCES users(id)
 );
  
 
@@ -20,18 +17,20 @@ CREATE TABLE users
   id SERIAL,
   name VARCHAR(255),
   columns VARCHAR(255) [],
+  manager INTEGER,
 
-  PRIMARY KEY (id)
+  PRIMARY KEY (id),
+  FOREIGN KEY (manager) REFERENCES users(id)
  );
 
 
  CREATE TABLE tasks
  (
   id SERIAL,
-  boardid SERIAL,
+  boardid INTEGER,
   title VARCHAR(255), -- TODO: Move to reference table
   type VARCHAR(255),
-  assignee SERIAL,
+  assignee INTEGER,
   description TEXT,
   links VARCHAR(255) [], -- TODO: Confirm if needs relation
   comments TEXT [], -- TODO: Confirm if needs relation
@@ -48,8 +47,8 @@ CREATE TABLE users
 CREATE TABLE checkins
 (
   id SERIAL,
-  boardId SERIAL,
-  userId SERIAL,
+  boardId INTEGER,
+  userId INTEGER,
   date DATE,
   rating INTEGER,
   comments TEXT,
@@ -61,8 +60,8 @@ CREATE TABLE checkins
 
 CREATE TABLE checkInTasksMapping
 (
-  checkinId SERIAL,
-  taskId SERIAL,
+  checkinId INTEGER,
+  taskId INTEGER,
   status VARCHAR(255),
 
   PRIMARY KEY (checkinId, taskId, status),
@@ -72,8 +71,8 @@ CREATE TABLE checkInTasksMapping
 
 CREATE TABLE boardUserMapping
 (
-  boardId SERIAL,
-  userId SERIAL,
+  boardId INTEGER,
+  userId INTEGER,
 
   PRIMARY KEY (boardId, userId),
   FOREIGN KEY (boardId) REFERENCES boards(id),

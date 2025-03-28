@@ -8,17 +8,17 @@ export const GET = auth(async function GET(request) {
       const {id: userId} = request.auth.user
 
       const boards = await getBoards(userId)
-      // TODO: Handle missing board data
       return Response.json(boards) 
 })
 
 export const POST = auth(async function POST(request) {
       if (!request.auth) return Response.json({ message: "Not authenticated" }, { status: 401 })
       
-      const { name, users } = await request.json()
+      const { name, manager, users } = await request.json()
       const {id: userId} = request.auth.user
 
-      const newBoard = await createBoard(name, [userId, ...users]);
-      // TODO: Handle missing board data
-      return Response.json(newBoard) 
+      const allUsers = [parseInt(userId), ...users]
+
+      const newBoard = await createBoard(name, manager, [ ...new Set(allUsers) ]);
+      return Response.json({newBoard}) 
 })

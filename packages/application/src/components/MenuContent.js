@@ -16,15 +16,6 @@ import TaskIcon from '@mui/icons-material/Task';
 import ChecklistIcon from '@mui/icons-material/Checklist';
 import SummarizeIcon from '@mui/icons-material/Summarize';
 
-
-
-// const secondaryListItems = [
-//   { text: 'Settings', icon: <SettingsRoundedIcon /> },
-//   { text: 'About', icon: <InfoRoundedIcon /> },
-//   { text: 'Feedback', icon: <HelpRoundedIcon /> },
-// ];
-
-
 // TODO: Fix React Hydration error caused by Box
 export default function MenuContent({ role=null, boardId=null }) {
 
@@ -51,16 +42,6 @@ export default function MenuContent({ role=null, boardId=null }) {
             </ListItem>
         ))}
       </List>
-      {/* <List dense>
-        {secondaryListItems.map((item, index) => (
-          <ListItem key={index} disablePadding sx={{ display: 'block' }}>
-            <ListItemButton>
-              <ListItemIcon>{item.icon}</ListItemIcon>
-              <ListItemText primary={item.text} />
-            </ListItemButton>
-          </ListItem>
-        ))}
-      </List> */}
     </Stack>
   );
 }

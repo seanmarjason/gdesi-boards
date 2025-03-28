@@ -6,15 +6,17 @@ export async function getUser(email) {
       u.id,
       u.name,
       u.email,
-      u.role,
       u.pwhash,
       u.salt,
       u.iterations,
-      COALESCE(array_agg(b.boardid) FILTER (WHERE b.boardid IS NOT NULL), '{}') AS boards
+      COALESCE(array_agg(b.boardid) FILTER (WHERE b.boardid IS NOT NULL), '{}') AS boards,
+      COALESCE(array_agg(s.id) FILTER (WHERE s.id IS NOT NULL), '{}') AS manager
     FROM 
         users u
     LEFT JOIN 
         boardUserMapping b ON u.id = b.userid
+    LEFT JOIN
+        boards s ON u.id = s.manager
     WHERE email = ${email}
     GROUP BY 
         u.id, u.name, u.email;

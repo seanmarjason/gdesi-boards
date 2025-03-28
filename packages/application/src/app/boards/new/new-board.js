@@ -37,6 +37,7 @@ export default function NewBoard() {
   const { data: session, status, update: updateSession } = useSession()
 
   const [name, setName]  = useState('')
+  const [manager, setManager] = useState('')
   const [users, setUsers] = useState([])
   const [selectedUsers, setSelectedUsers]  = useState([])
 
@@ -49,7 +50,11 @@ export default function NewBoard() {
     fetchData()
   }, [])
 
-  const handleChange = (event) => {
+  const handleManagerChange = (event) => {
+    setManager(event.target.value);
+  };
+
+  const handleUserChange = (event) => {
     setSelectedUsers(event.target.value);
   };
 
@@ -59,6 +64,7 @@ export default function NewBoard() {
         method: 'POST',
         body: JSON.stringify({
           name,
+          manager,
           users: selectedUsers.map(user => user.id)
         })
       })
@@ -108,13 +114,30 @@ export default function NewBoard() {
                     }}
                 />
 
+                <InputLabel id="manager-label">Manager</InputLabel>
+                <Select
+                  id="manager"
+                  fullWidth
+                  value={manager}
+                  onChange={(event) => handleManagerChange(event)}
+                >
+                  {users.length > 0 && users.map((user) => (
+                    <MenuItem
+                      key={user.name}
+                      value={user.id}
+                    >
+                      {user.name}
+                    </MenuItem>
+                  ))}
+                </Select>
+
                 <InputLabel id="users-label">Users</InputLabel>
                 <Select
                   id="users"
                   multiple
                   fullWidth
                   value={selectedUsers}
-                  onChange={(event) => handleChange(event)}
+                  onChange={(event) => handleUserChange(event)}
                   input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
                   renderValue={(selected) => (
                     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>

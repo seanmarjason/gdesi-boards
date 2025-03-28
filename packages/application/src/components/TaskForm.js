@@ -27,7 +27,7 @@ import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
 import { taskTypeMenuItems } from '../data/tasks';
 
-export const TaskForm = ({ task, boardId, users, saveTask, checkComment }) => {
+export const TaskForm = ({ task, boardId, users, currentUser, saveTask, checkComment }) => {
 
     const emptyLink = {name: '', type: '', url: ''}
     const emptyComment = {author: '', dateCreated: '', comment: ''}
@@ -46,6 +46,7 @@ export const TaskForm = ({ task, boardId, users, saveTask, checkComment }) => {
     const [editLink, setEditLink] = useState(false)
 
     const [newComment, setNewComment] = useState(emptyComment)
+    const [showCommentLoading, setShowCommentLoading] = useState(false)
 
     const statusColours = {
         'To Do': '',
@@ -75,27 +76,27 @@ export const TaskForm = ({ task, boardId, users, saveTask, checkComment }) => {
     }
 
     const saveComment = async (comment) => {
-        const user = 'Mr Miyagi'
         const date = new Date(Date.now()).toISOString()
 
         setComments([
             ...comments,
             {
                 ...comment,
-                author: user,
+                author: currentUser,
                 dateCreated: date,
             },
         ])
 
         setNewComment(emptyComment)
 
+        setShowCommentLoading(true)
         const commentEvaluation = await checkComment(comment.comment)
 
         setComments([
             ...comments,
             {
                 ...comment,
-                author: user,
+                author: currentUser,
                 dateCreated: date,
             },
             {
@@ -104,6 +105,7 @@ export const TaskForm = ({ task, boardId, users, saveTask, checkComment }) => {
                 comment: commentEvaluation
             }
         ])
+        setShowCommentLoading(false)
     }
 
     return (
@@ -310,6 +312,19 @@ export const TaskForm = ({ task, boardId, users, saveTask, checkComment }) => {
                         </Card>
                     ))
                     : <p>nil</p>
+                }
+
+                { showCommentLoading && 
+                    <Card
+                        sx={{ minWidth: 275 }}
+                        key={`comment-loading`}
+                    >
+                        <CardContent>
+                            <Typography variant="body2">
+                                Loading ...
+                            </Typography>
+                        </CardContent>
+                    </Card>
                 }
 
                 <InputLabel id="new-comment-label">Add New Comment</InputLabel>

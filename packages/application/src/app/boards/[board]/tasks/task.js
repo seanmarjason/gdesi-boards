@@ -10,13 +10,13 @@ import Typography from '@mui/material/Typography';
 import Header from '../../../../components/Header';
 import { TaskForm } from '../../../../components/TaskForm';
 
-export default function Task({ task, boardId }) {
+export default function Task({ task, boardId, userName }) {
     const router = useRouter()    
 
     const [taskData, setTaskData] = useState()
     const [users, setUsers] = useState([])
 
-    console.log(users)
+    console.log(userName)
 
     useEffect(() => {
         async function fetchData() {
@@ -94,7 +94,7 @@ export default function Task({ task, boardId }) {
                 {/* Main content */}
                 <Header navigation={['Tasks', `${taskData ? taskData.id : 'New'}`]}/>
 
-                <TaskForm task={ taskData } boardId={ boardId } users={ users } saveTask={ saveTask } checkComment={ checkComment }/>
+                <TaskForm task={ taskData } boardId={ boardId } users={ users } currentUser={ userName } saveTask={ saveTask } checkComment={ checkComment }/>
 
             </Stack>
         </Box>

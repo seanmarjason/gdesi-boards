@@ -20,7 +20,7 @@ import CheckInForm from "../../../../components/CheckInForm";
 export default function CheckIn({ pastCheckInId='', boardId }) {
 
     const [checkIns, setCheckIns] = useState([])
-    const [selectedCheckIn, setSelectedCheckIn] = useState('')
+    const [selectedCheckIn, setSelectedCheckIn] = useState({})
 
     useEffect(() => {
         async function fetchData() {
@@ -38,7 +38,7 @@ export default function CheckIn({ pastCheckInId='', boardId }) {
                 params.append("id", pastCheckInId);
                 const selectedCheckInResponse = await fetch(`/api/boards/${boardId}/check-ins?${params}`)
                 const selectedCheckInData = await selectedCheckInResponse.json()
-                
+
                 setSelectedCheckIn(selectedCheckInData)
             }
         }
@@ -78,7 +78,7 @@ export default function CheckIn({ pastCheckInId='', boardId }) {
                     {/* FORM ELEMENT */}
                     <Grid size={8}>
                         { 
-                            selectedCheckIn
+                            pastCheckInId
                             ? <CheckInRecord checkIn={ selectedCheckIn }/>
                             : <CheckInForm boardId={ boardId }/>
                         }

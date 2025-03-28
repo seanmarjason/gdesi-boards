@@ -10,16 +10,21 @@ export const GET = auth(async function GET(request, { params }) {
         return Response.json({ error: 'Unauthorised' }, { status: 401 }) 
     }
 
+    const role = request.auth?.user?.manager.includes(parseInt(board)) ? 'manager' : 'user'
+
     const searchParams = request.nextUrl.searchParams
     const { id: userid } = request.auth.user
 
     // GET specific task
     const id = searchParams.get('id')
     if (id != null) {
-      const checkIn = await getCheckIn(parseInt(id), board, userid)
-      const checkInData = await getCheckInData(id, board, userid)
+      const checkIn = await getCheckIn(parseInt(id))
+      const checkInData = await getCheckInData(id)
 
       if (checkIn) {
+        // Confirm user is accessing their own checkin or board manager is accessing checkin
+        if (userid != checkIn.userid && role != 'manager') return Response.json({ error: 'Unauthorised' }, { status: 401 })
+
         const item = {
           ...checkIn,
           tasksCompleted: checkInData.filter(task => task.	checkinstatus == 'completed'),

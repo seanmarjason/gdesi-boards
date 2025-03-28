@@ -57,7 +57,7 @@ export default function CheckInForm({ boardId }) {
             })
           }
           saveData()
-        // router.push(`/boards/${boardId}/check-ins`)
+        router.push(`/boards/${boardId}/check-ins`)
     }
 
     return (

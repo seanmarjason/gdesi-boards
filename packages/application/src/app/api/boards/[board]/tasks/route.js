@@ -2,6 +2,7 @@ import { auth } from '../../../../auth';
 import { 
     getTask,
     getTaskComments,
+    getTaskLinks,
     getTaskList, 
     updateTaskStatus, 
     createNewTask,
@@ -29,10 +30,12 @@ export const GET = auth(async function GET(request, { params }) {
         if (taskId) {
             const task = await getTask(taskId)
             const taskComments = await getTaskComments(taskId)
+            const taskLinks = await getTaskLinks(taskId)
 
             const taskData = {
                 ...task,
-                comments: taskComments
+                comments: taskComments,
+                links: taskLinks,
             }
 
             return Response.json(taskData)

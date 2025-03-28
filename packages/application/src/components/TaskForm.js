@@ -286,7 +286,6 @@ export const TaskForm = ({ task, boardId, users, currentUser, saveTask, checkCom
                                     </DialogContentText>
                                 </DialogContent>
                                 <DialogActions>
-                                    <Button onClick={() => setEditLink(true)}>Edit</Button>
                                     <Button onClick={() => setShowLinkModal(false)} autoFocus>Ok</Button>
                                 </DialogActions>
                             </div>

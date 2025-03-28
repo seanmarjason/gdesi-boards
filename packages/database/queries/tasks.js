@@ -27,7 +27,15 @@ export async function getTaskComments(taskId) {
     WHERE taskid = ${taskId}
   `
   return result ? result : null;
+}
 
+export async function getTaskLinks(taskId) {
+  const result = await sql`
+    SELECT *
+    FROM links
+    WHERE taskid = ${taskId}
+  `
+  return result ? result : null;
 }
 
 export async function getTaskList(board) {
@@ -87,8 +95,6 @@ export async function updateTask(taskId, taskData) {
     status
   } = JSON.parse(taskData)
 
-  console.log("SQL comments:", comments)
-
   const result = await sql`
     UPDATE tasks
     SET 
@@ -116,6 +122,19 @@ export async function updateTask(taskId, taskData) {
   const commentResult = await sql`
     INSERT INTO comments
       ${ sql(commentsMap, 'taskid', 'author', 'datecreated', 'comment')} 
+    ;
+  `
+
+  const linksMap = links.map(links => ({
+    taskid: taskId,
+    name: links.name,
+    url: links.url,
+    type: links.type
+  }))
+
+  const linksResult = await sql`
+    INSERT INTO links
+      ${ sql(linksMap, 'taskid', 'name', 'url', 'type')} 
     ;
   `
 

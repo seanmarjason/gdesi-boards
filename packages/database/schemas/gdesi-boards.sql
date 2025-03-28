@@ -89,3 +89,16 @@ CREATE TABLE comments
   PRIMARY KEY (id),
   FOREIGN KEY (taskId) REFERENCES tasks(id)
 );
+
+
+CREATE TABLE links
+(
+  id SERIAL,
+  taskId INTEGER,
+  name VARCHAR(255),
+  url VARCHAR(255),
+  type VARCHAR(255),
+
+  PRIMARY KEY (id),
+  FOREIGN KEY (taskId) REFERENCES tasks(id)
+);

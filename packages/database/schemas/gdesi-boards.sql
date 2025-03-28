@@ -28,13 +28,12 @@ CREATE TABLE users
  (
   id SERIAL,
   boardid INTEGER,
-  title VARCHAR(255), -- TODO: Move to reference table
+  title VARCHAR(255),
   type VARCHAR(255),
   assignee INTEGER,
   description TEXT,
   links VARCHAR(255) [], -- TODO: Confirm if needs relation
-  comments TEXT [], -- TODO: Confirm if needs relation
-  status VARCHAR(255), -- TODO: Move to reference table
+  status VARCHAR(255),
   deadline DATE,
   startedDate DATE,
   completedDate DATE,
@@ -79,3 +78,14 @@ CREATE TABLE boardUserMapping
   FOREIGN KEY (userId) REFERENCES users(id)
 );
 
+CREATE TABLE comments
+(
+  id SERIAL,
+  taskId INTEGER,
+  author VARCHAR(255),
+  datecreated TIMESTAMP,
+  comment TEXT,
+
+  PRIMARY KEY (id),
+  FOREIGN KEY (taskId) REFERENCES tasks(id)
+);

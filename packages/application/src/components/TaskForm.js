@@ -30,11 +30,14 @@ import { taskTypeMenuItems } from '../data/tasks';
 export const TaskForm = ({ task, boardId, users, currentUser, saveTask, checkComment }) => {
 
     const emptyLink = {name: '', type: '', url: ''}
-    const emptyComment = {author: '', dateCreated: '', comment: ''}
+    const emptyComment = {author: '', datecreated: '', comment: ''}
 
-    const [deadline, setDeadline] = useState(task?.deadline ? dayjs(task?.deadline) : dayjs().add(7, 'day'));
+    const action = task ? 'update' : 'new'
 
+    
+    const [status, setStatus]  = useState(task?.status ?? '')
     const [title, setTitle]  = useState(task?.title ?? '')
+    const [deadline, setDeadline] = useState(task?.deadline ? dayjs(task?.deadline) : dayjs().add(7, 'day'));
     const [type, setType]  = useState(task?.type ?? '')
     const [assignee, setAssignee]  = useState(task?.assignee ?? '')
     const [description, setDescription]  = useState(task?.description ?? '')
@@ -83,7 +86,7 @@ export const TaskForm = ({ task, boardId, users, currentUser, saveTask, checkCom
             {
                 ...comment,
                 author: currentUser,
-                dateCreated: date,
+                datecreated: date,
             },
         ])
 
@@ -97,11 +100,11 @@ export const TaskForm = ({ task, boardId, users, currentUser, saveTask, checkCom
             {
                 ...comment,
                 author: currentUser,
-                dateCreated: date,
+                datecreated: date,
             },
             {
                 author: 'BOT', 
-                dateCreated: date, 
+                datecreated: new Date(Date.now()).toISOString(), 
                 comment: commentEvaluation
             }
         ])
@@ -303,7 +306,7 @@ export const TaskForm = ({ task, boardId, users, currentUser, saveTask, checkCom
                                     {comment.author}
                                 </Typography>
                                 <Typography sx={{ color: 'text.secondary', mb: 1.5 }}>
-                                    Created: {comment.dateCreated}
+                                    Created: {comment.datecreated}
                                 </Typography>
                                 <Typography variant="body2">
                                     {comment.comment}
@@ -348,7 +351,8 @@ export const TaskForm = ({ task, boardId, users, currentUser, saveTask, checkCom
             <Button 
                 variant="contained" 
                 color="secondary"
-                onClick={() => saveTask({
+                onClick={() => saveTask(action, {
+                    status,
                     deadline,
                     title,
                     type,

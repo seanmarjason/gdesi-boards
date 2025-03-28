@@ -9,6 +9,9 @@ export const sql = postgres({
   password: PGPASSWORD,
   port: 5432,
   ssl: 'require',
+  transform: {
+    undefined: null
+  }
 });
 
 

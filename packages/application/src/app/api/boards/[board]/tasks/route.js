@@ -1,9 +1,11 @@
 import { auth } from '../../../../auth';
 import { 
-    getTask, 
+    getTask,
+    getTaskComments,
     getTaskList, 
     updateTaskStatus, 
     createNewTask,
+    updateTask,
     getTasksCompleted,
     getTasksStarted,
     getTasksDue
@@ -25,7 +27,14 @@ export const GET = auth(async function GET(request, { params }) {
         // GET specific task by id
         const taskId = searchParams.get('task-id')
         if (taskId) {
-            const taskData = await getTask(taskId)
+            const task = await getTask(taskId)
+            const taskComments = await getTaskComments(taskId)
+
+            const taskData = {
+                ...task,
+                comments: taskComments
+            }
+
             return Response.json(taskData)
         }
 
@@ -53,17 +62,24 @@ export const POST = auth(async function POST(request, { params }) {
     if (!request.auth) return Response.json({ message: "Not authenticated" }, { status: 401 })
    
     const { board } = await params 
-    const { type, taskId, data } = await request.json()
+    const { action, taskId, data } = await request.json()
 
-    if (type == 'status') {
+    if (action == 'status') {
         updateTaskStatus(taskId, data.status)
     }
 
-    if (type == 'new') {
-        createNewTask({
+    if (action == 'new') {
+        createNewTask(JSON.stringify({
             ...data,
             boardid: board
-        })
+        }))
+    }
+
+    if (action == 'update') {
+        updateTask(taskId, JSON.stringify({
+            ...data,
+            boardid: board
+        }))
     }
 
     return Response.json({message: 'done!'})

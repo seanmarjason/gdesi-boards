@@ -16,8 +16,6 @@ export default function Task({ task, boardId, userName }) {
     const [taskData, setTaskData] = useState()
     const [users, setUsers] = useState([])
 
-    console.log(userName)
-
     useEffect(() => {
         async function fetchData() {
             const res = await fetch(`/api/boards/${boardId}/tasks?task-id=${task}`)
@@ -37,13 +35,15 @@ export default function Task({ task, boardId, userName }) {
         fetchUsers()
     }, [])
 
-    const saveTask = async (taskData) => {
+    const saveTask = async (action, data) => {
+        console.log("saveTask data:", data)
         async function saveData() {
           const res = await fetch(`/api/boards/${boardId}/tasks`, {
             method: 'POST',
             body: JSON.stringify({
-                type: 'new',
-                data: taskData
+                action,
+                taskId: task,
+                data
             })
           })
         }

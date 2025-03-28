@@ -20,6 +20,16 @@ export async function getTask(taskId) {
   return result ? result[0] : null;
 }
 
+export async function getTaskComments(taskId) {
+  const result = await sql`
+    SELECT *
+    FROM comments
+    WHERE taskid = ${taskId}
+  `
+  return result ? result : null;
+
+}
+
 export async function getTaskList(board) {
   const result = await sql`
     SELECT *
@@ -61,6 +71,53 @@ export async function createNewTask(taskData) {
     )
     ;
   `;
+
+  return result ? result : null;
+}
+
+export async function updateTask(taskId, taskData) {
+  const {
+    deadline,
+    title,
+    type,
+    assignee,
+    description,
+    links,
+    comments,
+    status
+  } = JSON.parse(taskData)
+
+  console.log("SQL comments:", comments)
+
+  const result = await sql`
+    UPDATE tasks
+    SET 
+      ${sql({
+        deadline: deadline,
+        title: title,
+        type: type,
+        assignee: assignee,
+        description: description,
+        links: links,
+        status: status
+      })}
+    WHERE
+      id = ${taskId}
+    ;
+  `;
+
+  const commentsMap = comments.map(comment => ({
+    taskid: taskId,
+    author: comment.author,
+    datecreated: comment.datecreated,
+    comment: comment.comment
+  }))
+
+  const commentResult = await sql`
+    INSERT INTO comments
+      ${ sql(commentsMap, 'taskid', 'author', 'datecreated', 'comment')} 
+    ;
+  `
 
   return result ? result : null;
 }

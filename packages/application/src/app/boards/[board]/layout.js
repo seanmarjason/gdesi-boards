@@ -3,7 +3,6 @@ import * as React from 'react';
 import { auth } from '../../auth';
 
 import SideMenu from '../../../components/SideMenu';
-import AppNavbar from '../../../components/AppNavbar';
 
 import Unauthorised from '../unauthorised';
 
@@ -25,7 +24,6 @@ export default async function BoardsLayout({children, params}) {
       <Grid container >
         <Grid size={2}>
           <SideMenu user={{...session?.user, role}} boardId={board} showMenuContent={board}/>
-          <AppNavbar />
         </Grid>
         <Grid size={8}>
           {children}

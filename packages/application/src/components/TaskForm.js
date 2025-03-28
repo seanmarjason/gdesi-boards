@@ -25,9 +25,14 @@ import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
-import { taskTypeMenuItems } from '../data/tasks';
 
 export const TaskForm = ({ task, boardId, users, currentUser, saveTask, checkComment }) => {
+
+    const taskTypeMenuItems = [
+        'Document',
+        'Meeting',
+        'Design',
+    ]
 
     const emptyLink = {name: '', type: '', url: ''}
     const emptyComment = {author: '', datecreated: '', comment: ''}

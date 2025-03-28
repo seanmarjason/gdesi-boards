@@ -5,7 +5,7 @@ import Typography from '@mui/material/Typography';
 
 import { ThemeProvider } from '@mui/material/styles';
 
-import AppAppBar from '../components/menu/AppAppBar';
+import AppAppBar from '../components/AppAppBar';
 
 import { theme } from '../shared-theme/AppTheme';
 

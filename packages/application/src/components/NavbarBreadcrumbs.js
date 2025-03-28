@@ -5,19 +5,6 @@ import Breadcrumbs, { breadcrumbsClasses } from '@mui/material/Breadcrumbs';
 import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
 import Link from '@mui/material/Link';
 
-// const StyledBreadcrumbs = styled(Breadcrumbs)(({ theme }) => ({
-//   margin: theme.spacing(1, 0),
-//   [`& .${breadcrumbsClasses.separator}`]: {
-//     color: (theme.vars || theme).palette.action.disabled,
-//     margin: 1,
-//   },
-//   [`& .${breadcrumbsClasses.ol}`]: {
-//     alignItems: 'center',
-//   },
-// }));
-
-// const StyledBreadcrumbs = Breadcrumbs
-
 export default function NavbarBreadcrumbs({ nav=['Boards']}) {
 
   const lastNav = nav.slice(nav.length-1)

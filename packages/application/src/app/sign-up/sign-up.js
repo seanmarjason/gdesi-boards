@@ -17,7 +17,7 @@ import { styled } from '@mui/material/styles';
 import { ThemeProvider } from '@mui/material/styles';
 import { theme } from '../../shared-theme/AppTheme';
 
-import AppAppBar from '../../components/menu/AppAppBar';
+import AppAppBar from '../../components/AppAppBar';
 import GdesiIcon from '../../components/GdesiIcon'
 
 

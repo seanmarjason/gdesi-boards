@@ -15,7 +15,6 @@ import TaskIcon from '@mui/icons-material/Task';
 import ChecklistIcon from '@mui/icons-material/Checklist';
 import SummarizeIcon from '@mui/icons-material/Summarize';
 
-// TODO: Fix React Hydration error caused by Box
 export default function MenuContent({ role=null, boardId=null }) {
 
   const mainListItems = [

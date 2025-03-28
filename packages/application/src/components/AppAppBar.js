@@ -12,7 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Drawer from '@mui/material/Drawer';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
-import GdesiIcon from '../GdesiIcon';
+import GdesiIcon from './GdesiIcon';
 
 import { signIn, signOut } from 'next-auth/react';
 

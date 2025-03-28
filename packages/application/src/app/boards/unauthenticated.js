@@ -6,7 +6,7 @@ import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-import AppAppBar from "../../components/menu/AppAppBar";
+import AppAppBar from "../../components/AppAppBar";
 
 export default function Unauthenticated(props) {
 

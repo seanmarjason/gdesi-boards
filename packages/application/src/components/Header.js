@@ -1,14 +1,10 @@
 import * as React from 'react';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
-import NotificationsRoundedIcon from '@mui/icons-material/NotificationsRounded';
 
 import { signOut } from 'next-auth/react';
 
 import NavbarBreadcrumbs from './NavbarBreadcrumbs';
-import MenuButton from './MenuButton';
-
-import Search from './Search';
 
 export default function Header({ navigation }) {
   return (
@@ -26,10 +22,6 @@ export default function Header({ navigation }) {
     >
       <NavbarBreadcrumbs nav={navigation}/>
       <Stack direction="row" sx={{ gap: 1 }}>
-        <Search />
-        <MenuButton showBadge aria-label="Open notifications">
-          <NotificationsRoundedIcon />
-        </MenuButton>
         <Button onClick={() => signOut({ callbackUrl: '/' })} variant="contained" color="primary">
             Sign out
         </Button>

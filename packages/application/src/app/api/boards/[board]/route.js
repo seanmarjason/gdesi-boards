@@ -1,4 +1,4 @@
-import { getBoard, getTasksSummary } from '@gdesi-boards/database';
+import { getBoard, getTasksSummary, updateBoard } from '@gdesi-boards/database';
 import { auth } from '../../../auth';
 
 export const GET = auth(async function GET(request, { params }) {
@@ -15,6 +15,8 @@ export const GET = auth(async function GET(request, { params }) {
       const data = {
             id: boardData.id,
             name: boardData.name,
+            manager: boardData.manager,
+            users: boardData.users,
             columns: boardData.columns.map((column, index) => {
                   return({
                         id: index + 1,
@@ -24,6 +26,20 @@ export const GET = auth(async function GET(request, { params }) {
             })
       };
 
-      // TODO: Handle missing board data
       return Response.json(data) 
+})
+
+export const POST = auth(async function POST(request, { params }) {
+      if (!request.auth) return Response.json({ message: "Not authenticated" }, { status: 401 })
+      
+      const { board } = await params
+      
+      const { name, manager, users } = await request.json()
+
+      const {id: userId} = request.auth.user
+
+      const allUsers = [parseInt(userId), ...users]
+
+      const updatedBoard = await updateBoard(board, name, manager, [ ...new Set(allUsers) ]);
+      return Response.json({updatedBoard}) 
 })

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
 import Avatar from '@mui/material/Avatar';
 import Drawer, { drawerClasses } from '@mui/material/Drawer';
 import Box from '@mui/material/Box';
@@ -10,7 +9,6 @@ import SelectContent from './SelectContent';
 import MenuContent from './MenuContent';
 import OptionsMenu from './OptionsMenu';
 
-const drawerWidth = 240;
 
 export default function SideMenu({ user=null, boardId=null, showMenuContent=true}) {
   return (

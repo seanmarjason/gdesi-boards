@@ -1,7 +1,6 @@
 'use client'
 
 import * as React from 'react';
-import { styled } from '@mui/material/styles';
 import Divider, { dividerClasses } from '@mui/material/Divider';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -12,12 +11,6 @@ import ListItemIcon, { listItemIconClasses } from '@mui/material/ListItemIcon';
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import MoreVertRoundedIcon from '@mui/icons-material/MoreVertRounded';
 import MenuButton from './MenuButton';
-
-// const MenuItem = styled(MuiMenuItem)({
-//   margin: '2px 0',
-// });
-
-// const MenuItem = MuiMenuItem
 
 export default function OptionsMenu() {
   const [anchorEl, setAnchorEl] = React.useState(null);
@@ -57,8 +50,6 @@ export default function OptionsMenu() {
           },
         }}
       >
-        {/* TODO: Create new page to define new user's manager (or display / change curent manager - must be part of current board) */}
-        <MenuItem onClick={handleClose}>Profile</MenuItem> 
         <Divider />
         <MenuItem
           onClick={handleClose}

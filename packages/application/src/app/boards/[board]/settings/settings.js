@@ -3,13 +3,11 @@
 import { useState, useEffect } from "react";
 import { useRouter } from 'next/navigation'
 
-import { useSession } from "next-auth/react"
-
 import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 
-import Header from '../../../components/Header';
+import Header from '../../../../components/Header';
 
 import InputLabel from '@mui/material/InputLabel';
 import TextField from '@mui/material/TextField';
@@ -32,51 +30,59 @@ const MenuProps = {
   },
 };
 
-export default function NewBoard() {
+export default function BoardSettings({ boardId }) {
   const router = useRouter()
-  const { data: session, status, update: updateSession } = useSession()
 
-  const [name, setName]  = useState('')
-  const [manager, setManager] = useState('')
+  const [board, setBoard] = useState()
+
   const [users, setUsers] = useState([])
-  const [selectedUsers, setSelectedUsers]  = useState([])
 
-  console.log("selectedUsers", selectedUsers)
 
   useEffect(() => {
-    async function fetchData() {
-        const res = await fetch(`/api/boards/new/users`)
-        const data = await res.json()
-        setUsers(data)
-    }
-    fetchData()
-  }, [])
+      async function fetchData() {
+            const boardResponse = await fetch(`/api/boards/${boardId}`)
+            const boardData = await boardResponse.json()
+            setBoard(boardData)
 
-  const handleManagerChange = (event) => {
-    setManager(event.target.value);
-  };
+            const usersResponse = await fetch(`/api/boards/new/users`)
+            const usersData = await usersResponse.json()
+            setUsers(usersData)
 
-  const handleUserChange = (event) => {
-    setSelectedUsers(event.target.value);
-  };
+        }
+        fetchData()
+    }, [])
 
-  const createBoard = async () => {
-    async function saveData() {
-      const res = await fetch('/api/boards', {
-        method: 'POST',
-        body: JSON.stringify({
-          name,
-          manager,
-          users: selectedUsers.map(user => user.id)
+
+    const handleBoardDataChange = (event) => {
+        const { name, value } = event.target
+        setBoard({
+            ...board,
+            [name]: value,
         })
+    }
+
+    const handleUserChange = (event) => {
+        const { value } = event.target
+        setBoard({
+            ...board,
+            users: value.map(user => user.id),
+        })
+    }
+
+  const updateBoard = async () => {
+    async function saveData() {
+      const res = await fetch(`/api/boards/${boardId}`, {
+        method: 'POST',
+        body: JSON.stringify(board)
       })
       const newBoardId = await res.json()
       return newBoardId;
     }
-    const boardId = await saveData()
-    await updateSession({ boards: [...session.user.boards, boardId] })
+    await saveData()
     router.push(`/boards`)
   }
+
+  if (board) {
 
   return (
         <Box
@@ -101,7 +107,7 @@ export default function NewBoard() {
                 <form>
 
                 <Typography variant="h1" gutterBottom>
-                  Create New Board
+                  Settings
                 </Typography>     
 
                 <br />
@@ -109,10 +115,11 @@ export default function NewBoard() {
                 <InputLabel id="board-name-label">Name</InputLabel>
                 <TextField
                     id="board-name"
-                    value={name}
+                    name="name"
+                    value={board.name}
                     fullWidth
                     onChange={(event) => {
-                        setName(event.target.value)
+                        handleBoardDataChange(event)
                     }}
                 />
 
@@ -120,8 +127,9 @@ export default function NewBoard() {
                 <Select
                   id="manager"
                   fullWidth
-                  value={manager}
-                  onChange={(event) => handleManagerChange(event)}
+                  name="manager"
+                  value={board.manager}
+                  onChange={(event) => handleBoardDataChange(event)}
                 >
                   {users.length > 0 && users.map((user) => (
                     <MenuItem
@@ -134,12 +142,14 @@ export default function NewBoard() {
                 </Select>
 
                 <InputLabel id="users-label">Users</InputLabel>
+
                 <Select
                   id="users"
                   multiple
                   fullWidth
-                  value={selectedUsers}
-                  onChange={(event) => handleUserChange(event)}
+                  name="users"
+                  value={users.filter(user => board.users.includes(user.id))}
+                  onChange={handleUserChange}
                   input={<OutlinedInput id="select-multiple-chip" label="Chip" />}
                   renderValue={(selected) => (
                     <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
@@ -161,11 +171,12 @@ export default function NewBoard() {
                 </Select>
 
                 <Button component={NextLink} href="/boards" variant="contained" color="error">Cancel</Button>
-                <Button onClick={() => createBoard()} variant="contained" color="secondary">Create</Button>
+                <Button onClick={() => updateBoard()} variant="contained" color="secondary">Save</Button>
 
               </form>
 
             </Stack>
         </Box>
     )
+  }
 }

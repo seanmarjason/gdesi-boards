@@ -12,7 +12,9 @@ import ListSubheader from '@mui/material/ListSubheader';
 import Select, { selectClasses } from '@mui/material/Select';
 import Divider from '@mui/material/Divider';
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
+import FilterNoneIcon from '@mui/icons-material/FilterNone';
 import DevicesRoundedIcon from '@mui/icons-material/DevicesRounded';
+import SettingsIcon from '@mui/icons-material/Settings';
 import ConstructionRoundedIcon from '@mui/icons-material/ConstructionRounded';
 
 
@@ -58,9 +60,18 @@ export default function SelectContent({ boardId=null}) {
       </MenuItem>
       <Divider sx={{ mx: -1 }} />
 
+      { boardId && 
+        <MenuItem value={40} component={NextLink} href={`/boards/${boardId}/settings`}>
+          <ListItemIcon>
+            <SettingsIcon />
+          </ListItemIcon>
+          <ListItemText primary="Board Settings" />
+        </MenuItem>
+      }
+
       <MenuItem value={40} component={NextLink} href="/boards">
         <ListItemIcon>
-          <AddRoundedIcon />
+          <FilterNoneIcon />
         </ListItemIcon>
         <ListItemText primary="Switch Boards" />
       </MenuItem>

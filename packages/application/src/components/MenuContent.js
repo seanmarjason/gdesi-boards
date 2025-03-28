@@ -9,7 +9,6 @@ import ListItemText from '@mui/material/ListItemText';
 import Stack from '@mui/material/Stack';
 import Link from '@mui/material/Link';
 
-import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
 
 import DashboardIcon from '@mui/icons-material/Dashboard';
 import TaskIcon from '@mui/icons-material/Task';

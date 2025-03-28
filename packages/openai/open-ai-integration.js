@@ -23,16 +23,10 @@ export const evaluateMessage = async (userMessage) => {
             someone sends you feedback or comments on your work to 
             make sure you clearly understand what they are saying. 
 
-            If you have not received any data in RESPONSES, 
-            ask a further 2 questions to clarify your understanding. 
-            Wait for a response to each of these questions.
+            If you receive a very simple message or a message that 
+            is unclear, ask a further 2 questions to clarify your understanding. 
 
-            If you receive RESPONSES from the user, assume 
-            that you have already clarified the users initial message and
-            do not ask any further questions. Instead, respond with the 
-            original message but rewritten to add your new understanding 
-            using the RESPONSES from the user. This message should be
-            written in a way that it appears as though the user has written it
+            If you receive a very detailed message, respond with 'Understood'.
           `,
         },
         {

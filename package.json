@@ -10,6 +10,7 @@
   "scripts": {
     "dev": "yarn workspace @gdesi-boards/frontend dev",
     "build": "yarn workspace @gdesi-boards/frontend build",
+    "test": "yarn workspace @gdesi-boards/frontend test",
     "db": "yarn neon connection-string main --database-name neondb --psql"
   }
 }

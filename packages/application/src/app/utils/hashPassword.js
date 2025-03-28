@@ -1,4 +1,4 @@
-const crypto = require('crypto'); 
+import crypto from 'crypto';
 
 function hashPassword(password) {
   const iterations = 100000;

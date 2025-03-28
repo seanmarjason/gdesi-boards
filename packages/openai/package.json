@@ -4,8 +4,6 @@
     "private": true,
     "scripts": {},
     "dependencies": {
-        "aws-sdk": "^2.1692.0",
-        "axios": "^1.7.9",
         "openai": "^4.85.2"
     },
     "devDependencies": {}

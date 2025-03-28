@@ -26,12 +26,11 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 
 import { taskTypeMenuItems } from '../data/tasks';
-// import { boardUsers } from '../data/boardUsers';
 
-export const TaskForm = ({ task, boardId, users, saveTask }) => {
+export const TaskForm = ({ task, boardId, users, saveTask, checkComment }) => {
 
     const emptyLink = {name: '', type: '', url: ''}
-    const emptyComment = {author: '', dateCreated: '', dateModified: '', comment: ''}
+    const emptyComment = {author: '', dateCreated: '', comment: ''}
 
     const [deadline, setDeadline] = useState(task?.deadline ? dayjs(task?.deadline) : dayjs().add(7, 'day'));
 
@@ -75,7 +74,7 @@ export const TaskForm = ({ task, boardId, users, saveTask }) => {
         setLinkModalDetails(emptyLink)
     }
 
-    const saveComment = (comment) => {
+    const saveComment = async (comment) => {
         const user = 'Mr Miyagi'
         const date = new Date(Date.now()).toISOString()
 
@@ -85,11 +84,26 @@ export const TaskForm = ({ task, boardId, users, saveTask }) => {
                 ...comment,
                 author: user,
                 dateCreated: date,
-                dateModified: date
-            }
+            },
         ])
 
         setNewComment(emptyComment)
+
+        const commentEvaluation = await checkComment(comment.comment)
+
+        setComments([
+            ...comments,
+            {
+                ...comment,
+                author: user,
+                dateCreated: date,
+            },
+            {
+                author: 'BOT', 
+                dateCreated: date, 
+                comment: commentEvaluation
+            }
+        ])
     }
 
     return (
@@ -287,7 +301,7 @@ export const TaskForm = ({ task, boardId, users, saveTask }) => {
                                     {comment.author}
                                 </Typography>
                                 <Typography sx={{ color: 'text.secondary', mb: 1.5 }}>
-                                    Created: {comment.dateCreated} Modified: {comment.dateModified}
+                                    Created: {comment.dateCreated}
                                 </Typography>
                                 <Typography variant="body2">
                                     {comment.comment}
@@ -309,7 +323,10 @@ export const TaskForm = ({ task, boardId, users, saveTask }) => {
                             })
                         }}
                     />
-                    <Button onClick={() => saveComment(newComment)}>Save</Button>
+                    <Button onClick={() => saveComment(newComment)}>Add</Button>
+
+            <br />
+            <br />
 
 
             <Button component={NextLink} href={`/boards/${boardId}`} variant="contained" color="error">Cancel</Button>

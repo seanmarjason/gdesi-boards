@@ -51,6 +51,21 @@ export default function Task({ task, boardId }) {
         router.push(`/boards/${boardId}`)
     }
 
+    const checkComment = async (message) => {
+        async function check() {
+          const res = await fetch(`/api/boards/openai`, {
+            method: 'POST',
+            body: JSON.stringify({
+                message
+            })
+          })
+          const response = await res.json()
+          return response;
+        }
+        const commentResponse = await check()
+        return commentResponse;
+    }
+
     if (task && (!taskData || Object.keys(taskData).length == 0)) {
         return (
             <Typography element="h1" variant="h6">
@@ -79,7 +94,7 @@ export default function Task({ task, boardId }) {
                 {/* Main content */}
                 <Header navigation={['Tasks', `${taskData ? taskData.id : 'New'}`]}/>
 
-                <TaskForm task={ taskData } boardId={ boardId } users={ users } saveTask={ saveTask }/>
+                <TaskForm task={ taskData } boardId={ boardId } users={ users } saveTask={ saveTask } checkComment={ checkComment }/>
 
             </Stack>
         </Box>

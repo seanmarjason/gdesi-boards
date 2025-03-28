@@ -1,36 +1,12 @@
-const AWS = require('aws-sdk');
-const axios = require('axios');
 const { OpenAI } = require('openai');
 
-exports.handler = async (event) => {
-  const body = JSON.parse(event.body);
-  console.log('Getting API Key ...');
-
-  const secretId = 'OPENAI_API_KEY';
-  const secretName = 'OPENAI_API_KEY';
-  const authHeaders = {
-    'X-Aws-Parameters-Secrets-Token': process.env.AWS_SESSION_TOKEN,
-  };
-
+export const evaluateMessage = async (userMessage) => {
   try {
-    // Get secret value from AWS Secrets Manager
-    const secretResponse = await axios.get(
-      `http://localhost:2773/secretsmanager/get?secretId=${secretId}`,
-      { headers: authHeaders }
-    );
-
-    const secretString = JSON.parse(secretResponse.data.SecretString);
-    const OPENAI_API_KEY = secretString[secretName];
-
     const openai = new OpenAI({
-      apiKey: OPENAI_API_KEY,
+      apiKey: process.env.OPENAI_API_KEY,
     });
 
-    const userMessage = body.userMessage;
     console.log('userMessage:', userMessage);
-
-    const userResponses = body.responses || '';
-    console.log('userResponses:', userResponses);
 
     console.log('Asking ChatGPT ...');
 
@@ -62,10 +38,6 @@ exports.handler = async (event) => {
         {
           role: 'user',
           content: userMessage,
-        },
-        {
-          role: 'user',
-          content: 'RESPONSES:' + ' ' + userResponses.join(' '),
         },
       ],
       temperature: 0.9,

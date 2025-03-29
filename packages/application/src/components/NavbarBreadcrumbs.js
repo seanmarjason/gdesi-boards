@@ -5,7 +5,7 @@ import Breadcrumbs, { breadcrumbsClasses } from '@mui/material/Breadcrumbs';
 import NavigateNextRoundedIcon from '@mui/icons-material/NavigateNextRounded';
 import Link from '@mui/material/Link';
 
-export default function NavbarBreadcrumbs({ nav=['Boards']}) {
+export default function NavbarBreadcrumbs({ nav=['']}) {
 
   const lastNav = nav.slice(nav.length-1)
   const prevNav = nav.slice(0, -1)

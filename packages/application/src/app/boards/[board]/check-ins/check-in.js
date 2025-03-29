@@ -71,7 +71,7 @@ export default function CheckIn({ pastCheckInId='', boardId }) {
                 }
                 }
             >
-                <Header navigation={['Check-Ins']}/>
+                <Header />
 
                 <Grid container spacing={1}>
 

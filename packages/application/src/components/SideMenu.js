@@ -7,8 +7,6 @@ import Stack from '@mui/material/Stack';
 import Typography from '@mui/material/Typography';
 import SelectContent from './SelectContent';
 import MenuContent from './MenuContent';
-import OptionsMenu from './OptionsMenu';
-
 
 export default function SideMenu({ user=null, boardId=null, showMenuContent=true}) {
   return (
@@ -65,7 +63,6 @@ export default function SideMenu({ user=null, boardId=null, showMenuContent=true
             {user?.email}
           </Typography>
         </Box>
-        <OptionsMenu />
       </Stack>
     </Drawer>
   );

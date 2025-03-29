@@ -6,7 +6,7 @@ import { signOut } from 'next-auth/react';
 
 import NavbarBreadcrumbs from './NavbarBreadcrumbs';
 
-export default function Header({ navigation }) {
+export default function Header({ navigation=[] }) {
   return (
     <Stack
       direction="row"

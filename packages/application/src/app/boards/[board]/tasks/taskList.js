@@ -69,7 +69,7 @@ export default function TaskList({ boardId }) {
                 }}
             >
                 {/* Main content */}
-                <Header navigation={['Tasks']}/>
+                <Header />
 
                 <Button component={NextLink} href={`/boards/${boardId}/tasks/new`} variant="contained" color="secondary">
                     Create New Task

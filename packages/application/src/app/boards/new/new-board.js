@@ -94,7 +94,7 @@ export default function NewBoard() {
                 }}
             >
                 {/* Main content */}
-                <Header navigation={['Boards']}/>
+                <Header />
 
                 <form>
 

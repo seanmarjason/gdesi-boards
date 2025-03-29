@@ -79,7 +79,7 @@ export default function Reports({ boardId, reportDate }) {
                         }}
                     >
                         {/* Main content */}
-                        <Header navigation={['Boards', 'Reports']}/>
+                        <Header />
 
                         <Grid container spacing={5} sx={{ width: '100%' }}>
                             <Grid container >

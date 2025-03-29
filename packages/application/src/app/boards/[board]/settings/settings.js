@@ -102,7 +102,7 @@ export default function BoardSettings({ boardId }) {
                 }}
             >
                 {/* Main content */}
-                <Header navigation={['Boards']}/>
+                <Header />
 
                 <form>
 

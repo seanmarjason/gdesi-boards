@@ -91,7 +91,7 @@ export default function Task({ task, boardId, userName }) {
                 }}
             >
                 {/* Main content */}
-                <Header navigation={['Tasks', `${taskData ? taskData.id : 'New'}`]}/>
+                <Header />
 
                 <TaskForm task={ taskData } boardId={ boardId } users={ users } currentUser={ userName } saveTask={ saveTask } checkComment={ checkComment }/>
 

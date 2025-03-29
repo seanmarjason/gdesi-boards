@@ -1,0 +1,277 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SignUp renders correctly 1`] = `
+<div>
+  <header
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionFixed mui-fixed css-5bgt7v-MuiPaper-root-MuiAppBar-root"
+    style="--Paper-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12); --Paper-overlay: linear-gradient(rgba(255, 255, 255, 0.092), rgba(255, 255, 255, 0.092));"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthLg css-5c1adp-MuiContainer-root"
+    >
+      <div
+        class="MuiToolbar-root MuiToolbar-dense css-10po6k9-MuiToolbar-root"
+      >
+        <div
+          class="MuiBox-root css-1rw111m"
+        >
+          <a
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineNone css-19ap7x-MuiTypography-root-MuiLink-root"
+            href="/"
+          >
+            <img
+              alt="The house from the offer."
+              class="MuiBox-root css-ndi7rl"
+              src="desi-sm-to2.png"
+            />
+          </a>
+          <div
+            class="MuiBox-root css-1guk29"
+          >
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorInfo MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorInfo css-s8mshl-MuiButtonBase-root-MuiButton-root"
+              id=":r0:"
+              tabindex="0"
+              type="button"
+            >
+              About
+            </button>
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorInfo MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorInfo css-s8mshl-MuiButtonBase-root-MuiButton-root"
+              id=":r1:"
+              tabindex="0"
+              type="button"
+            >
+              Products
+            </button>
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorInfo MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorInfo css-s8mshl-MuiButtonBase-root-MuiButton-root"
+              id=":r2:"
+              tabindex="0"
+              type="button"
+            >
+              Blog
+            </button>
+          </div>
+        </div>
+        <div
+          class="MuiBox-root css-h10f7z"
+        >
+          <a
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorError MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorError css-665lpk-MuiButtonBase-root-MuiButton-root"
+            href="/boards"
+            id=":r3:"
+            tabindex="0"
+          >
+            BOARDS
+          </a>
+          <p>
+            |
+          </p>
+          <a
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-7t8udx-MuiButtonBase-root-MuiButton-root"
+            href="/sign-up"
+            id=":r4:"
+            tabindex="0"
+          >
+            Register
+          </a>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary css-1yxs6e2-MuiButtonBase-root-MuiButton-root"
+            id=":r5:"
+            tabindex="0"
+            type="button"
+          >
+            Sign in
+          </button>
+        </div>
+        <div
+          class="MuiBox-root css-zkjl6t"
+        >
+          <button
+            aria-label="Menu button"
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-1a769d0-MuiButtonBase-root-MuiIconButton-root"
+            id=":r6:"
+            tabindex="0"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1umw9bq-MuiSvgIcon-root"
+              data-testid="MenuIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 18h18v-2H3zm0-5h18v-2H3zm0-7v2h18V6z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div
+    class="MuiStack-root css-ya0cm9-MuiStack-root"
+  >
+    <div
+      class="MuiPaper-root MuiPaper-outlined MuiPaper-rounded MuiCard-root css-1ucgb0x-MuiPaper-root-MuiCard-root"
+    >
+      <img
+        alt="The house from the offer."
+        class="MuiBox-root css-ndi7rl"
+        src="desi-sm-to2.png"
+      />
+      <h1
+        class="MuiTypography-root MuiTypography-h4 css-1r5svx0-MuiTypography-root"
+      >
+        Sign up
+      </h1>
+      <form
+        class="MuiBox-root css-yd8sa2"
+      >
+        <div
+          class="MuiFormControl-root css-1iw3t7y-MuiFormControl-root"
+        >
+          <label
+            class="MuiFormLabel-root MuiFormLabel-colorPrimary css-1gosot9-MuiFormLabel-root"
+            for="name"
+          >
+            Full name
+          </label>
+          <div
+            class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-cmpglg-MuiFormControl-root-MuiTextField-root"
+          >
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-1dqznbv-MuiInputBase-root-MuiOutlinedInput-root"
+            >
+              <input
+                aria-invalid="false"
+                autocomplete="name"
+                class="MuiInputBase-input MuiOutlinedInput-input css-yzkfbh-MuiInputBase-input-MuiOutlinedInput-input"
+                id="name"
+                name="name"
+                placeholder="Jon Snow"
+                required=""
+                type="text"
+                value=""
+              />
+              <fieldset
+                aria-hidden="true"
+                class="MuiOutlinedInput-notchedOutline css-1yr6xcw-MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="css-w4cd9x"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="notranslate"
+                  >
+                    ​
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root css-1iw3t7y-MuiFormControl-root"
+        >
+          <label
+            class="MuiFormLabel-root MuiFormLabel-colorPrimary css-1gosot9-MuiFormLabel-root"
+            for="email"
+          >
+            Email
+          </label>
+          <div
+            class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-cmpglg-MuiFormControl-root-MuiTextField-root"
+          >
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-1dqznbv-MuiInputBase-root-MuiOutlinedInput-root"
+            >
+              <input
+                aria-invalid="false"
+                autocomplete="email"
+                class="MuiInputBase-input MuiOutlinedInput-input css-yzkfbh-MuiInputBase-input-MuiOutlinedInput-input"
+                id="email"
+                name="email"
+                placeholder="your@email.com"
+                required=""
+                type="text"
+                value=""
+              />
+              <fieldset
+                aria-hidden="true"
+                class="MuiOutlinedInput-notchedOutline css-1yr6xcw-MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="css-w4cd9x"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="notranslate"
+                  >
+                    ​
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+        <div
+          class="MuiFormControl-root css-1iw3t7y-MuiFormControl-root"
+        >
+          <label
+            class="MuiFormLabel-root MuiFormLabel-colorPrimary css-1gosot9-MuiFormLabel-root"
+            for="password"
+          >
+            Password
+          </label>
+          <div
+            class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-cmpglg-MuiFormControl-root-MuiTextField-root"
+          >
+            <div
+              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl css-1dqznbv-MuiInputBase-root-MuiOutlinedInput-root"
+            >
+              <input
+                aria-invalid="false"
+                autocomplete="new-password"
+                class="MuiInputBase-input MuiOutlinedInput-input css-yzkfbh-MuiInputBase-input-MuiOutlinedInput-input"
+                id="password"
+                name="password"
+                placeholder="••••••"
+                required=""
+                type="password"
+                value=""
+              />
+              <fieldset
+                aria-hidden="true"
+                class="MuiOutlinedInput-notchedOutline css-1yr6xcw-MuiOutlinedInput-notchedOutline"
+              >
+                <legend
+                  class="css-w4cd9x"
+                >
+                  <span
+                    aria-hidden="true"
+                    class="notranslate"
+                  >
+                    ​
+                  </span>
+                </legend>
+              </fieldset>
+            </div>
+          </div>
+        </div>
+        <button
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-fullWidth MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-fullWidth css-1xi01el-MuiButtonBase-root-MuiButton-root"
+          id=":ra:"
+          tabindex="0"
+          type="button"
+        >
+          Sign up
+        </button>
+      </form>
+    </div>
+  </div>
+</div>
+`;

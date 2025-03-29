@@ -29,7 +29,7 @@ export default function Reports({ boardId, reportDate }) {
             params.append("date", reportWeekEndDate);
             const res = await fetch(`/api/boards/${boardId}/activity?${params}`)
             const data = await res.json()
-            setTeamActivity(data)
+            if (data) setTeamActivity(data)
         }
         fetchData()
     }, [])

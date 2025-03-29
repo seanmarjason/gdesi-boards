@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Task renders correctly 1`] = `
+<div>
+  <h6
+    class="MuiTypography-root MuiTypography-h6 css-1miy0lu-MuiTypography-root"
+    element="h1"
+  >
+    Loading...
+  </h6>
+</div>
+`;

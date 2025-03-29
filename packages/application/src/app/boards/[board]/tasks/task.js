@@ -36,7 +36,6 @@ export default function Task({ task, boardId, userName }) {
     }, [])
 
     const saveTask = async (action, data) => {
-        console.log("saveTask data:", data)
         async function saveData() {
           const res = await fetch(`/api/boards/${boardId}/tasks`, {
             method: 'POST',

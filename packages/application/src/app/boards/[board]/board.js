@@ -17,7 +17,7 @@ export default function Board({ boardId }) {
         async function fetchData() {
             const res = await fetch(`/api/boards/${boardId}`)
             const data = await res.json()
-            setBoard(data)
+            if (data) setBoard(data)
         }
         fetchData()
     }, [])

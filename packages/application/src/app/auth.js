@@ -1,7 +1,7 @@
 import NextAuth from "next-auth"
 import Credentials from "next-auth/providers/credentials"
 import { getUser } from '@gdesi-boards/database'
-import { hashPassword, isPasswordValid } from "./utils/hashPassword"
+import { isPasswordValid } from "./utils/hashPassword"
  
 export const { handlers, signIn, signOut, auth } = NextAuth({
     providers: [

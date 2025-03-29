@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Board renders correctly 1`] = `
+<div>
+  <main
+    class="MuiBox-root css-i9gxme"
+  >
+    <div
+      class="MuiStack-root css-vsjeqg-MuiStack-root"
+    >
+      <div
+        class="MuiStack-root css-1sd6chr-MuiStack-root"
+      >
+        <nav
+          aria-label="breadcrumb"
+          class="MuiTypography-root MuiTypography-body1 MuiBreadcrumbs-root css-5cvx94-MuiTypography-root-MuiBreadcrumbs-root"
+        >
+          <ol
+            class="MuiBreadcrumbs-ol css-1uwp4ue-MuiBreadcrumbs-ol"
+          >
+            <li
+              class="MuiBreadcrumbs-li"
+            >
+              <p
+                class="MuiTypography-root MuiTypography-body1 css-1d2i4tu-MuiTypography-root"
+              >
+                Boards
+              </p>
+            </li>
+          </ol>
+        </nav>
+        <div
+          class="MuiStack-root css-1oxswqj-MuiStack-root"
+        >
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-74d805-MuiButtonBase-root-MuiButton-root"
+            id=":r0:"
+            tabindex="0"
+            type="button"
+          >
+            Sign out
+          </button>
+        </div>
+      </div>
+      <div
+        class="MuiBox-root css-0"
+      >
+        <h2
+          class="MuiTypography-root MuiTypography-h6 css-1hd3wng-MuiTypography-root"
+        >
+          Your Team's Work
+        </h2>
+        <a
+          class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary css-1mns5ui-MuiButtonBase-root-MuiButton-root"
+          href="/boards/undefined/tasks/new"
+          id=":r1:"
+          tabindex="0"
+        >
+          Create New Task
+        </a>
+        <div
+          class="MuiContainer-root MuiContainer-maxWidthLg MuiContainer-fixed css-1a6tk71-MuiContainer-root"
+        >
+          <div />
+        </div>
+      </div>
+    </div>
+  </main>
+</div>
+`;

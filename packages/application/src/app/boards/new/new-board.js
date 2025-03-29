@@ -41,13 +41,11 @@ export default function NewBoard() {
   const [users, setUsers] = useState([])
   const [selectedUsers, setSelectedUsers]  = useState([])
 
-  console.log("selectedUsers", selectedUsers)
-
   useEffect(() => {
     async function fetchData() {
         const res = await fetch(`/api/boards/new/users`)
         const data = await res.json()
-        setUsers(data)
+        if (data) setUsers(data)
     }
     fetchData()
   }, [])

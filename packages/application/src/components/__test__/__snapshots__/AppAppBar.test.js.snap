@@ -1,0 +1,107 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AppAppBar renders correctly with user 1`] = `
+<div>
+  <header
+    class="MuiPaper-root MuiPaper-elevation MuiPaper-elevation4 MuiAppBar-root MuiAppBar-colorPrimary MuiAppBar-positionFixed mui-fixed css-7eauvj-MuiPaper-root-MuiAppBar-root"
+    style="--Paper-shadow: 0px 2px 4px -1px rgba(0,0,0,0.2),0px 4px 5px 0px rgba(0,0,0,0.14),0px 1px 10px 0px rgba(0,0,0,0.12);"
+  >
+    <div
+      class="MuiContainer-root MuiContainer-maxWidthLg css-5c1adp-MuiContainer-root"
+    >
+      <div
+        class="MuiToolbar-root MuiToolbar-dense css-10po6k9-MuiToolbar-root"
+      >
+        <div
+          class="MuiBox-root css-1rw111m"
+        >
+          <a
+            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-moojkn-MuiTypography-root-MuiLink-root"
+            href="/"
+          >
+            <img
+              alt="The house from the offer."
+              class="MuiBox-root css-ndi7rl"
+              src="desi-sm-to2.png"
+            />
+          </a>
+          <div
+            class="MuiBox-root css-1guk29"
+          >
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorInfo MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorInfo css-1cn90u7-MuiButtonBase-root-MuiButton-root"
+              id=":r0:"
+              tabindex="0"
+              type="button"
+            >
+              About
+            </button>
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorInfo MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorInfo css-1cn90u7-MuiButtonBase-root-MuiButton-root"
+              id=":r1:"
+              tabindex="0"
+              type="button"
+            >
+              Products
+            </button>
+            <button
+              class="MuiButtonBase-root MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorInfo MuiButton-root MuiButton-text MuiButton-textInfo MuiButton-sizeSmall MuiButton-textSizeSmall MuiButton-colorInfo css-1cn90u7-MuiButtonBase-root-MuiButton-root"
+              id=":r2:"
+              tabindex="0"
+              type="button"
+            >
+              Blog
+            </button>
+          </div>
+        </div>
+        <div
+          class="MuiBox-root css-h10f7z"
+        >
+          <a
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorError MuiButton-root MuiButton-contained MuiButton-containedError MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorError css-1f7qp0x-MuiButtonBase-root-MuiButton-root"
+            href="/boards"
+            id=":r3:"
+            tabindex="0"
+          >
+            BOARDS
+          </a>
+          <p>
+            |
+          </p>
+          <button
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-74d805-MuiButtonBase-root-MuiButton-root"
+            id=":r4:"
+            tabindex="0"
+            type="button"
+          >
+            Sign out
+          </button>
+        </div>
+        <div
+          class="MuiBox-root css-zkjl6t"
+        >
+          <button
+            aria-label="Menu button"
+            class="MuiButtonBase-root MuiIconButton-root MuiIconButton-sizeMedium css-53g0n7-MuiButtonBase-root-MuiIconButton-root"
+            id=":r5:"
+            tabindex="0"
+            type="button"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1umw9bq-MuiSvgIcon-root"
+              data-testid="MenuIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M3 18h18v-2H3zm0-5h18v-2H3zm0-7v2h18V6z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+</div>
+`;

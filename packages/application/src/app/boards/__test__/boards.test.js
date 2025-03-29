@@ -8,7 +8,7 @@ global.fetch = jest.fn(() =>
   );
   
  
-it('Boards renders correctly', () => {
+test('Boards renders correctly', () => {
   const { container } = render(<Boards />)
   expect(container).toMatchSnapshot()
 })

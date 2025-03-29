@@ -9,7 +9,7 @@ global.fetch = jest.fn(() =>
   );
   
  
-it('CheckInForm renders correctly', () => {
+test('CheckInForm renders correctly', () => {
   const { container } = render(<CheckInForm boardId="1" />)
   expect(container).toMatchSnapshot()
 })

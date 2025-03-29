@@ -9,7 +9,7 @@ const column = {
     cards: []
 }
  
-it('Column renders correctly', () => {
+test('Column renders correctly', () => {
   const { container } = render(<Column column={column} handleColumnChange={jest.fn()} />)
   expect(container).toMatchSnapshot()
 })

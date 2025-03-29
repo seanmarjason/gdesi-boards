@@ -7,7 +7,7 @@ const session = {
   }
 }
  
-it('App renders correctly', () => {
+test('App renders correctly', () => {
   const { container } = render(<App session={session} />)
   expect(container).toMatchSnapshot()
 })

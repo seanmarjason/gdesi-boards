@@ -15,7 +15,7 @@ global.fetch = jest.fn(() =>
 
 
  
-it('Board renders correctly', async () => {
+test('Board renders correctly', async () => {
   const { container } = render(<Board />)
   await screen.findByText("Your Team's Work")
 

@@ -7,7 +7,7 @@ const task = {
     type: ''
 }
  
-it('CheckInTaskCard renders correctly', () => {
+test('CheckInTaskCard renders correctly', () => {
   const { container } = render(<CheckInTaskCard task={task} index={1} />)
   expect(container).toMatchSnapshot()
 })

@@ -21,7 +21,7 @@ global.fetch = jest.fn(() =>
     }),
   );
 
-it('BoardSettings renders correctly', async () => {
+test('BoardSettings renders correctly', async () => {
   const { container } = render(<BoardSettings boardId={1}/>)
   expect(container).toMatchSnapshot()
 })

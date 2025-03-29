@@ -10,7 +10,7 @@ const checkIn = {
     comments: ''
 }
  
-it('CheckInRecord renders correctly', () => {
+test('CheckInRecord renders correctly', () => {
   const { container } = render(<CheckInRecord checkIn={checkIn} />)
   expect(container).toMatchSnapshot()
 })

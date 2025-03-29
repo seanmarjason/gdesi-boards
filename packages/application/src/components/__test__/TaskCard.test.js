@@ -11,7 +11,7 @@ const card = {
     assignee: '',
 }
  
-it('TaskCard renders correctly', () => {
+test('TaskCard renders correctly', () => {
   const { container } = render(<TaskCard card={card} index={1} />)
   expect(container).toMatchSnapshot()
 })

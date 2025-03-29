@@ -16,7 +16,7 @@ const data = [
     {id: 3, name: 'Done', cards: []},
 ]
 
-it('MainGrid renders correctly', () => {
+test('MainGrid renders correctly', () => {
   const { container } = render(<MainGrid data={data} updateCardStatus={jest.fn()} boardId={1}  />)
   expect(container).toMatchSnapshot()
 })

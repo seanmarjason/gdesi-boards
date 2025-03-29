@@ -14,7 +14,7 @@ global.fetch = jest.fn(() =>
 
 
  
-it('CheckIn renders correctly', async () => {
+test('CheckIn renders correctly', async () => {
   const { container } = render(<CheckIn boardId={1}/>)
   expect(container).toMatchSnapshot()
 })

@@ -41,7 +41,7 @@ global.fetch = jest.fn(() =>
     }),
   );
 
-it('Task renders correctly', async () => {
+test('Task renders correctly', async () => {
   const { container } = render(<Task task={1} boardId={1} userName={'user'} />)
   expect(container).toMatchSnapshot()
 })

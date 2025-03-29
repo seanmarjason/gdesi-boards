@@ -40,7 +40,7 @@ global.fetch = jest.fn(() =>
     }),
   );
 
-it('TaskList renders correctly', async () => {
+test('TaskList renders correctly', async () => {
   const { container } = render(<TaskList boardId={1} />)
   expect(container).toMatchSnapshot()
 })

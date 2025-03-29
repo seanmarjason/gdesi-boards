@@ -17,7 +17,7 @@ const task = {
     comments: [],
 }
  
-it('TaskForm renders correctly', () => {
+test('TaskForm renders correctly', () => {
   const { container } = render(
     <TaskForm 
         task={task}

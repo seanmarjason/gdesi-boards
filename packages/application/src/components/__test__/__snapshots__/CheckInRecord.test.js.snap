@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckInRecord renders correctly 1`] = `
+<div>
+  <div>
+    <h2
+      class="MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom css-1lcbsct-MuiTypography-root"
+    >
+      Check in from 
+    </h2>
+    <p
+      class="MuiTypography-root MuiTypography-body1 css-rizt0-MuiTypography-root"
+    >
+       Rating:
+    </p>
+    <span
+      aria-label="0 Stars"
+      class="MuiRating-root MuiRating-sizeMedium Mui-readOnly MuiRating-readOnly css-i0l71t-MuiRating-root"
+      role="img"
+    >
+      <span>
+        <span
+          class="MuiRating-icon MuiRating-iconEmpty css-9xw0na-MuiRating-icon"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1ckov0h-MuiSvgIcon-root"
+            data-testid="StarBorderIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+            />
+          </svg>
+        </span>
+      </span>
+      <span>
+        <span
+          class="MuiRating-icon MuiRating-iconEmpty css-9xw0na-MuiRating-icon"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1ckov0h-MuiSvgIcon-root"
+            data-testid="StarBorderIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+            />
+          </svg>
+        </span>
+      </span>
+      <span>
+        <span
+          class="MuiRating-icon MuiRating-iconEmpty css-9xw0na-MuiRating-icon"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1ckov0h-MuiSvgIcon-root"
+            data-testid="StarBorderIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+            />
+          </svg>
+        </span>
+      </span>
+      <span>
+        <span
+          class="MuiRating-icon MuiRating-iconEmpty css-9xw0na-MuiRating-icon"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1ckov0h-MuiSvgIcon-root"
+            data-testid="StarBorderIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+            />
+          </svg>
+        </span>
+      </span>
+      <span>
+        <span
+          class="MuiRating-icon MuiRating-iconEmpty css-9xw0na-MuiRating-icon"
+        >
+          <svg
+            aria-hidden="true"
+            class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1ckov0h-MuiSvgIcon-root"
+            data-testid="StarBorderIcon"
+            focusable="false"
+            viewBox="0 0 24 24"
+          >
+            <path
+              d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+            />
+          </svg>
+        </span>
+      </span>
+    </span>
+    <h3
+      class="MuiTypography-root MuiTypography-h3 css-13msox4-MuiTypography-root"
+    >
+       This Week
+    </h3>
+    <p
+      class="MuiTypography-root MuiTypography-body1 css-rizt0-MuiTypography-root"
+    >
+       Tasks Completed
+    </p>
+    <div
+      class="MuiStack-root css-pl8gqh-MuiStack-root"
+    >
+      <p>
+        nil
+      </p>
+    </div>
+    <p
+      class="MuiTypography-root MuiTypography-body1 css-rizt0-MuiTypography-root"
+    >
+       Tasks Started
+    </p>
+    <div
+      class="MuiStack-root css-pl8gqh-MuiStack-root"
+    >
+      <p>
+        nil
+      </p>
+    </div>
+    <h3
+      class="MuiTypography-root MuiTypography-h3 css-13msox4-MuiTypography-root"
+    >
+      Next Week
+    </h3>
+    <p
+      class="MuiTypography-root MuiTypography-body1 css-rizt0-MuiTypography-root"
+    >
+      Tasks Due
+    </p>
+    <div
+      class="MuiStack-root css-pl8gqh-MuiStack-root"
+    >
+      <p>
+        nil
+      </p>
+    </div>
+    <p
+      class="MuiTypography-root MuiTypography-body1 css-rizt0-MuiTypography-root"
+    >
+      Comments
+    </p>
+    <p
+      class="MuiTypography-root MuiTypography-body2 css-7ctihp-MuiTypography-root"
+    />
+  </div>
+</div>
+`;

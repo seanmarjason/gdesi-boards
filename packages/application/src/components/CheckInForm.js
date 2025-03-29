@@ -32,7 +32,7 @@ export default function CheckInForm({ boardId }) {
         async function fetchThisWeekTasks(date) {
           const res = await fetch(`/api/boards/${boardId}/tasks?date=${date}`)
           const data = await res.json()
-          setThisWeekTasks(data)
+          if (data) setThisWeekTasks(data)
         }
         const d = new Date(); // TODO: Update to fetch this week
         fetchThisWeekTasks(d.toISOString())

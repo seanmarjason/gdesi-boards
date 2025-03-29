@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GdesiIcon renders correctly 1`] = `
+<div>
+  <img
+    alt="The house from the offer."
+    class="MuiBox-root css-ndi7rl"
+    src="desi-sm-to2.png"
+  />
+</div>
+`;

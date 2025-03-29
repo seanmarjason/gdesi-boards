@@ -39,81 +39,6 @@ const items = [
   },
 ];
 
-function MobileLayout({ selectedItemIndex, handleItemClick, selectedFeature }) {
-  if (!items[selectedItemIndex]) {
-    return null;
-  }
-
-  return (
-    <Box
-      sx={{
-        display: { xs: 'flex', sm: 'none' },
-        flexDirection: 'column',
-        gap: 2,
-      }}
-    >
-      <Box sx={{ display: 'flex', gap: 2, overflow: 'auto' }}>
-        {items.map(({ title }, index) => (
-          <Chip
-            size="medium"
-            key={index}
-            label={title}
-            onClick={() => handleItemClick(index)}
-            selected={selectedItemIndex === index}
-          />
-        ))}
-      </Box>
-      <Card variant="outlined">
-        <Box
-          sx={(theme) => ({
-            mb: 2,
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            minHeight: 280,
-            backgroundImage: 'var(--items-imageLight)',
-            ...theme.applyStyles('dark', {
-              backgroundImage: 'var(--items-imageDark)',
-            }),
-          })}
-          style={
-            items[selectedItemIndex]
-              ? {
-                  '--items-imageLight': items[selectedItemIndex].imageLight,
-                  '--items-imageDark': items[selectedItemIndex].imageDark,
-                }
-              : {}
-          }
-        />
-        <Box sx={{ px: 2, pb: 2 }}>
-          <Typography
-            gutterBottom
-            sx={{ color: 'text.primary', fontWeight: 'medium' }}
-          >
-            {selectedFeature.title}
-          </Typography>
-          <Typography variant="body2" sx={{ color: 'text.secondary', mb: 1.5 }}>
-            {selectedFeature.description}
-          </Typography>
-        </Box>
-      </Card>
-    </Box>
-  );
-}
-
-MobileLayout.propTypes = {
-  handleItemClick: PropTypes.func.isRequired,
-  selectedFeature: PropTypes.shape({
-    description: PropTypes.string.isRequired,
-    icon: PropTypes.element,
-    imageDark: PropTypes.string.isRequired,
-    imageLight: PropTypes.string.isRequired,
-    title: PropTypes.string.isRequired,
-  }).isRequired,
-  selectedItemIndex: PropTypes.number.isRequired,
-};
-
-export { MobileLayout };
-
 export default function Features() {
   const [selectedItemIndex, setSelectedItemIndex] = React.useState(0);
 
@@ -203,11 +128,6 @@ export default function Features() {
               </Box>
             ))}
           </Box>
-          <MobileLayout
-            selectedItemIndex={selectedItemIndex}
-            handleItemClick={handleItemClick}
-            selectedFeature={selectedFeature}
-          />
         </div>
         <Box
           sx={{

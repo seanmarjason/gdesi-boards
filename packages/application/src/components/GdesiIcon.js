@@ -1,5 +1,4 @@
 import * as React from 'react';
-import SvgIcon from '@mui/material/SvgIcon';
 import Box from '@mui/material/Box';
 
 export default function GdesiIcon() {

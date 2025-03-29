@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MenuContent renders correctly 1`] = `
+<div>
+  <div
+    class="MuiStack-root css-1bgecpf-MuiStack-root"
+  >
+    <ul
+      class="MuiList-root MuiList-padding MuiList-dense css-b7dj7n-MuiList-root"
+    />
+  </div>
+</div>
+`;

@@ -1,6 +1,6 @@
 'use client'
 
-import * as React from 'react';
+import { useState } from 'react';
 import NextLink from 'next/link';
 
 import Avatar from '@mui/material/Avatar';
@@ -8,20 +8,18 @@ import MuiListItemAvatar from '@mui/material/ListItemAvatar';
 import MenuItem from '@mui/material/MenuItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon from '@mui/material/ListItemIcon';
-import ListSubheader from '@mui/material/ListSubheader';
 import Select, { selectClasses } from '@mui/material/Select';
 import Divider from '@mui/material/Divider';
 import AddRoundedIcon from '@mui/icons-material/AddRounded';
 import FilterNoneIcon from '@mui/icons-material/FilterNone';
 import DevicesRoundedIcon from '@mui/icons-material/DevicesRounded';
 import SettingsIcon from '@mui/icons-material/Settings';
-import ConstructionRoundedIcon from '@mui/icons-material/ConstructionRounded';
 
 
 const ListItemAvatar = MuiListItemAvatar
 
 export default function SelectContent({ boardId=null}) {
-  const [company, setCompany] = React.useState('');
+  const [company, setCompany] = useState('');
 
   const handleChange = (event) => {
     setCompany(event.target.value);

@@ -3,7 +3,7 @@ import { Stack, Divider } from '@mui/material';
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 
-import { Droppable, Draggable } from '@hello-pangea/dnd';
+import { Droppable } from '@hello-pangea/dnd';
 
 import { TaskCard } from '../components/TaskCard';
 

@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MainGrid renders correctly 1`] = `
+<div>
+  <div
+    class="MuiBox-root css-0"
+  >
+    <h2
+      class="MuiTypography-root MuiTypography-h6 css-1hd3wng-MuiTypography-root"
+    >
+      Your Team's Work
+    </h2>
+    <a
+      class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary css-1mns5ui-MuiButtonBase-root-MuiButton-root"
+      href="/boards/1/tasks/new"
+      id=":r0:"
+      tabindex="0"
+    >
+      Create New Task
+    </a>
+  </div>
+</div>
+`;

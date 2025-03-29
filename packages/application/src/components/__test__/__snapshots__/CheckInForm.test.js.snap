@@ -1,0 +1,366 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckInForm renders correctly 1`] = `
+<div>
+  <main
+    class="MuiBox-root css-i9gxme"
+  >
+    <h2
+      class="MuiTypography-root MuiTypography-h2 MuiTypography-gutterBottom css-1lcbsct-MuiTypography-root"
+    >
+      Complete your check in
+    </h2>
+    <form>
+      <label
+        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-1tkmop-MuiFormLabel-root-MuiInputLabel-root"
+        id="checkin-date-label"
+      >
+        Submit Date
+      </label>
+      <div
+        class="MuiFormControl-root MuiTextField-root css-1b1fjlj-MuiFormControl-root-MuiTextField-root"
+      >
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary Mui-disabled MuiInputBase-formControl MuiInputBase-adornedEnd css-jupps9-MuiInputBase-root-MuiOutlinedInput-root"
+        >
+          <input
+            aria-invalid="false"
+            autocomplete="off"
+            class="MuiInputBase-input MuiOutlinedInput-input Mui-disabled MuiInputBase-inputAdornedEnd css-1dune0f-MuiInputBase-input-MuiOutlinedInput-input"
+            disabled=""
+            id=":r0:"
+            inputmode="text"
+            placeholder="DD/MM/YYYY"
+            type="text"
+            value="29/03/2025"
+          />
+          <div
+            class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-elo8k2-MuiInputAdornment-root"
+          >
+            <button
+              aria-label="Choose date, selected date is 29 Mar 2025"
+              class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-1ysp02-MuiButtonBase-root-MuiIconButton-root"
+              disabled=""
+              id=":r2:"
+              tabindex="-1"
+              type="button"
+            >
+              <svg
+                aria-hidden="true"
+                class="MuiSvgIcon-root MuiSvgIcon-fontSizeMedium css-1umw9bq-MuiSvgIcon-root"
+                data-testid="CalendarIcon"
+                focusable="false"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"
+                />
+              </svg>
+            </button>
+          </div>
+          <fieldset
+            aria-hidden="true"
+            class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="css-w4cd9x"
+            >
+              <span
+                aria-hidden="true"
+                class="notranslate"
+              >
+                ​
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <label
+        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-1tkmop-MuiFormLabel-root-MuiInputLabel-root"
+        id="checkin-rating-label"
+      >
+        Rating
+      </label>
+      <span
+        class="MuiRating-root MuiRating-sizeMedium css-1xc33vf-MuiRating-root"
+      >
+        <label
+          class="css-hlbajn-MuiRating-label"
+          for="checkin-rating-:r4:"
+        >
+          <span
+            class="MuiRating-icon MuiRating-iconEmpty css-9xw0na-MuiRating-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1ckov0h-MuiSvgIcon-root"
+              data-testid="StarBorderIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiRating-visuallyHidden"
+          >
+            1 Star
+          </span>
+        </label>
+        <input
+          class="MuiRating-visuallyHidden"
+          id="checkin-rating-:r4:"
+          name="checkin-rating"
+          type="radio"
+          value="1"
+        />
+        <label
+          class="css-hlbajn-MuiRating-label"
+          for="checkin-rating-:r5:"
+        >
+          <span
+            class="MuiRating-icon MuiRating-iconEmpty css-9xw0na-MuiRating-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1ckov0h-MuiSvgIcon-root"
+              data-testid="StarBorderIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiRating-visuallyHidden"
+          >
+            2 Stars
+          </span>
+        </label>
+        <input
+          class="MuiRating-visuallyHidden"
+          id="checkin-rating-:r5:"
+          name="checkin-rating"
+          type="radio"
+          value="2"
+        />
+        <label
+          class="css-hlbajn-MuiRating-label"
+          for="checkin-rating-:r6:"
+        >
+          <span
+            class="MuiRating-icon MuiRating-iconEmpty css-9xw0na-MuiRating-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1ckov0h-MuiSvgIcon-root"
+              data-testid="StarBorderIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiRating-visuallyHidden"
+          >
+            3 Stars
+          </span>
+        </label>
+        <input
+          class="MuiRating-visuallyHidden"
+          id="checkin-rating-:r6:"
+          name="checkin-rating"
+          type="radio"
+          value="3"
+        />
+        <label
+          class="css-hlbajn-MuiRating-label"
+          for="checkin-rating-:r7:"
+        >
+          <span
+            class="MuiRating-icon MuiRating-iconEmpty css-9xw0na-MuiRating-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1ckov0h-MuiSvgIcon-root"
+              data-testid="StarBorderIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiRating-visuallyHidden"
+          >
+            4 Stars
+          </span>
+        </label>
+        <input
+          class="MuiRating-visuallyHidden"
+          id="checkin-rating-:r7:"
+          name="checkin-rating"
+          type="radio"
+          value="4"
+        />
+        <label
+          class="css-hlbajn-MuiRating-label"
+          for="checkin-rating-:r8:"
+        >
+          <span
+            class="MuiRating-icon MuiRating-iconEmpty css-9xw0na-MuiRating-icon"
+          >
+            <svg
+              aria-hidden="true"
+              class="MuiSvgIcon-root MuiSvgIcon-fontSizeInherit css-1ckov0h-MuiSvgIcon-root"
+              data-testid="StarBorderIcon"
+              focusable="false"
+              viewBox="0 0 24 24"
+            >
+              <path
+                d="M22 9.24l-7.19-.62L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21 12 17.27 18.18 21l-1.63-7.03L22 9.24zM12 15.4l-3.76 2.27 1-4.28-3.32-2.88 4.38-.38L12 6.1l1.71 4.04 4.38.38-3.32 2.88 1 4.28L12 15.4z"
+              />
+            </svg>
+          </span>
+          <span
+            class="MuiRating-visuallyHidden"
+          >
+            5 Stars
+          </span>
+        </label>
+        <input
+          class="MuiRating-visuallyHidden"
+          id="checkin-rating-:r8:"
+          name="checkin-rating"
+          type="radio"
+          value="5"
+        />
+        <label
+          class="MuiRating-label MuiRating-pristine css-hlbajn-MuiRating-label"
+        >
+          <input
+            class="MuiRating-visuallyHidden"
+            id="checkin-rating-empty"
+            name="checkin-rating"
+            type="radio"
+            value=""
+          />
+          <span
+            class="MuiRating-visuallyHidden"
+          >
+            Empty
+          </span>
+        </label>
+      </span>
+      <h3
+        class="MuiTypography-root MuiTypography-h3 css-13msox4-MuiTypography-root"
+      >
+        This Week
+      </h3>
+      <label
+        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-1tkmop-MuiFormLabel-root-MuiInputLabel-root"
+        id="checkin-tasksCompleted-label"
+      >
+        Tasks Completed
+      </label>
+      <div
+        class="MuiStack-root css-pl8gqh-MuiStack-root"
+      >
+        <p>
+          nil
+        </p>
+      </div>
+      <label
+        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-1tkmop-MuiFormLabel-root-MuiInputLabel-root"
+        id="checkin-tasksStarted-label"
+      >
+        Tasks Started
+      </label>
+      <div
+        class="MuiStack-root css-pl8gqh-MuiStack-root"
+      >
+        <p>
+          nil
+        </p>
+      </div>
+      <h3
+        class="MuiTypography-root MuiTypography-h3 css-13msox4-MuiTypography-root"
+      >
+        Next Week
+      </h3>
+      <label
+        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-1tkmop-MuiFormLabel-root-MuiInputLabel-root"
+        id="checkin-tasksDue-label"
+      >
+        Tasks Due
+      </label>
+      <div
+        class="MuiStack-root css-pl8gqh-MuiStack-root"
+      >
+        <p>
+          nil
+        </p>
+      </div>
+      <label
+        class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-1tkmop-MuiFormLabel-root-MuiInputLabel-root"
+        id="checkin-comments-label"
+      >
+        Comments
+      </label>
+      <div
+        class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-cmpglg-MuiFormControl-root-MuiTextField-root"
+      >
+        <div
+          class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-multiline css-zsp0bh-MuiInputBase-root-MuiOutlinedInput-root"
+        >
+          <textarea
+            aria-invalid="false"
+            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline css-w4nesw-MuiInputBase-input-MuiOutlinedInput-input"
+            id="checkin-comments"
+            style="height: 0px; overflow: hidden;"
+          />
+          <textarea
+            aria-hidden="true"
+            class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputMultiline css-w4nesw-MuiInputBase-input-MuiOutlinedInput-input"
+            readonly=""
+            style="visibility: hidden; position: absolute; overflow: hidden; height: 0px; top: 0px; left: 0px; transform: translateZ(0); padding-top: 0px; padding-bottom: 0px; width: 100%;"
+            tabindex="-1"
+          />
+          <fieldset
+            aria-hidden="true"
+            class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
+          >
+            <legend
+              class="css-w4cd9x"
+            >
+              <span
+                aria-hidden="true"
+                class="notranslate"
+              >
+                ​
+              </span>
+            </legend>
+          </fieldset>
+        </div>
+      </div>
+      <button
+        class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary css-1mns5ui-MuiButtonBase-root-MuiButton-root"
+        id=":ra:"
+        tabindex="0"
+        type="button"
+      >
+        Submit Check-in
+      </button>
+    </form>
+  </main>
+</div>
+`;

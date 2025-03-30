@@ -19,10 +19,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
           // get user record from db
           user = await getUser(credentials.email)
 
+          if (!user) {
+            return null
+          }
+
           // validate password
           authorised = isPasswordValid(user, credentials.password)
 
-          if (!user || !authorised) {
+          if (!authorised) {
             return null
           }
 

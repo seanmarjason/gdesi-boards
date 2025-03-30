@@ -7,5 +7,6 @@ export const POST = async function POST(request, { params }) {
       const pwStore = hashPassword(password)
 
       const newUser = await registerUser(name, email, pwStore)
+
       return Response.json({message: 'success!'})
 }

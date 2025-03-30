@@ -18,6 +18,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Select from '@mui/material/Select';
 import Chip from '@mui/material/Chip';
 import Button from '@mui/material/Button';
+import FormHelperText from '@mui/material/FormHelperText';
 
 import NextLink from 'next/link';
 
@@ -114,6 +115,8 @@ export default function NewBoard() {
                     }}
                 />
 
+                { !name && <FormHelperText error>Required</FormHelperText> }
+
                 <InputLabel id="manager-label">Manager</InputLabel>
                 <Select
                   id="manager"
@@ -130,6 +133,7 @@ export default function NewBoard() {
                     </MenuItem>
                   ))}
                 </Select>
+                { !manager && <FormHelperText error>Required</FormHelperText> }
 
                 <InputLabel id="users-label">Users</InputLabel>
                 <Select

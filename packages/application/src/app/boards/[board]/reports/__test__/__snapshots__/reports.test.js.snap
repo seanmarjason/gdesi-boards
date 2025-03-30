@@ -25,40 +25,8 @@ exports[`Reports renders correctly 1`] = `
                 class="MuiBreadcrumbs-li"
               >
                 <p
-                  class="MuiTypography-root MuiTypography-body1 css-rizt0-MuiTypography-root"
-                >
-                  <a
-                    class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1orsvah-MuiTypography-root-MuiLink-root"
-                    href="../../boards"
-                  >
-                    Boards
-                  </a>
-                </p>
-              </li>
-              <li
-                aria-hidden="true"
-                class="MuiBreadcrumbs-separator css-jhr02i-MuiBreadcrumbs-separator"
-              >
-                <svg
-                  aria-hidden="true"
-                  class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-120dh41-MuiSvgIcon-root"
-                  data-testid="NavigateNextRoundedIcon"
-                  focusable="false"
-                  viewBox="0 0 24 24"
-                >
-                  <path
-                    d="M9.31 6.71c-.39.39-.39 1.02 0 1.41L13.19 12l-3.88 3.88c-.39.39-.39 1.02 0 1.41s1.02.39 1.41 0l4.59-4.59c.39-.39.39-1.02 0-1.41L10.72 6.7c-.38-.38-1.02-.38-1.41.01"
-                  />
-                </svg>
-              </li>
-              <li
-                class="MuiBreadcrumbs-li"
-              >
-                <p
                   class="MuiTypography-root MuiTypography-body1 css-1d2i4tu-MuiTypography-root"
-                >
-                  Reports
-                </p>
+                />
               </li>
             </ol>
           </nav>

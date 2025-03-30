@@ -32,13 +32,13 @@ exports[`CheckInForm renders correctly 1`] = `
             inputmode="text"
             placeholder="DD/MM/YYYY"
             type="text"
-            value="29/03/2025"
+            value="30/03/2025"
           />
           <div
             class="MuiInputAdornment-root MuiInputAdornment-positionEnd MuiInputAdornment-outlined MuiInputAdornment-sizeMedium css-elo8k2-MuiInputAdornment-root"
           >
             <button
-              aria-label="Choose date, selected date is 29 Mar 2025"
+              aria-label="Choose date, selected date is 30 Mar 2025"
               class="MuiButtonBase-root Mui-disabled MuiIconButton-root Mui-disabled MuiIconButton-edgeEnd MuiIconButton-sizeMedium css-1ysp02-MuiButtonBase-root-MuiIconButton-root"
               disabled=""
               id=":r2:"

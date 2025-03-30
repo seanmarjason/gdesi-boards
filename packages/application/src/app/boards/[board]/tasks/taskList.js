@@ -29,7 +29,7 @@ export default function TaskList({ boardId }) {
         fetchData()
     }, [])
 
-    if (!taskData || Object.keys(taskData).length == 0) {
+    if (!taskData) {
         return (
             <Typography element="h1" variant="h6">
                 Loading...

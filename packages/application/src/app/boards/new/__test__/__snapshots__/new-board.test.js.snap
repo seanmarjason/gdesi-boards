@@ -23,9 +23,7 @@ exports[`NewBoard renders correctly 1`] = `
             >
               <p
                 class="MuiTypography-root MuiTypography-body1 css-1d2i4tu-MuiTypography-root"
-              >
-                Boards
-              </p>
+              />
             </li>
           </ol>
         </nav>

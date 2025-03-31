@@ -26,14 +26,13 @@ export default function Board({ boardId }) {
         const res = await fetch(`/api/boards/${boardId}/tasks`, {
           method: 'POST',
           body: JSON.stringify({
-            type: 'status',
+            action: 'status',
             taskId,
             data: {
                 status
             }
           })
         })
-        // TODO: Update dateStarted / dateCompleted
     }
 
     if (!board || Object.keys(board).length == 0) {

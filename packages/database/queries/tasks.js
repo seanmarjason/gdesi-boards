@@ -50,6 +50,9 @@ export async function getTaskList(board) {
 }
 
 export async function updateTaskStatus(task, status) {
+  console.log("task", task)
+  console.log("status", status)
+  
   const result = await sql`
     UPDATE tasks
     SET status = ${status}

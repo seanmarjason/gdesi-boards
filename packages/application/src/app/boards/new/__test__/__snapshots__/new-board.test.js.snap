@@ -83,6 +83,11 @@ exports[`NewBoard renders correctly 1`] = `
             </fieldset>
           </div>
         </div>
+        <p
+          class="MuiFormHelperText-root Mui-error css-18y2hez-MuiFormHelperText-root"
+        >
+          Required
+        </p>
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-1tkmop-MuiFormLabel-root-MuiInputLabel-root"
           id="manager-label"
@@ -142,6 +147,11 @@ exports[`NewBoard renders correctly 1`] = `
             </legend>
           </fieldset>
         </div>
+        <p
+          class="MuiFormHelperText-root Mui-error css-18y2hez-MuiFormHelperText-root"
+        >
+          Required
+        </p>
         <label
           class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-1tkmop-MuiFormLabel-root-MuiInputLabel-root"
           id="users-label"

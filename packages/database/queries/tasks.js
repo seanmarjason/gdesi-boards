@@ -171,31 +171,34 @@ export async function updateTask(taskId, taskData) {
   return result ? result : null;
 }
 
-export async function getTasksCompleted(date) {
+export async function getTasksCompleted(board, date) {
   const result = await sql`
     SELECT *
     FROM tasks
-    WHERE completedDate BETWEEN (TO_DATE(${date}, 'YYYY-MM-DD') - 7) AND ${date} 
+    WHERE boardid = ${board}
+    AND completedDate BETWEEN (TO_DATE(${date}, 'YYYY-MM-DD') - 7) AND ${date} 
   `;
 
   return result ? result : null;
 }
 
-export async function getTasksStarted(date) {
+export async function getTasksStarted(board, date) {
   const result = await sql`
     SELECT *
     FROM tasks
-    WHERE startedDate BETWEEN (TO_DATE(${date}, 'YYYY-MM-DD') - 7) AND ${date} 
+    WHERE boardid = ${board}
+    AND startedDate BETWEEN (TO_DATE(${date}, 'YYYY-MM-DD') - 7) AND ${date} 
   `;
 
   return result ? result : null;
 }
 
-export async function getTasksDue(date) {
+export async function getTasksDue(board, date) {
   const result = await sql`
     SELECT *
     FROM tasks
-    WHERE deadline BETWEEN ${date} AND (TO_DATE(${date}, 'YYYY-MM-DD') + 7) 
+    WHERE boardid = ${board}
+    AND deadline BETWEEN ${date} AND (TO_DATE(${date}, 'YYYY-MM-DD') + 7) 
   `;
 
   return result ? result : null;

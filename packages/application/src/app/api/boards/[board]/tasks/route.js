@@ -44,9 +44,9 @@ export const GET = auth(async function GET(request, { params }) {
         // GET tasks by date
         const date = searchParams.get('date')
         if (date) {
-            const tasksCompleted = await getTasksCompleted(date)
-            const tasksStarted = await getTasksStarted(date)
-            const tasksDueNext = await getTasksDue(date)
+            const tasksCompleted = await getTasksCompleted(board, date)
+            const tasksStarted = await getTasksStarted(board, date)
+            const tasksDueNext = await getTasksDue(board, date)
             return Response.json({
                 tasksCompleted,
                 tasksStarted,

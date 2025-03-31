@@ -66,7 +66,7 @@ export default function NewBoard() {
         body: JSON.stringify({
           name,
           manager,
-          users: selectedUsers.map(user => user.id)
+          users: [...selectedUsers.map(user => user.id), manager]
         })
       })
       const newBoardId = await res.json()

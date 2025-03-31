@@ -20,5 +20,5 @@ export const POST = auth(async function POST(request) {
       const allUsers = [parseInt(userId), ...users]
 
       const newBoard = await createBoard(name, manager, [ ...new Set(allUsers) ]);
-      return Response.json({newBoard}) 
+      return Response.json(newBoard) 
 })

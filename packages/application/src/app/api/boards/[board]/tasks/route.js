@@ -72,10 +72,10 @@ export const POST = auth(async function POST(request, { params }) {
     }
 
     if (action == 'new') {
-        createNewTask(JSON.stringify({
+        createNewTask({
             ...data,
             boardid: board
-        }))
+        })
     }
 
     if (action == 'update') {

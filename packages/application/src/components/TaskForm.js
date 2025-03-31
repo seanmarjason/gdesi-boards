@@ -20,6 +20,7 @@ import Button from '@mui/material/Button';
 import Link from '@mui/material/Link';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
+import FormHelperText from '@mui/material/FormHelperText';
 
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -40,7 +41,7 @@ export const TaskForm = ({ task, boardId, users, currentUser, saveTask, checkCom
     const action = task ? 'update' : 'new'
 
     
-    const [status, setStatus]  = useState(task?.status ?? '')
+    const [status, setStatus]  = useState(task?.status ?? 'To Do')
     const [title, setTitle]  = useState(task?.title ?? '')
     const [deadline, setDeadline] = useState(task?.deadline ? dayjs(task?.deadline) : dayjs().add(7, 'day'));
     const [type, setType]  = useState(task?.type ?? '')
@@ -136,6 +137,7 @@ export const TaskForm = ({ task, boardId, users, currentUser, saveTask, checkCom
                         onAccept={(value) => setDeadline(value)}
                     />
                 </LocalizationProvider>
+                { !deadline && <FormHelperText error>Required</FormHelperText> }
 
                 <InputLabel id="task-title-label">Title</InputLabel>
                 <TextField
@@ -146,6 +148,7 @@ export const TaskForm = ({ task, boardId, users, currentUser, saveTask, checkCom
                         setTitle(event.target.value)
                     }}
                 />
+                { !title && <FormHelperText error>Required</FormHelperText> }
 
                 <InputLabel id="select-type-label">Type</InputLabel>
                 <Select
@@ -161,6 +164,7 @@ export const TaskForm = ({ task, boardId, users, currentUser, saveTask, checkCom
                         <MenuItem value={item} key={`select-type-${index}`}>{item}</MenuItem>
                     )}
                 </Select>
+                { !type && <FormHelperText error>Required</FormHelperText> }
 
                 <InputLabel id="select-assignee-label">Assignee</InputLabel>
                 <Select
@@ -176,6 +180,7 @@ export const TaskForm = ({ task, boardId, users, currentUser, saveTask, checkCom
                         <MenuItem value={user.id} key={`select-assignee-${index}`}>{user.name}</MenuItem>
                     )}
                 </Select>
+                { !assignee && <FormHelperText error>Required</FormHelperText> }
 
                 <InputLabel id="task-description-label">Description</InputLabel>
                 <TextField
@@ -188,6 +193,7 @@ export const TaskForm = ({ task, boardId, users, currentUser, saveTask, checkCom
                         setDescription(event.target.value)
                     }}
                 />
+                { !description && <FormHelperText error>Required</FormHelperText> }
                 
                 <InputLabel id="task-links-label">Links</InputLabel>
                 { links.length > 0 ?

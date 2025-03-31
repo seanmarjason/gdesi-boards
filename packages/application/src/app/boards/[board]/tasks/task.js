@@ -36,18 +36,26 @@ export default function Task({ task, boardId, userName }) {
     }, [])
 
     const saveTask = async (action, data) => {
-        async function saveData() {
-          const res = await fetch(`/api/boards/${boardId}/tasks`, {
-            method: 'POST',
-            body: JSON.stringify({
-                action,
-                taskId: task,
-                data
+        async function saveData(taskData) {
+            const res = await fetch(`/api/boards/${boardId}/tasks`, {
+              method: 'POST',
+              body: JSON.stringify({
+                  action,
+                  task,
+                  data: taskData
+              })
             })
-          })
+          }
+
+        const values = Object.values(data)
+
+        if (values.some((element) => !Array.isArray(element) && (element == false || typeof element == undefined || element == null))) {
+            console.log("ERROR")
         }
-        saveData()
-        router.push(`/boards/${boardId}`)
+        else {
+            saveData(data)
+            router.push(`/boards/${boardId}`)
+        }
     }
 
     const checkComment = async (message) => {

@@ -73,12 +73,42 @@ export async function createNewTask(taskData) {
   } = taskData
 
   const result = await sql`
-    INSERT INTO tasks (boardid, deadline, title, type, assignee, description, links, comments, status )
+    INSERT INTO tasks (boardid, deadline, title, type, assignee, description, status )
     VALUES (
-      ${boardid}, ${deadline}, ${title}, ${type}, ${assignee}, ${description}, ${links}, ${comments}, 'To Do'
+      ${boardid}, ${deadline}, ${title}, ${type}, ${assignee}, ${description}, 'To Do'
     )
     ;
   `;
+
+  if (comments.length > 0) {
+    const commentsMap = comments.map(comment => ({
+      taskid: taskId,
+      author: comment.author,
+      datecreated: comment.datecreated,
+      comment: comment.comment
+    }))
+
+    const commentResult = await sql`
+    INSERT INTO comments
+    ${ sql(commentsMap, 'taskid', 'author', 'datecreated', 'comment')} 
+    ;
+    `
+  }
+
+  if (links.length > 0) {
+    const linksMap = links.map(links => ({
+      taskid: taskId,
+      name: links.name,
+      url: links.url,
+      type: links.type
+    }))
+
+    const linksResult = await sql`
+      INSERT INTO links
+        ${ sql(linksMap, 'taskid', 'name', 'url', 'type')} 
+      ;
+    `
+  }
 
   return result ? result : null;
 }

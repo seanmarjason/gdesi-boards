@@ -73,7 +73,9 @@ export default function NewBoard() {
       return newBoardId;
     }
     const boardId = await saveData()
-    await updateSession({ boards: [...session.user.boards, boardId] })
+    const existingBoards = session.user.boards || []
+    const boards = [...existingBoards, boardId]
+    await updateSession({ boards })
     router.push(`/boards`)
   }
 

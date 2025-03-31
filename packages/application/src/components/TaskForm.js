@@ -4,6 +4,7 @@ import 'dayjs/locale/en-gb';
 
 import NextLink from 'next/link';
 
+import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import TextField from '@mui/material/TextField';
 import InputLabel from '@mui/material/InputLabel';
@@ -118,12 +119,14 @@ export const TaskForm = ({ task, boardId, users, currentUser, saveTask, checkCom
     }
 
     return (
-        <div>
+        <Box sx={{width: '100%'}}>
             <Typography variant="h1" gutterBottom>
                 {task?.id ?? 'New Task'}
             </Typography>
 
-            <form>
+            <Box sx={{width: '100%'}}>
+
+            <form sx={{width: '100%'}}>
 
                 <Chip label={task?.status ?? 'To Do'} color={statusColours[task?.status]} variant="outlined" />
                 
@@ -377,6 +380,8 @@ export const TaskForm = ({ task, boardId, users, currentUser, saveTask, checkCom
 
             </form>
 
-        </div>
+            </Box>
+
+        </Box>
     )
 }

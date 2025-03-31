@@ -27,11 +27,7 @@ export default function App({ session }) {
         <div>
             <Features />
             <Divider />
-            <Divider />
             <Highlights />
-            <Divider />
-            <Divider />
-            <FAQ />
             <Divider />
             <Footer />
         </div>

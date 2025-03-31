@@ -13,83 +13,35 @@ exports[`Hero renders correctly 1`] = `
         class="MuiStack-root css-i5068v-MuiStack-root"
       >
         <h1
-          class="MuiTypography-root MuiTypography-h1 css-1rdt02p-MuiTypography-root"
+          class="MuiTypography-root MuiTypography-h1 css-qrkd16-MuiTypography-root"
         >
-          Our latest 
-          <span
-            class="MuiTypography-root MuiTypography-h1 css-1w0kz0g-MuiTypography-root"
-          >
-            products
-          </span>
+          Remote & Hybrid Working Done Right!
         </h1>
         <p
           class="MuiTypography-root MuiTypography-body1 css-1pp1339-MuiTypography-root"
         >
-          Explore our cutting-edge dashboard, delivering high-quality solutions tailored to your needs. Elevate your experience with top-tier features and services.
+          Explore our latest tools to support your remote or hybrid team to collaborate across borders and timezones.
         </p>
         <div
-          class="MuiStack-root css-oo7k1y-MuiStack-root"
+          class="MuiBox-root css-1fmaocf"
         >
-          <label
-            class="MuiFormLabel-root MuiInputLabel-root MuiInputLabel-animated MuiFormLabel-colorPrimary MuiInputLabel-root MuiInputLabel-animated css-10ple52-MuiFormLabel-root-MuiInputLabel-root"
-            for="email-hero"
+          <a
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorPrimary css-74d805-MuiButtonBase-root-MuiButton-root"
+            href="/sign-up"
+            id=":r0:"
+            tabindex="0"
           >
-            Email
-          </label>
-          <div
-            aria-label="Enter your email address"
-            class="MuiFormControl-root MuiFormControl-fullWidth MuiTextField-root css-cmpglg-MuiFormControl-root-MuiTextField-root"
-          >
-            <div
-              class="MuiInputBase-root MuiOutlinedInput-root MuiInputBase-colorPrimary MuiInputBase-fullWidth MuiInputBase-formControl MuiInputBase-sizeSmall MuiInputBase-hiddenLabel css-1blp12k-MuiInputBase-root-MuiOutlinedInput-root"
-            >
-              <input
-                aria-invalid="false"
-                aria-label="Enter your email address"
-                autocomplete="off"
-                class="MuiInputBase-input MuiOutlinedInput-input MuiInputBase-inputSizeSmall MuiInputBase-inputHiddenLabel css-1pzfmz2-MuiInputBase-input-MuiOutlinedInput-input"
-                id="email-hero"
-                placeholder="Your email address"
-                type="text"
-              />
-              <fieldset
-                aria-hidden="true"
-                class="MuiOutlinedInput-notchedOutline css-1ll44ll-MuiOutlinedInput-notchedOutline"
-              >
-                <legend
-                  class="css-w4cd9x"
-                >
-                  <span
-                    aria-hidden="true"
-                    class="notranslate"
-                  >
-                    ​
-                  </span>
-                </legend>
-              </fieldset>
-            </div>
-          </div>
+            Register
+          </a>
           <button
-            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary MuiButton-root MuiButton-contained MuiButton-containedPrimary MuiButton-sizeSmall MuiButton-containedSizeSmall MuiButton-colorPrimary css-aq79df-MuiButtonBase-root-MuiButton-root"
+            class="MuiButtonBase-root MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary MuiButton-root MuiButton-contained MuiButton-containedSecondary MuiButton-sizeMedium MuiButton-containedSizeMedium MuiButton-colorSecondary css-1mns5ui-MuiButtonBase-root-MuiButton-root"
             id=":r1:"
             tabindex="0"
             type="button"
           >
-            Start now
+            Sign in
           </button>
         </div>
-        <span
-          class="MuiTypography-root MuiTypography-caption css-kfgbda-MuiTypography-root"
-        >
-          By clicking "Start now" you agree to our 
-          <a
-            class="MuiTypography-root MuiTypography-inherit MuiLink-root MuiLink-underlineAlways css-1orsvah-MuiTypography-root-MuiLink-root"
-            href="#"
-          >
-            Terms & Conditions
-          </a>
-          .
-        </span>
       </div>
     </div>
   </div>

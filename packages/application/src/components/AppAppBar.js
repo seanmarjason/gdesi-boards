@@ -12,6 +12,7 @@ import MenuItem from '@mui/material/MenuItem';
 import Drawer from '@mui/material/Drawer';
 import MenuIcon from '@mui/icons-material/Menu';
 import CloseRoundedIcon from '@mui/icons-material/CloseRounded';
+import DashboardIcon from '@mui/icons-material/Dashboard';
 import GdesiIcon from './GdesiIcon';
 
 import { signIn, signOut } from 'next-auth/react';
@@ -42,15 +43,7 @@ export default function AppAppBar({ user='' }) {
             <GdesiIcon />
           </Link>
             <Box sx={{ display: { xs: 'none', md: 'flex' } }}>
-              <Button variant="text" color="info" size="small">
-                About
-              </Button>
-              <Button variant="text" color="info" size="small">
-                Products
-              </Button>
-              <Button variant="text" color="info" size="small">
-                Blog
-              </Button>
+              
             </Box>
           </Box>
           <Box
@@ -60,10 +53,9 @@ export default function AppAppBar({ user='' }) {
               alignItems: 'center',
             }}
           >
-            <Button component={NextLink} href="/boards" variant="contained" color="error">
-              BOARDS
+            <Button component={NextLink} href="/boards" variant="outlined" color="secondary" startIcon={<DashboardIcon />}>
+              Boards
             </Button>
-            <p>|</p>
 
             { 
               user 

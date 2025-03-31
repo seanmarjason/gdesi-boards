@@ -9,34 +9,33 @@ import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 
 import DevicesRoundedIcon from '@mui/icons-material/DevicesRounded';
-import EdgesensorHighRoundedIcon from '@mui/icons-material/EdgesensorHighRounded';
-import ViewQuiltRoundedIcon from '@mui/icons-material/ViewQuiltRounded';
+import Dashboard from '@mui/icons-material/Dashboard';
+import HowToRegIcon from '@mui/icons-material/HowToReg';
+import SmartToyIcon from '@mui/icons-material/SmartToy';
 
 const items = [
   {
-    icon: <ViewQuiltRoundedIcon />,
-    title: 'Dashboard',
+    icon: <Dashboard />,
+    title: 'Team Task Boards',
     description:
-      'This item could provide a snapshot of the most important metrics or data points related to the product.',
-    imageLight: `url("${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/images/templates/templates-images/dash-light.png")`,
-    imageDark: `url("${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/images/templates/templates-images/dash-dark.png")`,
+      'Collaborate with your team asynchronously, continuously capturing the latest updates on your work in a central location.',
+    imageLight: `url("${process.env.TEMPLATE_IMAGE_URL || 'https://gdesi-boards.vercel.app'}/Dashboard.png")`,
+    imageDark: `url("${process.env.TEMPLATE_IMAGE_URL || 'https://gdesi-boards.vercel.app'}/Dashboard.png")`,
   },
   {
-    icon: <EdgesensorHighRoundedIcon />,
-    title: 'Mobile integration',
+    icon: <HowToRegIcon />,
+    title: 'Check Ins',
     description:
-      'This item could provide information about the mobile app version of the product.',
-    imageLight: `url("${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/images/templates/templates-images/mobile-light.png")`,
-    imageDark: `url("${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/images/templates/templates-images/mobile-dark.png")`,
-  },
+      'Preiodically check in with your team manager to showcase your progress, and highlight your achievements or where you might need support.',
+    imageLight: `url("${process.env.TEMPLATE_IMAGE_URL || 'https://gdesi-boards.vercel.app'}/Check-in.png")`,
+    imageDark: `url("${process.env.TEMPLATE_IMAGE_URL || 'https://gdesi-boards.vercel.app'}/Check-in.png")`,  },
   {
-    icon: <DevicesRoundedIcon />,
-    title: 'Available on all platforms',
+    icon: <SmartToyIcon />,
+    title: 'Two-way communication with OpenAI',
     description:
-      'This item could let users know the product is available on all platforms, such as web, mobile, and desktop.',
-    imageLight: `url("${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/images/templates/templates-images/devices-light.png")`,
-    imageDark: `url("${process.env.TEMPLATE_IMAGE_URL || 'https://mui.com'}/static/images/templates/templates-images/devices-dark.png")`,
-  },
+      'Harness the power of OpenAI to simulate two-way comnunication, ensuring you give the right amount of information to your team members when they need it.',
+    imageLight: `url("${process.env.TEMPLATE_IMAGE_URL || 'https://gdesi-boards.vercel.app'}/OpenAI.png")`,
+    imageDark: `url("${process.env.TEMPLATE_IMAGE_URL || 'https://gdesi-boards.vercel.app'}/OpenAI.png")`,  },
 ];
 
 export default function Features() {
@@ -63,9 +62,7 @@ export default function Features() {
           variant="body1"
           sx={{ color: 'text.secondary', mb: { xs: 2, sm: 4 } }}
         >
-          Provide a brief overview of the key features of the product. For example,
-          you could list the number of features, their types or benefits, and
-          add-ons.
+          Experience the latest features to improve how you work remotely.
         </Typography>
       </Box>
       <Box

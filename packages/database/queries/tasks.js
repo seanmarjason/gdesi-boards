@@ -77,8 +77,11 @@ export async function createNewTask(taskData) {
     VALUES (
       ${boardid}, ${deadline}, ${title}, ${type}, ${assignee}, ${description}, 'To Do'
     )
+    RETURNING id
     ;
   `;
+
+  const { id: taskId } = result[0]
 
   if (comments.length > 0) {
     const commentsMap = comments.map(comment => ({

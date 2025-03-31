@@ -276,10 +276,9 @@ export const TaskForm = ({ task, boardId, users, currentUser, saveTask, checkCom
                                                 setShowLinkModal(false) 
                                                 saveLinkDetails({
                                                     ...linkModalDetails,
-                                                    id: linkModalDetails.id || `${task.id}_link-${links.length + 1}`
-                                                }
-                                            )}
-                                            }
+                                                    id: linkModalDetails.id || `newTask_link-${links.length + 1}`
+                                                })
+                                            }}
                                             autoFocus
                                         >
                                         Save

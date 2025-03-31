@@ -52,7 +52,9 @@ export default function MainGrid({ data, updateCardStatus, boardId }) {
   }
 
   return (
-    <Box>
+    <Box sx={{
+      width: '100%'
+    }}>
       <Typography component="h2" variant="h6" sx={{ mb: 2 }}>
         Your Team's Work
       </Typography>

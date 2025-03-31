@@ -49,9 +49,6 @@ export default function Reports({ boardId, reportDate }) {
         { field: 'rating', headerName: 'Rating', width: 150 },
         { field: 'date', headerName: 'Date', width: 150 },
         { field: 'count', headerName: 'Total', width: 90 },
-        { field: 'completed', headerName: 'Completed', width: 90 },
-        { field: 'started', headerName: 'Started', width: 90 },
-        { field: 'due', headerName: 'Due Next', width: 90 },
     ]
 
     const rows = teamActivity

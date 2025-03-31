@@ -53,7 +53,7 @@ export default function Task({ task, boardId, userName }) {
             console.log("ERROR")
         }
         else {
-            saveData(data)
+            await saveData(data)
             router.push(`/boards/${boardId}`)
         }
     }

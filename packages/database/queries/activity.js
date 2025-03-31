@@ -11,7 +11,6 @@ export async function getActivity(board, date) {
     AND c.date BETWEEN (TO_DATE(${date}, 'YYYY-MM-DD') - 7) AND ${date} 
     GROUP BY u.name, c.id, u.id
   `;
-  // TODO: Add in counts of tasks
 
   return result ? result : null;
 };

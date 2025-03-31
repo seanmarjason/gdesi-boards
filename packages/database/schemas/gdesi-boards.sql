@@ -32,7 +32,7 @@ CREATE TABLE users
   type VARCHAR(255),
   assignee INTEGER,
   description TEXT,
-  links VARCHAR(255) [], -- TODO: Confirm if needs relation
+  links VARCHAR(255) [],
   status VARCHAR(255),
   deadline DATE,
   startedDate DATE,

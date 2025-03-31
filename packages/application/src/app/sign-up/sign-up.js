@@ -113,7 +113,6 @@ export default function SignUp(props) {
     validateInputs()
 
     if (nameError || emailError || passwordError) {
-      // TODO: Show error
     }
 
     async function saveData() {

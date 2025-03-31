@@ -9,7 +9,6 @@ export async function getCheckInList(boardid, userid) {
   ORDER BY date DESC;
   `;
 
-  // TODO: JOIN on task mapping to get tasks per check in (and populate this data)
   return result ? result : null;
 }
 
@@ -21,7 +20,6 @@ export async function getCheckIn(id) {
   WHERE c.id=${id}
   `;
 
-  // TODO: JOIN on task mapping to get tasks per check in (and populate this data)
   return result ? result[0] : null;
 }
 
@@ -35,7 +33,6 @@ export async function getCheckInData(id) {
     WHERE c.id=${id}
   `;
 
-  // TODO: JOIN on task mapping to get tasks per check in (and populate this data)
   return result ? result : null;
 }
 

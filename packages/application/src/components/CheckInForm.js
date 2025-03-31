@@ -34,7 +34,7 @@ export default function CheckInForm({ boardId }) {
           const data = await res.json()
           if (data) setThisWeekTasks(data)
         }
-        const d = new Date(); // TODO: Update to fetch this week
+        const d = new Date();
         fetchThisWeekTasks(d.toISOString())
       }, [])
 
@@ -147,7 +147,6 @@ export default function CheckInForm({ boardId }) {
                 <TextField
                     fullWidth
                     multiline
-                    // minRows={4} //TODO: Fix styling causing multiline to not expand
                     id="checkin-comments"
                     value={comments}
                     onChange={(event) => {

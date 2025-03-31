@@ -189,7 +189,6 @@ export const TaskForm = ({ task, boardId, users, currentUser, saveTask, checkCom
                 <TextField
                     fullWidth
                     multiline
-                    // minRows={4} //TODO: Fix styling causing multiline to not expand
                     id="task-description"
                     value={description}
                     onChange={(event) => {

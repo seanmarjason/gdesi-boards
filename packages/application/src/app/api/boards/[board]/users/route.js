@@ -17,5 +17,4 @@ export const GET = auth(async function GET(request, { params }) {
 
 
 export const POST = auth(async function POST(request, { params }) {
-      // TODO: Add route to update user details for logged in user (e.g. add boards, edit manager)
 })

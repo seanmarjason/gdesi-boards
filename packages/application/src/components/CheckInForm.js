@@ -38,7 +38,7 @@ export default function CheckInForm({ boardId }) {
         fetchThisWeekTasks(d.toISOString())
       }, [])
 
-    const submitCheckIn = () => {
+    const submitCheckIn = async () => {
         async function saveData() {
             const res = await fetch(`/api/boards/${boardId}/check-ins`, {
               method: 'POST',
@@ -55,9 +55,11 @@ export default function CheckInForm({ boardId }) {
                 }
               })
             })
+            const {id} = await res.json()
+            return id
           }
-          saveData()
-        router.push(`/boards/${boardId}/check-ins`)
+        const checkinId = await saveData()
+        router.push(`/boards/${boardId}/check-ins/${checkinId}`)
     }
 
     return (
